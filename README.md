@@ -1,10 +1,6 @@
 
 # Secure Financial AI Agent 
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
-![LangGraph](https://img.shields.io/badge/LangGraph-Agentic-orange)
-![Security](https://img.shields.io/badge/Security-Guardrails-red)
-![Status](https://img.shields.io/badge/Status-In%20Progress-yellow)
 
 ## Overview
 
