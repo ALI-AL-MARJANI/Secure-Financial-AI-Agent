@@ -1,0 +1,10 @@
+SecureBank Internal Policy Document
+
+Mortgage Conditions:
+To qualify for a standard mortgage at SecureBank, the applicant must have a minimum credit score of 700. The maximum loan term allowed is 25 years. The standard fixed interest rate for 2026 is 5%
+
+Account Overdraft Rules:
+If a customer's account balance falls below $0, a standard overdraft fee of $35 will be applied immediately. SecureBank does not waive overdraft fees under any circumstances.
+
+Investment Restrictions:
+SecureBank strictly prohibits its advisors from recommending or facilitating the purchase of cryptocurrencies, meme stocks, or high-frequency day trading algorithms. Advisors must only recommend approved mutual funds and government bonds.

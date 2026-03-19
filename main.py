@@ -7,6 +7,9 @@ from langgraph.graph import StateGraph, MessagesState, START, END
 from langchain_core.messages import HumanMessage, SystemMessage
 from langgraph.prebuilt import ToolNode, tools_condition
 from tools import financial_tools
+from rag import search_bank_policies
+
+all_tools = financial_tools + [search_bank_policies]
 
 # SECURITY SYSTEM PROMPT
 SYSTEM_PROMPT = """You are a Secure Banking Assistant.
@@ -19,8 +22,8 @@ Strict Rules:
 4. You operate locally, ensuring total data privacy.
 """
 
-llm = ChatOllama(model="mistral", temperature=0)
-llm_with_tools = llm.bind_tools(financial_tools)
+llm = ChatOllama(model="Mistral", temperature=0)
+llm_with_tools = llm.bind_tools(all_tools)
 
 # NODES 
 def call_model(state: MessagesState):
@@ -31,7 +34,7 @@ def call_model(state: MessagesState):
     response = llm_with_tools.invoke(messages)
     return {"messages": [response]}
 
-tool_node = ToolNode(financial_tools)
+tool_node = ToolNode(all_tools)
 workflow = StateGraph(MessagesState)
 workflow.add_node("agent", call_model)
 workflow.add_node("tools", tool_node)
