@@ -1,14 +1,12 @@
 import os
 from dotenv import load_dotenv
 
-
 load_dotenv()
 from langchain_ollama import ChatOllama
 from langgraph.graph import StateGraph, MessagesState, START, END
 from langchain_core.messages import HumanMessage, SystemMessage
-
-
-llm = ChatOllama(model="mistral", temperature=0)
+from langgraph.prebuilt import ToolNode, tools_condition
+from tools import financial_tools
 
 # SECURITY SYSTEM PROMPT
 SYSTEM_PROMPT = """You are a Secure Banking Assistant.
@@ -21,27 +19,31 @@ Strict Rules:
 4. You operate locally, ensuring total data privacy.
 """
 
+llm = ChatOllama(model="mistral", temperature=0)
+llm_with_tools = llm.bind_tools(financial_tools)
+
 # NODES 
 def call_model(state: MessagesState):
     """
     Core node: Receives the conversation history and invokes the LLM.
     """
     messages = state['messages']
-    response = llm.invoke(messages)
-    # We return the update to the state (the new AI message)
+    response = llm_with_tools.invoke(messages)
     return {"messages": [response]}
 
-
+tool_node = ToolNode(financial_tools)
 workflow = StateGraph(MessagesState)
 workflow.add_node("agent", call_model)
+workflow.add_node("tools", tool_node)
 workflow.add_edge(START, "agent")
-workflow.add_edge("agent", END)
+workflow.add_conditional_edges(
+    "agent",
+    tools_condition)
+workflow.add_edge("tools", "agent")
 app = workflow.compile()
 
 # RUN LOOP
 if __name__ == "__main__":
-   
-    
     
     messages = [SystemMessage(content=SYSTEM_PROMPT)]
     
@@ -57,12 +59,10 @@ if __name__ == "__main__":
             
             # Invoke the graph
             result = app.invoke({"messages": messages})
-            
-            # Extracting last message
             ai_response = result["messages"][-1]
             print(f"Agent: {ai_response.content}")
-            messages.append(ai_response)
+            messages = result["messages"]
             
         except KeyboardInterrupt:
-            print("\nSession interrupted.")
+            print("\nSession interrupted")
             break
