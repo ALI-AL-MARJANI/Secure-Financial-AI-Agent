@@ -147,7 +147,7 @@ def check_output(
     # Flag low grounding but don't block — append a caveat instead
     if grounding_score is not None and grounding_score < 0.4:
         clean_response += (
-            "\n\n⚠️ Note: This response may not be fully supported by official policy documents. "
+            "\n\n Note: This response may not be fully supported by official policy documents. "
             "Please verify with a SecureBank representative."
         )
 

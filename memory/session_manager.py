@@ -7,6 +7,7 @@ import uuid
 import os
 from typing import Optional
 
+import sqlite3
 from langgraph.checkpoint.sqlite import SqliteSaver
 
 
@@ -21,7 +22,12 @@ _DB_PATH = os.path.join("sessions", "checkpoints.db")
 
 def get_checkpointer() -> SqliteSaver:
     os.makedirs("sessions", exist_ok=True)
-    return SqliteSaver.from_conn_string(_DB_PATH)
+    # Use sqlite3 directly — keeps the connection alive across the full CLI session
+    # (from_conn_string returns a context manager in v2.x which closes on GC)
+    conn = sqlite3.connect(_DB_PATH, check_same_thread=False)
+    cp = SqliteSaver(conn)
+    cp.setup()
+    return cp
 
 
 def new_thread_id() -> str:
@@ -75,7 +81,13 @@ def save_memory(user_id: str, messages: list):
     if mem is None:
         return
     try:
-        mem.add(messages, user_id=user_id)
+        # Mem0 2.x: user_id moved to filters dict
+        mem.add(messages, filters={"user_id": user_id})
+    except TypeError:
+        try:
+            mem.add(messages, user_id=user_id)  # fallback for older versions
+        except Exception as e:
+            print(f"[Memory] Failed to save memory: {e}")
     except Exception as e:
         print(f"[Memory] Failed to save memory: {e}")
 
@@ -86,13 +98,22 @@ def load_memory(user_id: str) -> str:
     if mem is None:
         return ""
     try:
-        memories = mem.get_all(user_id=user_id)
+        # Mem0 2.x API
+        memories = mem.get_all(filters={"user_id": user_id})
         if not memories:
             return ""
         facts = [m["memory"] for m in memories.get("results", [])]
         if not facts:
             return ""
         return "User memory from previous sessions:\n" + "\n".join(f"- {f}" for f in facts)
+    except TypeError:
+        try:
+            memories = mem.get_all(user_id=user_id)
+            facts = [m["memory"] for m in (memories or {}).get("results", [])]
+            return "\n".join(f"- {f}" for f in facts) if facts else ""
+        except Exception as e:
+            print(f"[Memory] Failed to load memory: {e}")
+            return ""
     except Exception as e:
         print(f"[Memory] Failed to load memory: {e}")
         return ""
@@ -104,9 +125,18 @@ def search_memory(user_id: str, query: str) -> str:
     if mem is None:
         return ""
     try:
-        results = mem.search(query, user_id=user_id)
+        # Mem0 2.x API
+        results = mem.search(query, filters={"user_id": user_id})
         facts = [r["memory"] for r in results.get("results", [])]
         return "\n".join(f"- {f}" for f in facts) if facts else ""
+    except TypeError:
+        try:
+            results = mem.search(query, user_id=user_id)
+            facts = [r["memory"] for r in results.get("results", [])]
+            return "\n".join(f"- {f}" for f in facts) if facts else ""
+        except Exception as e:
+            print(f"[Memory] Search failed: {e}")
+            return ""
     except Exception as e:
         print(f"[Memory] Search failed: {e}")
         return ""
