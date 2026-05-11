@@ -1,0 +1,182 @@
+[
+  {
+    "id": "Q001",
+    "question": "What is the minimum credit score required to qualify for a mortgage at SecureBank?",
+    "ground_truth": "The minimum credit score required to qualify for a standard mortgage at SecureBank is 700.",
+    "relevant_policy": "mortgage_conditions"
+  },
+  {
+    "id": "Q002",
+    "question": "What is the maximum loan term for a SecureBank mortgage?",
+    "ground_truth": "The maximum loan term allowed at SecureBank is 25 years.",
+    "relevant_policy": "mortgage_conditions"
+  },
+  {
+    "id": "Q003",
+    "question": "What is SecureBank's fixed interest rate for 2026?",
+    "ground_truth": "The standard fixed interest rate for 2026 at SecureBank is 5%.",
+    "relevant_policy": "mortgage_conditions"
+  },
+  {
+    "id": "Q004",
+    "question": "How much is the overdraft fee at SecureBank?",
+    "ground_truth": "The standard overdraft fee at SecureBank is $35, applied immediately when the account balance falls below $0.",
+    "relevant_policy": "overdraft_rules"
+  },
+  {
+    "id": "Q005",
+    "question": "Can SecureBank waive my overdraft fee?",
+    "ground_truth": "No. SecureBank does not waive overdraft fees under any circumstances.",
+    "relevant_policy": "overdraft_rules"
+  },
+  {
+    "id": "Q006",
+    "question": "When is the overdraft fee charged?",
+    "ground_truth": "The overdraft fee is applied immediately when the account balance falls below $0.",
+    "relevant_policy": "overdraft_rules"
+  },
+  {
+    "id": "Q007",
+    "question": "Can SecureBank advisors recommend cryptocurrency investments?",
+    "ground_truth": "No. SecureBank strictly prohibits advisors from recommending or facilitating the purchase of cryptocurrencies.",
+    "relevant_policy": "investment_restrictions"
+  },
+  {
+    "id": "Q008",
+    "question": "What types of investments can SecureBank advisors recommend?",
+    "ground_truth": "SecureBank advisors may only recommend approved mutual funds and government bonds.",
+    "relevant_policy": "investment_restrictions"
+  },
+  {
+    "id": "Q009",
+    "question": "Are meme stocks allowed by SecureBank advisors?",
+    "ground_truth": "No. SecureBank strictly prohibits recommending or facilitating the purchase of meme stocks.",
+    "relevant_policy": "investment_restrictions"
+  },
+  {
+    "id": "Q010",
+    "question": "Can I get a mortgage if my credit score is 650?",
+    "ground_truth": "No. A credit score of 650 is below SecureBank's minimum requirement of 700, so you would not qualify for a standard mortgage.",
+    "relevant_policy": "mortgage_conditions"
+  },
+  {
+    "id": "Q011",
+    "question": "What happens if my balance goes negative?",
+    "ground_truth": "If your account balance falls below $0, a standard overdraft fee of $35 will be applied immediately.",
+    "relevant_policy": "overdraft_rules"
+  },
+  {
+    "id": "Q012",
+    "question": "What is the policy on high-frequency day trading?",
+    "ground_truth": "SecureBank strictly prohibits its advisors from recommending or facilitating high-frequency day trading algorithms.",
+    "relevant_policy": "investment_restrictions"
+  },
+  {
+    "id": "Q013",
+    "question": "I want a 30-year mortgage. Is that possible at SecureBank?",
+    "ground_truth": "No. SecureBank's maximum loan term is 25 years, so a 30-year mortgage is not available.",
+    "relevant_policy": "mortgage_conditions"
+  },
+  {
+    "id": "Q014",
+    "question": "What is SecureBank's overdraft policy?",
+    "ground_truth": "If a customer's account balance falls below $0, a standard overdraft fee of $35 is applied immediately. SecureBank does not waive this fee under any circumstances.",
+    "relevant_policy": "overdraft_rules"
+  },
+  {
+    "id": "Q015",
+    "question": "What investment products are prohibited at SecureBank?",
+    "ground_truth": "SecureBank prohibits advisors from recommending cryptocurrencies, meme stocks, and high-frequency day trading algorithms.",
+    "relevant_policy": "investment_restrictions"
+  },
+  {
+    "id": "Q016",
+    "question": "What credit score do I need for a home loan at SecureBank?",
+    "ground_truth": "You need a minimum credit score of 700 to qualify for a standard mortgage at SecureBank.",
+    "relevant_policy": "mortgage_conditions"
+  },
+  {
+    "id": "Q017",
+    "question": "Does SecureBank offer ETF recommendations?",
+    "ground_truth": "ETFs are not explicitly mentioned in SecureBank's policy. Advisors may only recommend approved mutual funds and government bonds. ETFs would not be permitted unless approved.",
+    "relevant_policy": "investment_restrictions"
+  },
+  {
+    "id": "Q018",
+    "question": "What is the mortgage rate SecureBank offers?",
+    "ground_truth": "The standard fixed interest rate for 2026 at SecureBank is 5% per year.",
+    "relevant_policy": "mortgage_conditions"
+  },
+  {
+    "id": "Q019",
+    "question": "Will I be charged a fee if I overdraw by $1?",
+    "ground_truth": "Yes. Any balance below $0, even by $0.01, triggers the standard $35 overdraft fee immediately.",
+    "relevant_policy": "overdraft_rules"
+  },
+  {
+    "id": "Q020",
+    "question": "What are the mortgage qualification requirements at SecureBank?",
+    "ground_truth": "To qualify for a standard mortgage at SecureBank, you need a minimum credit score of 700. The maximum loan term is 25 years, and the standard fixed rate for 2026 is 5%.",
+    "relevant_policy": "mortgage_conditions"
+  },
+  {
+    "id": "Q021",
+    "question": "Can SecureBank advisors help me buy Dogecoin?",
+    "ground_truth": "No. SecureBank strictly prohibits its advisors from recommending or facilitating the purchase of cryptocurrencies, including Dogecoin.",
+    "relevant_policy": "investment_restrictions"
+  },
+  {
+    "id": "Q022",
+    "question": "Is there a fee if my account is overdrawn?",
+    "ground_truth": "Yes. A $35 overdraft fee is applied immediately when the balance falls below $0.",
+    "relevant_policy": "overdraft_rules"
+  },
+  {
+    "id": "Q023",
+    "question": "What is the maximum mortgage term I can get?",
+    "ground_truth": "The maximum mortgage term at SecureBank is 25 years.",
+    "relevant_policy": "mortgage_conditions"
+  },
+  {
+    "id": "Q024",
+    "question": "Can I get investment advice for government bonds at SecureBank?",
+    "ground_truth": "Yes. SecureBank advisors are allowed to recommend approved government bonds as part of the permitted investment products.",
+    "relevant_policy": "investment_restrictions"
+  },
+  {
+    "id": "Q025",
+    "question": "What is the interest rate for a SecureBank mortgage in 2026?",
+    "ground_truth": "The standard fixed interest rate offered by SecureBank for 2026 is 5% per year.",
+    "relevant_policy": "mortgage_conditions"
+  },
+  {
+    "id": "Q026",
+    "question": "What is SecureBank's policy on mutual funds?",
+    "ground_truth": "SecureBank advisors are permitted to recommend approved mutual funds to clients.",
+    "relevant_policy": "investment_restrictions"
+  },
+  {
+    "id": "Q027",
+    "question": "How does SecureBank handle accounts that go into the negative?",
+    "ground_truth": "When an account balance falls below $0, SecureBank applies a $35 overdraft fee immediately. The fee cannot be waived.",
+    "relevant_policy": "overdraft_rules"
+  },
+  {
+    "id": "Q028",
+    "question": "What is the credit score threshold for SecureBank mortgages?",
+    "ground_truth": "The minimum credit score threshold for a SecureBank mortgage is 700.",
+    "relevant_policy": "mortgage_conditions"
+  },
+  {
+    "id": "Q029",
+    "question": "Are NFTs allowed as investment recommendations at SecureBank?",
+    "ground_truth": "No. While NFTs are not explicitly listed, the policy prohibiting cryptocurrencies and speculative instruments covers NFTs as well. Only approved mutual funds and government bonds are permitted.",
+    "relevant_policy": "investment_restrictions"
+  },
+  {
+    "id": "Q030",
+    "question": "Can I request a waiver for the overdraft fee if it is my first time?",
+    "ground_truth": "No. SecureBank's policy explicitly states it does not waive overdraft fees under any circumstances, including first-time occurrences.",
+    "relevant_policy": "overdraft_rules"
+  }
+]
