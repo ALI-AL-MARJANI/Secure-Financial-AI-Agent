@@ -113,9 +113,5 @@ python main.py
 ## References
 
 - [CRAG — Corrective RAG (ICLR 2025)](https://arxiv.org/abs/2401.15884)
-- [Multi-HyDE for Financial RAG (ACL FinNLP 2025)](https://arxiv.org/abs/2509.16369)
 - [Contextual Retrieval — Anthropic (2024)](https://www.anthropic.com/news/contextual-retrieval)
-- [RAGAS Evaluation Framework (EACL 2024)](https://arxiv.org/abs/2309.15217)
-- [Mem0 — Long-Term Agent Memory (ECAI 2025)](https://arxiv.org/abs/2504.19413)
-- [OWASP Top 10 for LLM Applications 2025](https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/)
 - [agentic-guardrails — FareedKhan-dev](https://github.com/FareedKhan-dev/agentic-guardrails)

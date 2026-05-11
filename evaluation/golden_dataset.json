@@ -178,5 +178,305 @@
     "question": "Can I request a waiver for the overdraft fee if it is my first time?",
     "ground_truth": "No. SecureBank's policy explicitly states it does not waive overdraft fees under any circumstances, including first-time occurrences.",
     "relevant_policy": "overdraft_rules"
+  },
+  {
+    "id": "Q031",
+    "question": "What is the minimum credit score required for a personal loan at SecureBank?",
+    "ground_truth": "The minimum FICO credit score required for a personal loan at SecureBank is 680.",
+    "relevant_policy": "personal_loan_policy"
+  },
+  {
+    "id": "Q032",
+    "question": "How long must I be a SecureBank customer before applying for a personal loan?",
+    "ground_truth": "You must have maintained an active SecureBank account in good standing for a minimum of 12 consecutive months before applying for a personal loan.",
+    "relevant_policy": "personal_loan_policy"
+  },
+  {
+    "id": "Q033",
+    "question": "What is the maximum personal loan amount SecureBank offers?",
+    "ground_truth": "SecureBank offers personal loans up to a maximum of $50,000.",
+    "relevant_policy": "personal_loan_policy"
+  },
+  {
+    "id": "Q034",
+    "question": "What is the APR range for SecureBank personal loans?",
+    "ground_truth": "SecureBank personal loan APRs range from 8.99% for well-qualified borrowers up to 21.99% depending on creditworthiness.",
+    "relevant_policy": "personal_loan_policy"
+  },
+  {
+    "id": "Q035",
+    "question": "Is there an origination fee for a SecureBank personal loan?",
+    "ground_truth": "Yes. SecureBank charges an origination fee of 1% of the approved loan amount on all personal loans.",
+    "relevant_policy": "personal_loan_policy"
+  },
+  {
+    "id": "Q036",
+    "question": "What is the maximum debt-to-income ratio allowed for a SecureBank personal loan?",
+    "ground_truth": "SecureBank requires a debt-to-income (DTI) ratio of no more than 40% to qualify for a personal loan.",
+    "relevant_policy": "personal_loan_policy"
+  },
+  {
+    "id": "Q037",
+    "question": "What are the repayment term options for SecureBank personal loans?",
+    "ground_truth": "SecureBank personal loans offer repayment terms between 12 and 60 months.",
+    "relevant_policy": "personal_loan_policy"
+  },
+  {
+    "id": "Q038",
+    "question": "What APY does the SecureBank Standard Savings Account pay?",
+    "ground_truth": "The SecureBank Standard Savings Account pays a variable APY of 0.50% on all balances.",
+    "relevant_policy": "savings_account_interest_rates"
+  },
+  {
+    "id": "Q039",
+    "question": "What is the minimum balance required to qualify for the SecureBank Premier Savings Account?",
+    "ground_truth": "Customers must maintain a minimum daily balance of $10,000 to qualify for the SecureBank Premier Savings Account.",
+    "relevant_policy": "savings_account_interest_rates"
+  },
+  {
+    "id": "Q040",
+    "question": "What APY does the SecureBank Premier Savings Account earn?",
+    "ground_truth": "The SecureBank Premier Savings Account pays a variable APY of 3.75%.",
+    "relevant_policy": "savings_account_interest_rates"
+  },
+  {
+    "id": "Q041",
+    "question": "When is savings account interest credited at SecureBank?",
+    "ground_truth": "Interest is calculated daily and credited to the account on the last business day of each calendar month.",
+    "relevant_policy": "savings_account_interest_rates"
+  },
+  {
+    "id": "Q042",
+    "question": "Can SecureBank change the savings account interest rate without notice?",
+    "ground_truth": "No. SecureBank must provide 30 days' written notice to account holders before adjusting savings APYs.",
+    "relevant_policy": "savings_account_interest_rates"
+  },
+  {
+    "id": "Q043",
+    "question": "How much does SecureBank charge for an outgoing domestic wire transfer?",
+    "ground_truth": "SecureBank charges a flat fee of $25 for outgoing domestic wire transfers.",
+    "relevant_policy": "wire_transfer_policy"
+  },
+  {
+    "id": "Q044",
+    "question": "What is the fee for an outgoing international wire transfer at SecureBank?",
+    "ground_truth": "SecureBank charges a flat fee of $45 for outgoing international wire transfers.",
+    "relevant_policy": "wire_transfer_policy"
+  },
+  {
+    "id": "Q045",
+    "question": "Does SecureBank charge a fee to receive an incoming wire transfer?",
+    "ground_truth": "Yes. SecureBank charges a $15 processing fee for all incoming wire transfers, both domestic and international.",
+    "relevant_policy": "wire_transfer_policy"
+  },
+  {
+    "id": "Q046",
+    "question": "What is the cutoff time for same-day wire transfer processing at SecureBank?",
+    "ground_truth": "Wire transfers submitted before 3:00 PM Eastern Time on a business day are processed the same day. Submissions after that cutoff are processed the following business day.",
+    "relevant_policy": "wire_transfer_policy"
+  },
+  {
+    "id": "Q047",
+    "question": "What is the daily outgoing wire transfer limit at SecureBank?",
+    "ground_truth": "The daily outgoing wire transfer limit per account at SecureBank is $250,000.",
+    "relevant_policy": "wire_transfer_policy"
+  },
+  {
+    "id": "Q048",
+    "question": "How much is the credit card late payment fee at SecureBank for a first offense?",
+    "ground_truth": "The late payment fee for the first occurrence in any 12-month rolling period is $29.",
+    "relevant_policy": "credit_card_late_payment_fee_policy"
+  },
+  {
+    "id": "Q049",
+    "question": "What is the late payment fee for a second missed credit card payment at SecureBank?",
+    "ground_truth": "For subsequent late payments within the same 12-month window, the fee increases to $40 per occurrence.",
+    "relevant_policy": "credit_card_late_payment_fee_policy"
+  },
+  {
+    "id": "Q050",
+    "question": "Can my SecureBank credit card APR increase if I miss a payment?",
+    "ground_truth": "Yes. If two or more late payments occur within any 12-month period, SecureBank may increase the account's APR to a penalty APR of up to 29.99%.",
+    "relevant_policy": "credit_card_late_payment_fee_policy"
+  },
+  {
+    "id": "Q051",
+    "question": "Does SecureBank waive credit card late payment fees?",
+    "ground_truth": "SecureBank does not waive late payment fees except in cases of documented bank error.",
+    "relevant_policy": "credit_card_late_payment_fee_policy"
+  },
+  {
+    "id": "Q052",
+    "question": "How can I avoid a late payment fee on my SecureBank credit card?",
+    "ground_truth": "SecureBank encourages cardholders to enroll in AutoPay to ensure the minimum payment is made by the due date and avoid late fees.",
+    "relevant_policy": "credit_card_late_payment_fee_policy"
+  },
+  {
+    "id": "Q053",
+    "question": "Is there a fee to use a SecureBank ATM?",
+    "ground_truth": "No. Withdrawals at any SecureBank-branded ATM are free of charge for all account holders.",
+    "relevant_policy": "atm_withdrawal_policy"
+  },
+  {
+    "id": "Q054",
+    "question": "How much does SecureBank charge for an out-of-network ATM withdrawal?",
+    "ground_truth": "SecureBank charges a $3.00 convenience fee per out-of-network ATM transaction, in addition to any surcharge imposed by the ATM operator.",
+    "relevant_policy": "atm_withdrawal_policy"
+  },
+  {
+    "id": "Q055",
+    "question": "Does SecureBank reimburse out-of-network ATM fees?",
+    "ground_truth": "Customers with a Premier Checking account are reimbursed up to $15 in out-of-network ATM fees per calendar month.",
+    "relevant_policy": "atm_withdrawal_policy"
+  },
+  {
+    "id": "Q056",
+    "question": "What is the daily ATM withdrawal limit for a SecureBank Standard Checking account?",
+    "ground_truth": "The daily ATM cash withdrawal limit for a Standard Checking account is $500.",
+    "relevant_policy": "atm_withdrawal_policy"
+  },
+  {
+    "id": "Q057",
+    "question": "What is the daily ATM withdrawal limit for a SecureBank Premier Checking account?",
+    "ground_truth": "The daily ATM cash withdrawal limit for a Premier Checking account is $1,000.",
+    "relevant_policy": "atm_withdrawal_policy"
+  },
+  {
+    "id": "Q058",
+    "question": "What is the minimum deposit required to open a SecureBank CD?",
+    "ground_truth": "The minimum opening deposit for any SecureBank Certificate of Deposit is $1,000.",
+    "relevant_policy": "certificate_of_deposit_policy"
+  },
+  {
+    "id": "Q059",
+    "question": "What APY does SecureBank's 12-month CD offer?",
+    "ground_truth": "SecureBank's 12-month CD offers a fixed APY of 4.25%.",
+    "relevant_policy": "certificate_of_deposit_policy"
+  },
+  {
+    "id": "Q060",
+    "question": "What CD terms does SecureBank offer?",
+    "ground_truth": "SecureBank offers CDs with terms of 3, 6, 12, 24, and 36 months.",
+    "relevant_policy": "certificate_of_deposit_policy"
+  },
+  {
+    "id": "Q061",
+    "question": "What is the early withdrawal penalty for a SecureBank 12-month CD?",
+    "ground_truth": "Early withdrawal from a CD with a term of 12 months or less results in a penalty equal to 90 days' interest.",
+    "relevant_policy": "certificate_of_deposit_policy"
+  },
+  {
+    "id": "Q062",
+    "question": "What happens to my SecureBank CD when it matures?",
+    "ground_truth": "Upon maturity, the CD automatically renews for the same term at the prevailing rate, unless the customer provides notice during the 7-calendar-day grace period following maturity.",
+    "relevant_policy": "certificate_of_deposit_policy"
+  },
+  {
+    "id": "Q063",
+    "question": "What is the early withdrawal penalty for a SecureBank 36-month CD?",
+    "ground_truth": "Early withdrawal from a CD with a term exceeding 12 months results in a penalty equal to 180 days' interest.",
+    "relevant_policy": "certificate_of_deposit_policy"
+  },
+  {
+    "id": "Q064",
+    "question": "Is there a fee to close a SecureBank account?",
+    "ground_truth": "Accounts closed within 90 days of opening are subject to an early closure fee of $25. Accounts closed after 90 days have no closure fee.",
+    "relevant_policy": "account_closure_policy"
+  },
+  {
+    "id": "Q065",
+    "question": "How do I close my SecureBank account?",
+    "ground_truth": "You may close a SecureBank account by submitting a written request in-branch, by certified mail, or through the SecureBank secure messaging portal.",
+    "relevant_policy": "account_closure_policy"
+  },
+  {
+    "id": "Q066",
+    "question": "Can I close my SecureBank account if it has a negative balance?",
+    "ground_truth": "No. Accounts with an outstanding negative balance must be brought to $0 or above before a closure request will be processed.",
+    "relevant_policy": "account_closure_policy"
+  },
+  {
+    "id": "Q067",
+    "question": "What is SecureBank's dormancy fee policy?",
+    "ground_truth": "Accounts with no customer-initiated transactions for 12 consecutive months are assessed a $10 monthly dormancy fee beginning in the 13th month.",
+    "relevant_policy": "account_closure_policy"
+  },
+  {
+    "id": "Q068",
+    "question": "Can SecureBank close my account without my permission?",
+    "ground_truth": "Yes. SecureBank reserves the right to close any account with seven (7) days' written notice in cases of repeated policy violations or suspected fraudulent activity.",
+    "relevant_policy": "account_closure_policy"
+  },
+  {
+    "id": "Q069",
+    "question": "How many people can be on a joint account at SecureBank?",
+    "ground_truth": "SecureBank permits a maximum of two (2) account holders on any joint deposit account.",
+    "relevant_policy": "joint_account_policy"
+  },
+  {
+    "id": "Q070",
+    "question": "Can one joint account holder withdraw all the funds without the other's permission?",
+    "ground_truth": "Yes. All joint account holders at SecureBank possess equal and independent access rights, including the ability to withdraw funds without the consent of the co-owner.",
+    "relevant_policy": "joint_account_policy"
+  },
+  {
+    "id": "Q071",
+    "question": "What happens if one joint account holder requests to close the account at SecureBank?",
+    "ground_truth": "Either account holder may request account closure independently; however, both parties will be notified in writing within two (2) business days of such a request.",
+    "relevant_policy": "joint_account_policy"
+  },
+  {
+    "id": "Q072",
+    "question": "What is the FDIC insurance coverage for a SecureBank joint account?",
+    "ground_truth": "Each co-owner's deposits in a SecureBank joint account are separately insured by the FDIC up to $250,000.",
+    "relevant_policy": "joint_account_policy"
+  },
+  {
+    "id": "Q073",
+    "question": "Can a minor open a joint account at SecureBank?",
+    "ground_truth": "No. Both applicants on a SecureBank joint account must be at least 18 years of age. SecureBank does not offer joint accounts in conjunction with minor or custodial account products.",
+    "relevant_policy": "joint_account_policy"
+  },
+  {
+    "id": "Q074",
+    "question": "Who qualifies for a SecureBank Student Checking Account?",
+    "ground_truth": "Full-time or part-time students aged 17 to 26 who are enrolled at an accredited college, university, or vocational institution qualify for the SecureBank Student Checking Account.",
+    "relevant_policy": "student_account_policy"
+  },
+  {
+    "id": "Q075",
+    "question": "Does the SecureBank Student Checking Account have a monthly fee?",
+    "ground_truth": "No. The SecureBank Student Checking Account carries no monthly maintenance fee and no minimum balance requirement.",
+    "relevant_policy": "student_account_policy"
+  },
+  {
+    "id": "Q076",
+    "question": "Does SecureBank waive the overdraft fee for student accounts?",
+    "ground_truth": "SecureBank waives the overdraft fee for the first overdraft occurrence per calendar year on the Student Checking Account. The standard $35 overdraft fee applies from the second occurrence onward.",
+    "relevant_policy": "student_account_policy"
+  },
+  {
+    "id": "Q077",
+    "question": "What happens to a SecureBank Student Checking Account when the student turns 27?",
+    "ground_truth": "The Student Checking Account automatically converts to a Standard Checking Account at age 27, at which point standard fee schedules apply.",
+    "relevant_policy": "student_account_policy"
+  },
+  {
+    "id": "Q078",
+    "question": "How much does SecureBank charge for foreign transactions on a debit card?",
+    "ground_truth": "SecureBank charges a foreign transaction fee of 3% of the transaction amount on all debit card purchases where the merchant's bank is located outside the United States.",
+    "relevant_policy": "foreign_transaction_fee_policy"
+  },
+  {
+    "id": "Q079",
+    "question": "Does the SecureBank foreign transaction fee apply to online purchases from international merchants?",
+    "ground_truth": "Yes. The 3% foreign transaction fee applies to online purchases from internationally based merchants, even if the transaction is made from within the United States.",
+    "relevant_policy": "foreign_transaction_fee_policy"
+  },
+  {
+    "id": "Q080",
+    "question": "Which SecureBank card is exempt from the foreign transaction fee?",
+    "ground_truth": "Customers holding a SecureBank Premier Travel Credit Card are exempt from the 3% foreign transaction fee on all purchases.",
+    "relevant_policy": "foreign_transaction_fee_policy"
   }
 ]

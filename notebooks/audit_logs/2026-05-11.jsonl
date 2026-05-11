@@ -1,0 +1,5 @@
+{"timestamp": "2026-05-11T13:22:42.128921", "input_hash": "test123", "threat_level": "LOW", "tool_calls": [], "compliance_flags": [], "pii_scrubbed": false, "grounding_score": null, "action": "ALLOWED"}
+{"timestamp": "2026-05-11T13:22:42.130103", "input_hash": "test123", "threat_level": "LOW", "tool_calls": [], "compliance_flags": ["Prohibited investment recommendation (crypto/meme stocks)"], "action": "BLOCKED", "grounding_score": null}
+{"timestamp": "2026-05-11T13:22:42.130407", "input_hash": "test123", "threat_level": "LOW", "tool_calls": [], "compliance_flags": ["Guaranteed return claim \u2014 not allowed under financial compliance"], "action": "BLOCKED", "grounding_score": null}
+{"timestamp": "2026-05-11T13:22:42.130676", "input_hash": "test123", "threat_level": "LOW", "tool_calls": [], "compliance_flags": ["Overdraft fee waiver \u2014 contradicts bank policy"], "action": "BLOCKED", "grounding_score": null}
+{"timestamp": "2026-05-11T13:22:42.130912", "input_hash": "test123", "threat_level": "LOW", "tool_calls": [], "compliance_flags": [], "pii_scrubbed": true, "grounding_score": null, "action": "ALLOWED"}
