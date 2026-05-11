@@ -156,26 +156,37 @@ def _grade_documents(query: str, docs: List[Document]) -> Literal["relevant", "a
 
 
 # ---------------------------------------------------------------------------
-# Build pipeline on module load
+# Lazy pipeline initialization
+# Built on first call to retrieve_with_full_pipeline() or search_bank_policies().
+# This prevents import-time failures when Ollama isn't running yet (e.g. notebooks).
 # ---------------------------------------------------------------------------
 
-print("[RAG] Building contextual chunks (Mistral enrichment)...")
-_chunks = _build_chunks()
-print(f"[RAG] Built {len(_chunks)} enriched chunks.")
+_chunks = None
+_ensemble_retriever = None
+_faiss_store = None
 
-_ensemble_retriever, _faiss_store = _build_hybrid_retriever(_chunks)
-print("[RAG] Hybrid BM25+FAISS retriever ready.")
+
+def _ensure_pipeline_ready():
+    global _chunks, _ensemble_retriever, _faiss_store
+    if _ensemble_retriever is not None:
+        return
+    print("[RAG] Building contextual chunks (Mistral enrichment)...")
+    _chunks = _build_chunks()
+    print(f"[RAG] Built {len(_chunks)} enriched chunks.")
+    _ensemble_retriever, _faiss_store = _build_hybrid_retriever(_chunks)
+    print("[RAG] Hybrid BM25+FAISS retriever ready.")
 
 
 # ---------------------------------------------------------------------------
 # Public retrieval function — full pipeline
 # ---------------------------------------------------------------------------
 
-def retrieve_with_full_pipeline(query: str, verbose: bool = False) -> tuple[List[Document], str]:
+def retrieve_with_full_pipeline(query: str, verbose: bool = False) -> "tuple[List[Document], str]":
     """
     Full RAG pipeline: Multi-HyDE → Hybrid Retrieval → Cross-Encoder Reranking → CRAG Grading.
     Returns (final_docs, grade).
     """
+    _ensure_pipeline_ready()
     # Multi-HyDE expanded retrieval
     candidate_docs = _hyde_retrieve(query, _ensemble_retriever)
 
