@@ -1,0 +1,1257 @@
+{
+  "meta": {
+    "date": "2026-10-14T06:09:52+00:00",
+    "git_sha": "a89c5ce1e307300528fde8af76386a17405ccbba-dirty",
+    "seed": 7,
+    "config": {
+      "datasets": [
+        "data/security/pii_synthetic.jsonl",
+        "data/security/pii_stress.jsonl"
+      ]
+    },
+    "hardware": {
+      "machine": "arm64",
+      "platform": "macOS-15.6.1-arm64-arm-64bit",
+      "python": "3.11.15",
+      "cpu": "Apple M4",
+      "ram_gb": 16.0,
+      "cuda": null,
+      "mps": true
+    },
+    "versions": {
+      "torch": "2.14.1",
+      "transformers": "5.19.0",
+      "sentence-transformers": "6.1.0",
+      "faiss-cpu": "1.15.1",
+      "rank-bm25": "0.2.2",
+      "langgraph": "1.2.15",
+      "langchain-core": "1.6.10",
+      "langchain-ollama": "1.1.0",
+      "ragas": "0.4.3",
+      "presidio-analyzer": "2.2.362",
+      "datasets": "5.1.0",
+      "numpy": "2.4.6"
+    }
+  },
+  "results": {
+    "regex_v0": {
+      "per_label": {
+        "CREDIT_CARD": {
+          "precision": 0.6903553299492385,
+          "recall": 1.0,
+          "f1": 0.8168168168168168,
+          "tp": 136,
+          "fp": 61,
+          "fn": 0
+        },
+        "DOB": {
+          "precision": 0.0,
+          "recall": NaN,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 59,
+          "fn": 0
+        },
+        "EMAIL": {
+          "precision": NaN,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 117
+        },
+        "IBAN": {
+          "precision": 1.0,
+          "recall": 0.5384615384615384,
+          "f1": 0.7,
+          "tp": 42,
+          "fp": 0,
+          "fn": 36
+        },
+        "PHONE": {
+          "precision": NaN,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 116
+        },
+        "ROUTING": {
+          "precision": 0.0,
+          "recall": NaN,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 51,
+          "fn": 0
+        },
+        "US_SSN": {
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666,
+          "tp": 51,
+          "fp": 51,
+          "fn": 0
+        }
+      },
+      "micro": {
+        "precision": 0.5077605321507761,
+        "recall": 0.4598393574297189,
+        "f1": 0.48261327713382507,
+        "tp": 229,
+        "fp": 222,
+        "fn": 269
+      },
+      "message_level": {
+        "precision": 0.728021978021978,
+        "recall": 0.6625,
+        "f1": 0.693717277486911,
+        "tp": 265,
+        "fp": 99,
+        "fn": 135,
+        "tn": 101
+      },
+      "latency_per_message": {
+        "p50_ms": 0.004417001036927104,
+        "p90_ms": 0.005750000127591193,
+        "mean_ms": 0.004530154928943375,
+        "std_ms": 0.001237554941692906,
+        "n": 600
+      },
+      "error_examples": [
+        {
+          "type": "FN",
+          "label": "EMAIL",
+          "gold": "ubcrdls8@outlook.fr",
+          "text": "Send the statement to ubcrdls8@outlook.fr please."
+        },
+        {
+          "type": "FP",
+          "label": "CREDIT_CARD",
+          "pred": "1318 6091 3909 9603 ",
+          "text": "Virez les fonds sur l'IBAN ES29 1318 6091 3909 9603 0824 avant vendredi."
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "ES29 1318 6091 3909 9603 0824",
+          "text": "Virez les fonds sur l'IBAN ES29 1318 6091 3909 9603 0824 avant vendredi."
+        },
+        {
+          "type": "FN",
+          "label": "EMAIL",
+          "gold": "ssug48@gmail.com",
+          "text": "I dispute a transfer; my social security number is 316-72-2962 and email ssug48@gmail.com."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "(424) 986-4709",
+          "text": "The card 4710497465075290 was stolen yesterday, my number is (424) 986-4709."
+        },
+        {
+          "type": "FN",
+          "label": "EMAIL",
+          "gold": "pcfomri18@yahoo.com",
+          "text": "Update my contact details: pcfomri18@yahoo.com, phone 486-923-6804."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "486-923-6804",
+          "text": "Update my contact details: pcfomri18@yahoo.com, phone 486-923-6804."
+        },
+        {
+          "type": "FN",
+          "label": "EMAIL",
+          "gold": "ecfeh85@outlook.fr",
+          "text": "Update my contact details: ecfeh85@outlook.fr, phone 06 85 33 43 46."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "06 85 33 43 46",
+          "text": "Update my contact details: ecfeh85@outlook.fr, phone 06 85 33 43 46."
+        },
+        {
+          "type": "FP",
+          "label": "CREDIT_CARD",
+          "pred": "2890 7866 6617 6031 ",
+          "text": "Wire the funds to IBAN GB16 2890 7866 6617 6031 37 by Friday."
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "GB16 2890 7866 6617 6031 37",
+          "text": "Wire the funds to IBAN GB16 2890 7866 6617 6031 37 by Friday."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "+1 715 537 3654",
+          "text": "You can call me back at +1 715 537 3654."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "(611) 957-3714",
+          "text": "You can call me back at (611) 957-3714."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "+33 6 42 37 47 74",
+          "text": "Ma carte 5252882001826333 a été volée, rappelez-moi au +33 6 42 37 47 74."
+        },
+        {
+          "type": "FP",
+          "label": "CREDIT_CARD",
+          "pred": "0579 8682 8288 0729 ",
+          "text": "Virez les fonds sur l'IBAN DE81 0579 8682 8288 0729 02 avant vendredi."
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "DE81 0579 8682 8288 0729 02",
+          "text": "Virez les fonds sur l'IBAN DE81 0579 8682 8288 0729 02 avant vendredi."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "341-626-1992",
+          "text": "You can call me back at 341-626-1992."
+        },
+        {
+          "type": "FN",
+          "label": "EMAIL",
+          "gold": "hfwnqmkng46@example.org",
+          "text": "Send the statement to hfwnqmkng46@example.org please."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "07 12 53 80 68",
+          "text": "Vous pouvez me joindre au 07 12 53 80 68."
+        },
+        {
+          "type": "FP",
+          "label": "CREDIT_CARD",
+          "pred": "4920 8312 4023 4483 ",
+          "text": "Is IBAN ES50 4920 8312 4023 4483 4782 correct for an international transfer?"
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "ES50 4920 8312 4023 4483 4782",
+          "text": "Is IBAN ES50 4920 8312 4023 4483 4782 correct for an international transfer?"
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "+33 6 52 80 51 41",
+          "text": "Vous pouvez me joindre au +33 6 52 80 51 41."
+        },
+        {
+          "type": "FN",
+          "label": "EMAIL",
+          "gold": "kmcp36@outlook.fr",
+          "text": "Envoyez le relevé à kmcp36@outlook.fr s'il vous plaît."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "+1 308 585 7395",
+          "text": "The card 4086828890931002 was stolen yesterday, my number is +1 308 585 7395."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "411-436-7542",
+          "text": "You can call me back at 411-436-7542."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "+33 7 91 29 41 44",
+          "text": "Vous pouvez me joindre au +33 7 91 29 41 44."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "01 64 13 90 61",
+          "text": "Vous pouvez me joindre au 01 64 13 90 61."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "+33 7 61 93 40 48",
+          "text": "Vous pouvez me joindre au +33 7 61 93 40 48."
+        },
+        {
+          "type": "FN",
+          "label": "EMAIL",
+          "gold": "gqzp71@outlook.fr",
+          "text": "Envoyez le relevé à gqzp71@outlook.fr s'il vous plaît."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "+33 1 53 17 73 45",
+          "text": "Vous pouvez me joindre au +33 1 53 17 73 45."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "+33 1 72 10 19 60",
+          "text": "Ma carte 3443-667640-20673 a été volée, rappelez-moi au +33 1 72 10 19 60."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "+1 430 358 2491",
+          "text": "You can call me back at +1 430 358 2491."
+        },
+        {
+          "type": "FN",
+          "label": "EMAIL",
+          "gold": "azjxq9@outlook.fr",
+          "text": "Update my contact details: azjxq9@outlook.fr, phone (406) 519-3177."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "(406) 519-3177",
+          "text": "Update my contact details: azjxq9@outlook.fr, phone (406) 519-3177."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "+1 389 602 7366",
+          "text": "The card 347609260309265 was stolen yesterday, my number is +1 389 602 7366."
+        },
+        {
+          "type": "FP",
+          "label": "CREDIT_CARD",
+          "pred": "8365 4610 7358 7355 ",
+          "text": "Virez les fonds sur l'IBAN FR85 8365 4610 7358 7355 7063 606 avant vendredi."
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "FR85 8365 4610 7358 7355 7063 606",
+          "text": "Virez les fonds sur l'IBAN FR85 8365 4610 7358 7355 7063 606 avant vendredi."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "(274) 471-1377",
+          "text": "The card 5583 6236 1078 8526 was stolen yesterday, my number is (274) 471-1377."
+        },
+        {
+          "type": "FP",
+          "label": "CREDIT_CARD",
+          "pred": "2326 7938 1444 9454 ",
+          "text": "Virez les fonds sur l'IBAN ES09 2326 7938 1444 9454 4373 avant vendredi."
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "ES09 2326 7938 1444 9454 4373",
+          "text": "Virez les fonds sur l'IBAN ES09 2326 7938 1444 9454 4373 avant vendredi."
+        }
+      ]
+    },
+    "regex_v0|en": {
+      "micro": {
+        "precision": 0.45251396648044695,
+        "recall": 0.47230320699708456,
+        "f1": 0.46219686162624823,
+        "tp": 162,
+        "fp": 196,
+        "fn": 181
+      },
+      "message_level": {
+        "precision": 0.6715328467153284,
+        "recall": 0.6814814814814815,
+        "f1": 0.6764705882352942,
+        "tp": 184,
+        "fp": 90,
+        "fn": 86,
+        "tn": 94
+      }
+    },
+    "regex_v0|fr": {
+      "micro": {
+        "precision": 0.7204301075268817,
+        "recall": 0.432258064516129,
+        "f1": 0.5403225806451613,
+        "tp": 67,
+        "fp": 26,
+        "fn": 88
+      },
+      "message_level": {
+        "precision": 0.9,
+        "recall": 0.6230769230769231,
+        "f1": 0.7363636363636363,
+        "tp": 81,
+        "fp": 9,
+        "fn": 49,
+        "tn": 7
+      }
+    },
+    "regex_v0|stress": {
+      "per_label": {
+        "CREDIT_CARD": {
+          "precision": 0.5714285714285714,
+          "recall": 0.8,
+          "f1": 0.6666666666666666,
+          "tp": 4,
+          "fp": 3,
+          "fn": 1
+        },
+        "DOB": {
+          "precision": 0.0,
+          "recall": NaN,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 2,
+          "fn": 0
+        },
+        "EMAIL": {
+          "precision": NaN,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "IBAN": {
+          "precision": 1.0,
+          "recall": 0.3333333333333333,
+          "f1": 0.5,
+          "tp": 1,
+          "fp": 0,
+          "fn": 2
+        },
+        "PHONE": {
+          "precision": NaN,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "ROUTING": {
+          "precision": 0.0,
+          "recall": NaN,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 3,
+          "fn": 0
+        },
+        "US_SSN": {
+          "precision": 0.6,
+          "recall": 1.0,
+          "f1": 0.75,
+          "tp": 3,
+          "fp": 2,
+          "fn": 0
+        }
+      },
+      "micro": {
+        "precision": 0.4444444444444444,
+        "recall": 0.4444444444444444,
+        "f1": 0.4444444444444444,
+        "tp": 8,
+        "fp": 10,
+        "fn": 10
+      },
+      "message_level": {
+        "precision": 0.6,
+        "recall": 0.5,
+        "f1": 0.5454545454545454,
+        "tp": 9,
+        "fp": 6,
+        "fn": 9,
+        "tn": 6
+      },
+      "latency_per_message": {
+        "p50_ms": 0.0033124997571576387,
+        "p90_ms": 0.004311899465392344,
+        "mean_ms": 0.0033402662666048855,
+        "std_ms": 0.0007817364603538169,
+        "n": 30
+      },
+      "error_examples": [
+        {
+          "type": "FN",
+          "label": "CREDIT_CARD",
+          "gold": "4111.1111.1111.1111",
+          "text": "card 4111.1111.1111.1111 was charged twice"
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "fr7630006000011234567890189",
+          "text": "iban fr7630006000011234567890189 for the transfer"
+        },
+        {
+          "type": "FP",
+          "label": "CREDIT_CARD",
+          "pred": "3704 0044 0532 0130 ",
+          "text": "IBAN: DE89 3704 0044 0532 0130 00"
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "DE89 3704 0044 0532 0130 00",
+          "text": "IBAN: DE89 3704 0044 0532 0130 00"
+        },
+        {
+          "type": "FP",
+          "label": "ROUTING",
+          "pred": "219099999",
+          "text": "SSN 219099999 on file?"
+        },
+        {
+          "type": "FN",
+          "label": "EMAIL",
+          "gold": "john.doe+bank@mail.example.co.uk",
+          "text": "email me at john.doe+bank@mail.example.co.uk"
+        },
+        {
+          "type": "FN",
+          "label": "EMAIL",
+          "gold": "JANE_SMITH@EXAMPLE.COM",
+          "text": "contact: JANE_SMITH@EXAMPLE.COM"
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "06.12.34.56.78",
+          "text": "call 06.12.34.56.78 after 6pm"
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "0612345678",
+          "text": "mon numéro : 0612345678"
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "+33612345678",
+          "text": "reach me on +33612345678"
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "415.555.0132",
+          "text": "my cell is 415.555.0132"
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "4155550132",
+          "text": "phone 4155550132 is the best"
+        },
+        {
+          "type": "FP",
+          "label": "US_SSN",
+          "pred": "123456789",
+          "text": "I earn 123456789 per year? no, 123,456 dollars"
+        },
+        {
+          "type": "FP",
+          "label": "ROUTING",
+          "pred": "123456789",
+          "text": "I earn 123456789 per year? no, 123,456 dollars"
+        },
+        {
+          "type": "FP",
+          "label": "CREDIT_CARD",
+          "pred": "4111111111111112 ",
+          "text": "Order #4111111111111112 is late"
+        },
+        {
+          "type": "FP",
+          "label": "DOB",
+          "pred": "10/14/2026",
+          "text": "My account balance is $5,432.50 as of 10/14/2026"
+        },
+        {
+          "type": "FP",
+          "label": "US_SSN",
+          "pred": "021000021",
+          "text": "routing number 021000021 for Chase"
+        },
+        {
+          "type": "FP",
+          "label": "ROUTING",
+          "pred": "021000021",
+          "text": "routing number 021000021 for Chase"
+        },
+        {
+          "type": "FP",
+          "label": "DOB",
+          "pred": "12/11/2026",
+          "text": "transfer of 1 000 000 € prévu le 12/11/2026"
+        },
+        {
+          "type": "FP",
+          "label": "CREDIT_CARD",
+          "pred": "978-3-16-148410-0 ",
+          "text": "the ISBN 978-3-16-148410-0 book about banking"
+        }
+      ]
+    },
+    "regex_v1_validated": {
+      "per_label": {
+        "CREDIT_CARD": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 136,
+          "fp": 0,
+          "fn": 0
+        },
+        "EMAIL": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 117,
+          "fp": 0,
+          "fn": 0
+        },
+        "IBAN": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 78,
+          "fp": 0,
+          "fn": 0
+        },
+        "PHONE": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 116,
+          "fp": 0,
+          "fn": 0
+        },
+        "US_SSN": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 51,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "micro": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 498,
+        "fp": 0,
+        "fn": 0
+      },
+      "message_level": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 400,
+        "fp": 0,
+        "fn": 0,
+        "tn": 200
+      },
+      "latency_per_message": {
+        "p50_ms": 0.006500002200482413,
+        "p90_ms": 0.009791998309083283,
+        "mean_ms": 0.007020708320245224,
+        "std_ms": 0.0027797761520865815,
+        "n": 600
+      },
+      "error_examples": []
+    },
+    "regex_v1_validated|en": {
+      "micro": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 343,
+        "fp": 0,
+        "fn": 0
+      },
+      "message_level": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 270,
+        "fp": 0,
+        "fn": 0,
+        "tn": 184
+      }
+    },
+    "regex_v1_validated|fr": {
+      "micro": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 155,
+        "fp": 0,
+        "fn": 0
+      },
+      "message_level": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 130,
+        "fp": 0,
+        "fn": 0,
+        "tn": 16
+      }
+    },
+    "regex_v1_validated|stress": {
+      "per_label": {
+        "CREDIT_CARD": {
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.8888888888888888,
+          "tp": 4,
+          "fp": 0,
+          "fn": 1
+        },
+        "EMAIL": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 2,
+          "fp": 0,
+          "fn": 0
+        },
+        "IBAN": {
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8,
+          "tp": 2,
+          "fp": 0,
+          "fn": 1
+        },
+        "PHONE": {
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.8888888888888888,
+          "tp": 4,
+          "fp": 0,
+          "fn": 1
+        },
+        "US_SSN": {
+          "precision": 1.0,
+          "recall": 0.3333333333333333,
+          "f1": 0.5,
+          "tp": 1,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "micro": {
+        "precision": 1.0,
+        "recall": 0.7222222222222222,
+        "f1": 0.8387096774193549,
+        "tp": 13,
+        "fp": 0,
+        "fn": 5
+      },
+      "message_level": {
+        "precision": 1.0,
+        "recall": 0.7222222222222222,
+        "f1": 0.8387096774193549,
+        "tp": 13,
+        "fp": 0,
+        "fn": 5,
+        "tn": 12
+      },
+      "latency_per_message": {
+        "p50_ms": 0.00437500057159923,
+        "p90_ms": 0.0069750010879943165,
+        "mean_ms": 0.004779066633394298,
+        "std_ms": 0.001891303232177111,
+        "n": 30
+      },
+      "error_examples": [
+        {
+          "type": "FN",
+          "label": "CREDIT_CARD",
+          "gold": "4111.1111.1111.1111",
+          "text": "card 4111.1111.1111.1111 was charged twice"
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "fr7630006000011234567890189",
+          "text": "iban fr7630006000011234567890189 for the transfer"
+        },
+        {
+          "type": "FN",
+          "label": "US_SSN",
+          "gold": "078 05 1120",
+          "text": "my ssn is 078 05 1120"
+        },
+        {
+          "type": "FN",
+          "label": "US_SSN",
+          "gold": "219099999",
+          "text": "SSN 219099999 on file?"
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "4155550132",
+          "text": "phone 4155550132 is the best"
+        }
+      ]
+    },
+    "presidio": {
+      "per_label": {
+        "CREDIT_CARD": {
+          "precision": 0.9855072463768116,
+          "recall": 1.0,
+          "f1": 0.9927007299270073,
+          "tp": 136,
+          "fp": 2,
+          "fn": 0
+        },
+        "EMAIL": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 117,
+          "fp": 0,
+          "fn": 0
+        },
+        "IBAN": {
+          "precision": 1.0,
+          "recall": 0.6538461538461539,
+          "f1": 0.7906976744186046,
+          "tp": 51,
+          "fp": 0,
+          "fn": 27
+        },
+        "PHONE": {
+          "precision": 0.8532110091743119,
+          "recall": 0.8017241379310345,
+          "f1": 0.8266666666666667,
+          "tp": 93,
+          "fp": 16,
+          "fn": 23
+        },
+        "US_SSN": {
+          "precision": 0.504950495049505,
+          "recall": 1.0,
+          "f1": 0.6710526315789473,
+          "tp": 51,
+          "fp": 50,
+          "fn": 0
+        }
+      },
+      "micro": {
+        "precision": 0.8682170542635659,
+        "recall": 0.8995983935742972,
+        "f1": 0.883629191321499,
+        "tp": 448,
+        "fp": 68,
+        "fn": 50
+      },
+      "message_level": {
+        "precision": 0.8705035971223022,
+        "recall": 0.9075,
+        "f1": 0.8886168910648715,
+        "tp": 363,
+        "fp": 54,
+        "fn": 37,
+        "tn": 146
+      },
+      "latency_per_message": {
+        "p50_ms": 2.8281869999773335,
+        "p90_ms": 3.6186797995469537,
+        "mean_ms": 3.0504078417834535,
+        "std_ms": 2.991175375107191,
+        "n": 600
+      },
+      "error_examples": [
+        {
+          "type": "FP",
+          "label": "CREDIT_CARD",
+          "pred": "1318 6091 3909 9603",
+          "text": "Virez les fonds sur l'IBAN ES29 1318 6091 3909 9603 0824 avant vendredi."
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "ES5557491186252760189555",
+          "text": "Is IBAN ES5557491186252760189555 correct for an international transfer?"
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "GB16 2890 7866 6617 6031 37",
+          "text": "Wire the funds to IBAN GB16 2890 7866 6617 6031 37 by Friday."
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "ES6077412154728038528084",
+          "text": "Virez les fonds sur l'IBAN ES6077412154728038528084 avant vendredi."
+        },
+        {
+          "type": "FP",
+          "label": "PHONE",
+          "pred": "4989-8347-8878-3842",
+          "text": "My card number is 4989-8347-8878-3842, can you check the last payment?"
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "GB94811311440242646288",
+          "text": "Is IBAN GB94811311440242646288 correct for an international transfer?"
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "ES50 4920 8312 4023 4483 4782",
+          "text": "Is IBAN ES50 4920 8312 4023 4483 4782 correct for an international transfer?"
+        },
+        {
+          "type": "FP",
+          "label": "PHONE",
+          "pred": "038-02-0303",
+          "text": "My SSN is 038-02-0303 if you need to verify my identity."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "+1 389 602 7366",
+          "text": "The card 347609260309265 was stolen yesterday, my number is +1 389 602 7366."
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "ES09 2326 7938 1444 9454 4373",
+          "text": "Virez les fonds sur l'IBAN ES09 2326 7938 1444 9454 4373 avant vendredi."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "(536) 618-6091",
+          "text": "You can call me back at (536) 618-6091."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "+33 7 16 47 76 42",
+          "text": "Ma carte 3746-592551-73297 a été volée, rappelez-moi au +33 7 16 47 76 42."
+        },
+        {
+          "type": "FP",
+          "label": "PHONE",
+          "pred": "4966-8502-7390-0003",
+          "text": "My card number is 4966-8502-7390-0003, can you check the last payment?"
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "01 23 11 88 80",
+          "text": "You can call me back at 01 23 11 88 80."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "+1 962 407 2608",
+          "text": "Update my contact details: zqijugcqa22@example.org, phone +1 962 407 2608."
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "ES7878006394369919220011",
+          "text": "Is IBAN ES7878006394369919220011 correct for an international transfer?"
+        },
+        {
+          "type": "FP",
+          "label": "CREDIT_CARD",
+          "pred": "1942 6083 4005 7172",
+          "text": "Is IBAN DE34 1942 6083 4005 7172 79 correct for an international transfer?"
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "ES66 4827 5346 4627 0453 4577",
+          "text": "Virez les fonds sur l'IBAN ES66 4827 5346 4627 0453 4577 avant vendredi."
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "GB10 3738 1718 1463 2778 07",
+          "text": "Is IBAN GB10 3738 1718 1463 2778 07 correct for an international transfer?"
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "GB80 8537 1535 4291 0686 89",
+          "text": "Is IBAN GB80 8537 1535 4291 0686 89 correct for an international transfer?"
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "ES4834906781851369848578",
+          "text": "Virez les fonds sur l'IBAN ES4834906781851369848578 avant vendredi."
+        },
+        {
+          "type": "FP",
+          "label": "PHONE",
+          "pred": "498-76-9293",
+          "text": "I dispute a transfer; my social security number is 498-76-9293 and email iyind58@outlook.fr."
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "ES16 2725 3320 4508 0048 7012",
+          "text": "Is IBAN ES16 2725 3320 4508 0048 7012 correct for an international transfer?"
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "+33 7 25 42 35 56",
+          "text": "Ma carte 5347 1577 1280 3872 a été volée, rappelez-moi au +33 7 25 42 35 56."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "01 14 30 99 57",
+          "text": "Vous pouvez me joindre au 01 14 30 99 57."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "(338) 221-3990",
+          "text": "The card 3453-569041-77805 was stolen yesterday, my number is (338) 221-3990."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "01 86 91 83 69",
+          "text": "You can call me back at 01 86 91 83 69."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "01 65 82 51 61",
+          "text": "Vous pouvez me joindre au 01 65 82 51 61."
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "GB76 7993 6385 7849 7740 35",
+          "text": "Is IBAN GB76 7993 6385 7849 7740 35 correct for an international transfer?"
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "ES6150767428426969315593",
+          "text": "Is IBAN ES6150767428426969315593 correct for an international transfer?"
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "01 74 61 93 81",
+          "text": "Vous pouvez me joindre au 01 74 61 93 81."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "01 50 56 19 49",
+          "text": "Update my contact details: moytskw68@gmail.com, phone 01 50 56 19 49."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "01 98 53 75 63",
+          "text": "Vous pouvez me joindre au 01 98 53 75 63."
+        },
+        {
+          "type": "FP",
+          "label": "PHONE",
+          "pred": "065-45-3141",
+          "text": "I dispute a transfer; my social security number is 065-45-3141 and email tmabhms98@gmail.com."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "+1 550 359 3961",
+          "text": "Update my contact details: ojlhn5@example.org, phone +1 550 359 3961."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "01 21 63 98 60",
+          "text": "Vous pouvez me joindre au 01 21 63 98 60."
+        },
+        {
+          "type": "FP",
+          "label": "PHONE",
+          "pred": "068-19-4940",
+          "text": "I dispute a transfer; my social security number is 068-19-4940 and email jixsrvkcg75@gmail.com."
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "GB34039666304046335356",
+          "text": "Virez les fonds sur l'IBAN GB34039666304046335356 avant vendredi."
+        },
+        {
+          "type": "FN",
+          "label": "IBAN",
+          "gold": "GB93486860443668443203",
+          "text": "Virez les fonds sur l'IBAN GB93486860443668443203 avant vendredi."
+        },
+        {
+          "type": "FN",
+          "label": "PHONE",
+          "gold": "01 38 66 47 35",
+          "text": "The card 3455 378050 81697 was stolen yesterday, my number is 01 38 66 47 35."
+        }
+      ]
+    },
+    "presidio|en": {
+      "micro": {
+        "precision": 0.8288770053475936,
+        "recall": 0.9037900874635568,
+        "f1": 0.8647140864714087,
+        "tp": 310,
+        "fp": 64,
+        "fn": 33
+      },
+      "message_level": {
+        "precision": 0.8277027027027027,
+        "recall": 0.9074074074074074,
+        "f1": 0.8657243816254417,
+        "tp": 245,
+        "fp": 51,
+        "fn": 25,
+        "tn": 133
+      }
+    },
+    "presidio|fr": {
+      "micro": {
+        "precision": 0.971830985915493,
+        "recall": 0.8903225806451613,
+        "f1": 0.9292929292929293,
+        "tp": 138,
+        "fp": 4,
+        "fn": 17
+      },
+      "message_level": {
+        "precision": 0.9752066115702479,
+        "recall": 0.9076923076923077,
+        "f1": 0.9402390438247012,
+        "tp": 118,
+        "fp": 3,
+        "fn": 12,
+        "tn": 13
+      }
+    },
+    "presidio|stress": {
+      "per_label": {
+        "CREDIT_CARD": {
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.8888888888888888,
+          "tp": 4,
+          "fp": 0,
+          "fn": 1
+        },
+        "EMAIL": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 2,
+          "fp": 0,
+          "fn": 0
+        },
+        "IBAN": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "PHONE": {
+          "precision": 0.7142857142857143,
+          "recall": 1.0,
+          "f1": 0.8333333333333334,
+          "tp": 5,
+          "fp": 2,
+          "fn": 0
+        },
+        "US_SSN": {
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8,
+          "tp": 2,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "micro": {
+        "precision": 0.8888888888888888,
+        "recall": 0.8888888888888888,
+        "f1": 0.8888888888888888,
+        "tp": 16,
+        "fp": 2,
+        "fn": 2
+      },
+      "message_level": {
+        "precision": 0.9444444444444444,
+        "recall": 0.9444444444444444,
+        "f1": 0.9444444444444444,
+        "tp": 17,
+        "fp": 1,
+        "fn": 1,
+        "tn": 11
+      },
+      "latency_per_message": {
+        "p50_ms": 2.2675210020679515,
+        "p90_ms": 2.771066998684546,
+        "mean_ms": 2.2427694000119422,
+        "std_ms": 0.4082952260494745,
+        "n": 30
+      },
+      "error_examples": [
+        {
+          "type": "FN",
+          "label": "CREDIT_CARD",
+          "gold": "4111.1111.1111.1111",
+          "text": "card 4111.1111.1111.1111 was charged twice"
+        },
+        {
+          "type": "FP",
+          "label": "PHONE",
+          "pred": "078 05 1120",
+          "text": "my ssn is 078 05 1120"
+        },
+        {
+          "type": "FN",
+          "label": "US_SSN",
+          "gold": "078 05 1120",
+          "text": "my ssn is 078 05 1120"
+        },
+        {
+          "type": "FP",
+          "label": "PHONE",
+          "pred": "021000021",
+          "text": "routing number 021000021 for Chase"
+        }
+      ]
+    }
+  }
+}

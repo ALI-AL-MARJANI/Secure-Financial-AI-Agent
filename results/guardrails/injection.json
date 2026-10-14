@@ -1,0 +1,1098 @@
+{
+  "meta": {
+    "date": "2026-10-14T06:09:21+00:00",
+    "git_sha": "a89c5ce1e307300528fde8af76386a17405ccbba-dirty",
+    "seed": 0,
+    "config": {
+      "device": "mps",
+      "max_dev_fpr": 0.01,
+      "latency_samples": 200,
+      "protectai_model": "protectai/deberta-v3-base-prompt-injection-v2",
+      "dev_threshold": 0.9999928474426271
+    },
+    "hardware": {
+      "machine": "arm64",
+      "platform": "macOS-15.6.1-arm64-arm-64bit",
+      "python": "3.11.15",
+      "cpu": "Apple M4",
+      "ram_gb": 16.0,
+      "cuda": null,
+      "mps": true
+    },
+    "versions": {
+      "torch": "2.14.1",
+      "transformers": "5.19.0",
+      "sentence-transformers": "6.1.0",
+      "faiss-cpu": "1.15.1",
+      "rank-bm25": "0.2.2",
+      "langgraph": "1.2.15",
+      "langchain-core": "1.6.10",
+      "langchain-ollama": "1.1.0",
+      "ragas": "0.4.3",
+      "presidio-analyzer": "2.2.362",
+      "datasets": "5.1.0",
+      "numpy": "2.4.6"
+    }
+  },
+  "results": {
+    "dev": {
+      "regex_v0": {
+        "tpr": {
+          "rate": 0.050955414012738856,
+          "lo": 0.03160482287929394,
+          "hi": 0.08116078111967914,
+          "k": 16,
+          "n": 314
+        },
+        "fpr": {
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.0028523027503753965,
+          "k": 0,
+          "n": 1343
+        },
+        "fpr_banking": {
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.003826898586390522,
+          "k": 0,
+          "n": 1000
+        },
+        "precision": 1.0,
+        "f1": 0.09696969696969697,
+        "flag_rate_by_source": {
+          "Lakera/gandalf_ignore_instructions:validation|attack": {
+            "rate": 0.11711711711711711,
+            "lo": 0.06973426421068199,
+            "hi": 0.1901158249556131,
+            "k": 13,
+            "n": 111
+          },
+          "PolyAI/banking77:train|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.003826898586390522,
+            "k": 0,
+            "n": 1000
+          },
+          "deepset/prompt-injections:train|attack": {
+            "rate": 0.014778325123152709,
+            "lo": 0.005038378098600752,
+            "hi": 0.04254199258118513,
+            "k": 3,
+            "n": 203
+          },
+          "deepset/prompt-injections:train|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.011075949367088606,
+            "k": 0,
+            "n": 343
+          }
+        }
+      },
+      "regex_v1": {
+        "tpr": {
+          "rate": 0.1942675159235669,
+          "lo": 0.15431038276713943,
+          "hi": 0.24161513484918273,
+          "k": 61,
+          "n": 314
+        },
+        "fpr": {
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.0028523027503753965,
+          "k": 0,
+          "n": 1343
+        },
+        "fpr_banking": {
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.003826898586390522,
+          "k": 0,
+          "n": 1000
+        },
+        "precision": 1.0,
+        "f1": 0.3253333333333333,
+        "flag_rate_by_source": {
+          "Lakera/gandalf_ignore_instructions:validation|attack": {
+            "rate": 0.3783783783783784,
+            "lo": 0.29365167964777406,
+            "hi": 0.47124187808740203,
+            "k": 42,
+            "n": 111
+          },
+          "PolyAI/banking77:train|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.003826898586390522,
+            "k": 0,
+            "n": 1000
+          },
+          "deepset/prompt-injections:train|attack": {
+            "rate": 0.09359605911330049,
+            "lo": 0.06073861797024491,
+            "hi": 0.14154950975647929,
+            "k": 19,
+            "n": 203
+          },
+          "deepset/prompt-injections:train|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.011075949367088606,
+            "k": 0,
+            "n": 343
+          }
+        }
+      },
+      "protectai@0.5": {
+        "tpr": {
+          "rate": 0.6305732484076433,
+          "lo": 0.5759097264141353,
+          "hi": 0.6820804171038937,
+          "k": 198,
+          "n": 314
+        },
+        "fpr": {
+          "rate": 0.05137751303052867,
+          "lo": 0.04079741788880663,
+          "hi": 0.06451682247917725,
+          "k": 69,
+          "n": 1343
+        },
+        "fpr_banking": {
+          "rate": 0.065,
+          "lo": 0.05132354738787931,
+          "hi": 0.08200585438228047,
+          "k": 65,
+          "n": 1000
+        },
+        "precision": 0.7415730337078652,
+        "f1": 0.6815834767641996,
+        "flag_rate_by_source": {
+          "Lakera/gandalf_ignore_instructions:validation|attack": {
+            "rate": 1.0,
+            "lo": 0.9665487070887205,
+            "hi": 1.0,
+            "k": 111,
+            "n": 111
+          },
+          "PolyAI/banking77:train|benign": {
+            "rate": 0.065,
+            "lo": 0.05132354738787931,
+            "hi": 0.08200585438228047,
+            "k": 65,
+            "n": 1000
+          },
+          "deepset/prompt-injections:train|attack": {
+            "rate": 0.42857142857142855,
+            "lo": 0.36244311466844925,
+            "hi": 0.4973529805077629,
+            "k": 87,
+            "n": 203
+          },
+          "deepset/prompt-injections:train|benign": {
+            "rate": 0.011661807580174927,
+            "lo": 0.004544064800145504,
+            "hi": 0.029597168546719455,
+            "k": 4,
+            "n": 343
+          }
+        }
+      },
+      "protectai@0.999993 (dev FPR<=1%)": {
+        "tpr": {
+          "rate": 0.4554140127388535,
+          "lo": 0.40119987155953274,
+          "hi": 0.5107059330928476,
+          "k": 143,
+          "n": 314
+        },
+        "fpr": {
+          "rate": 0.007446016381236039,
+          "lo": 0.004049478318774637,
+          "hi": 0.013652380608065756,
+          "k": 10,
+          "n": 1343
+        },
+        "fpr_banking": {
+          "rate": 0.01,
+          "lo": 0.005440695309270557,
+          "hi": 0.01830966530539216,
+          "k": 10,
+          "n": 1000
+        },
+        "precision": 0.934640522875817,
+        "f1": 0.6124197002141327,
+        "flag_rate_by_source": {
+          "Lakera/gandalf_ignore_instructions:validation|attack": {
+            "rate": 0.954954954954955,
+            "lo": 0.8988637210991925,
+            "hi": 0.980608525891445,
+            "k": 106,
+            "n": 111
+          },
+          "PolyAI/banking77:train|benign": {
+            "rate": 0.01,
+            "lo": 0.005440695309270557,
+            "hi": 0.01830966530539216,
+            "k": 10,
+            "n": 1000
+          },
+          "deepset/prompt-injections:train|attack": {
+            "rate": 0.18226600985221675,
+            "lo": 0.13522391619763957,
+            "hi": 0.24111043820689027,
+            "k": 37,
+            "n": 203
+          },
+          "deepset/prompt-injections:train|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.011075949367088606,
+            "k": 0,
+            "n": 343
+          }
+        }
+      },
+      "regex_v1 OR protectai@0.5": {
+        "tpr": {
+          "rate": 0.6496815286624203,
+          "lo": 0.5953927784711931,
+          "hi": 0.7003520201958159,
+          "k": 204,
+          "n": 314
+        },
+        "fpr": {
+          "rate": 0.05137751303052867,
+          "lo": 0.04079741788880663,
+          "hi": 0.06451682247917725,
+          "k": 69,
+          "n": 1343
+        },
+        "fpr_banking": {
+          "rate": 0.065,
+          "lo": 0.05132354738787931,
+          "hi": 0.08200585438228047,
+          "k": 65,
+          "n": 1000
+        },
+        "precision": 0.7472527472527473,
+        "f1": 0.6950596252129472,
+        "flag_rate_by_source": {
+          "Lakera/gandalf_ignore_instructions:validation|attack": {
+            "rate": 1.0,
+            "lo": 0.9665487070887205,
+            "hi": 1.0,
+            "k": 111,
+            "n": 111
+          },
+          "PolyAI/banking77:train|benign": {
+            "rate": 0.065,
+            "lo": 0.05132354738787931,
+            "hi": 0.08200585438228047,
+            "k": 65,
+            "n": 1000
+          },
+          "deepset/prompt-injections:train|attack": {
+            "rate": 0.458128078817734,
+            "lo": 0.39099987112289036,
+            "hi": 0.5268116329459236,
+            "k": 93,
+            "n": 203
+          },
+          "deepset/prompt-injections:train|benign": {
+            "rate": 0.011661807580174927,
+            "lo": 0.004544064800145504,
+            "hi": 0.029597168546719455,
+            "k": 4,
+            "n": 343
+          }
+        }
+      }
+    },
+    "test": {
+      "regex_v0": {
+        "tpr": {
+          "rate": 0.23003194888178913,
+          "lo": 0.18684876300762993,
+          "hi": 0.2797616820854386,
+          "k": 72,
+          "n": 313
+        },
+        "fpr": {
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.0010671580660660178,
+          "k": 0,
+          "n": 3596
+        },
+        "fpr_banking": {
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.0011694932260965032,
+          "k": 0,
+          "n": 3281
+        },
+        "precision": 1.0,
+        "f1": 0.37402597402597404,
+        "flag_rate_by_source": {
+          "Lakera/gandalf_ignore_instructions:test|attack": {
+            "rate": 0.1875,
+            "lo": 0.12603362094830625,
+            "hi": 0.2696929574138711,
+            "k": 21,
+            "n": 112
+          },
+          "PolyAI/banking77:test|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.001245718975968156,
+            "k": 0,
+            "n": 3080
+          },
+          "deepset/prompt-injections:test|attack": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.06017393047793289,
+            "k": 0,
+            "n": 60
+          },
+          "deepset/prompt-injections:test|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.06419614448811528,
+            "k": 0,
+            "n": 56
+          },
+          "jackhhao/jailbreak-classification:test|attack": {
+            "rate": 0.3617021276595745,
+            "lo": 0.2870320321093272,
+            "hi": 0.4437083076825558,
+            "k": 51,
+            "n": 141
+          },
+          "jackhhao/jailbreak-classification:test|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.014615646838247825,
+            "k": 0,
+            "n": 259
+          },
+          "secfin/golden|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.018754003093121707,
+            "k": 0,
+            "n": 201
+          }
+        }
+      },
+      "regex_v1": {
+        "tpr": {
+          "rate": 0.3546325878594249,
+          "lo": 0.3036878202279206,
+          "hi": 0.40910241943757786,
+          "k": 111,
+          "n": 313
+        },
+        "fpr": {
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.0010671580660660178,
+          "k": 0,
+          "n": 3596
+        },
+        "fpr_banking": {
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.0011694932260965032,
+          "k": 0,
+          "n": 3281
+        },
+        "precision": 1.0,
+        "f1": 0.5235849056603774,
+        "flag_rate_by_source": {
+          "Lakera/gandalf_ignore_instructions:test|attack": {
+            "rate": 0.48214285714285715,
+            "lo": 0.39173830204135623,
+            "hi": 0.5737317881507682,
+            "k": 54,
+            "n": 112
+          },
+          "PolyAI/banking77:test|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.001245718975968156,
+            "k": 0,
+            "n": 3080
+          },
+          "deepset/prompt-injections:test|attack": {
+            "rate": 0.016666666666666666,
+            "lo": 0.002948083860873682,
+            "hi": 0.08855338226779477,
+            "k": 1,
+            "n": 60
+          },
+          "deepset/prompt-injections:test|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.06419614448811528,
+            "k": 0,
+            "n": 56
+          },
+          "jackhhao/jailbreak-classification:test|attack": {
+            "rate": 0.3971631205673759,
+            "lo": 0.32015581870067045,
+            "hi": 0.47962545960611436,
+            "k": 56,
+            "n": 141
+          },
+          "jackhhao/jailbreak-classification:test|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.014615646838247825,
+            "k": 0,
+            "n": 259
+          },
+          "secfin/golden|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.018754003093121707,
+            "k": 0,
+            "n": 201
+          }
+        }
+      },
+      "protectai@0.5": {
+        "tpr": {
+          "rate": 0.7955271565495208,
+          "lo": 0.7473897183987186,
+          "hi": 0.8364982559076857,
+          "k": 249,
+          "n": 313
+        },
+        "fpr": {
+          "rate": 0.04671857619577308,
+          "lo": 0.040291373929668084,
+          "hi": 0.05411322431709922,
+          "k": 168,
+          "n": 3596
+        },
+        "fpr_banking": {
+          "rate": 0.049679975617189884,
+          "lo": 0.042757371873629824,
+          "hi": 0.05765587179693256,
+          "k": 163,
+          "n": 3281
+        },
+        "precision": 0.5971223021582733,
+        "f1": 0.6821917808219178,
+        "flag_rate_by_source": {
+          "Lakera/gandalf_ignore_instructions:test|attack": {
+            "rate": 1.0,
+            "lo": 0.9668374746205164,
+            "hi": 1.0,
+            "k": 112,
+            "n": 112
+          },
+          "PolyAI/banking77:test|benign": {
+            "rate": 0.05194805194805195,
+            "lo": 0.04465365111246842,
+            "hi": 0.06035874641145109,
+            "k": 160,
+            "n": 3080
+          },
+          "deepset/prompt-injections:test|attack": {
+            "rate": 0.36666666666666664,
+            "lo": 0.2562073884620827,
+            "hi": 0.4931723263320327,
+            "k": 22,
+            "n": 60
+          },
+          "deepset/prompt-injections:test|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.06419614448811528,
+            "k": 0,
+            "n": 56
+          },
+          "jackhhao/jailbreak-classification:test|attack": {
+            "rate": 0.8156028368794326,
+            "lo": 0.7435222439209876,
+            "hi": 0.8709421088616383,
+            "k": 115,
+            "n": 141
+          },
+          "jackhhao/jailbreak-classification:test|benign": {
+            "rate": 0.019305019305019305,
+            "lo": 0.008273324839959947,
+            "hi": 0.04438804991959105,
+            "k": 5,
+            "n": 259
+          },
+          "secfin/golden|benign": {
+            "rate": 0.014925373134328358,
+            "lo": 0.005088637553631405,
+            "hi": 0.042956290820292634,
+            "k": 3,
+            "n": 201
+          }
+        }
+      },
+      "protectai@0.999993 (dev FPR<=1%)": {
+        "tpr": {
+          "rate": 0.5047923322683706,
+          "lo": 0.4496806843343589,
+          "hi": 0.5597877693030423,
+          "k": 158,
+          "n": 313
+        },
+        "fpr": {
+          "rate": 0.0030589543937708566,
+          "lo": 0.0017089403803471589,
+          "hi": 0.005469597697550491,
+          "k": 11,
+          "n": 3596
+        },
+        "fpr_banking": {
+          "rate": 0.0033526363913441025,
+          "lo": 0.0018730983714946923,
+          "hi": 0.005993825866191533,
+          "k": 11,
+          "n": 3281
+        },
+        "precision": 0.9349112426035503,
+        "f1": 0.6556016597510373,
+        "flag_rate_by_source": {
+          "Lakera/gandalf_ignore_instructions:test|attack": {
+            "rate": 0.9642857142857143,
+            "lo": 0.9117520412990205,
+            "hi": 0.9860256137057446,
+            "k": 108,
+            "n": 112
+          },
+          "PolyAI/banking77:test|benign": {
+            "rate": 0.0035714285714285713,
+            "lo": 0.001995405512865472,
+            "hi": 0.00638427261327434,
+            "k": 11,
+            "n": 3080
+          },
+          "deepset/prompt-injections:test|attack": {
+            "rate": 0.13333333333333333,
+            "lo": 0.06914026978309641,
+            "hi": 0.24165394590072103,
+            "k": 8,
+            "n": 60
+          },
+          "deepset/prompt-injections:test|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.06419614448811528,
+            "k": 0,
+            "n": 56
+          },
+          "jackhhao/jailbreak-classification:test|attack": {
+            "rate": 0.2978723404255319,
+            "lo": 0.2285618542344355,
+            "hi": 0.37790479623062423,
+            "k": 42,
+            "n": 141
+          },
+          "jackhhao/jailbreak-classification:test|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.014615646838247825,
+            "k": 0,
+            "n": 259
+          },
+          "secfin/golden|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.018754003093121707,
+            "k": 0,
+            "n": 201
+          }
+        }
+      },
+      "regex_v1 OR protectai@0.5": {
+        "tpr": {
+          "rate": 0.8146964856230032,
+          "lo": 0.767927742960615,
+          "hi": 0.853834045895394,
+          "k": 255,
+          "n": 313
+        },
+        "fpr": {
+          "rate": 0.04671857619577308,
+          "lo": 0.040291373929668084,
+          "hi": 0.05411322431709922,
+          "k": 168,
+          "n": 3596
+        },
+        "fpr_banking": {
+          "rate": 0.049679975617189884,
+          "lo": 0.042757371873629824,
+          "hi": 0.05765587179693256,
+          "k": 163,
+          "n": 3281
+        },
+        "precision": 0.6028368794326241,
+        "f1": 0.6929347826086957,
+        "flag_rate_by_source": {
+          "Lakera/gandalf_ignore_instructions:test|attack": {
+            "rate": 1.0,
+            "lo": 0.9668374746205164,
+            "hi": 1.0,
+            "k": 112,
+            "n": 112
+          },
+          "PolyAI/banking77:test|benign": {
+            "rate": 0.05194805194805195,
+            "lo": 0.04465365111246842,
+            "hi": 0.06035874641145109,
+            "k": 160,
+            "n": 3080
+          },
+          "deepset/prompt-injections:test|attack": {
+            "rate": 0.38333333333333336,
+            "lo": 0.2708808958488824,
+            "hi": 0.5098263545959686,
+            "k": 23,
+            "n": 60
+          },
+          "deepset/prompt-injections:test|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.06419614448811528,
+            "k": 0,
+            "n": 56
+          },
+          "jackhhao/jailbreak-classification:test|attack": {
+            "rate": 0.851063829787234,
+            "lo": 0.7830281199246154,
+            "hi": 0.9004771713729125,
+            "k": 120,
+            "n": 141
+          },
+          "jackhhao/jailbreak-classification:test|benign": {
+            "rate": 0.019305019305019305,
+            "lo": 0.008273324839959947,
+            "hi": 0.04438804991959105,
+            "k": 5,
+            "n": 259
+          },
+          "secfin/golden|benign": {
+            "rate": 0.014925373134328358,
+            "lo": 0.005088637553631405,
+            "hi": 0.042956290820292634,
+            "k": 3,
+            "n": 201
+          }
+        }
+      }
+    },
+    "test_without_jackhhao": {
+      "regex_v0": {
+        "tpr": {
+          "rate": 0.12209302325581395,
+          "lo": 0.08125884992385682,
+          "hi": 0.1794394148781013,
+          "k": 21,
+          "n": 172
+        },
+        "fpr": {
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.0011498898960070423,
+          "k": 0,
+          "n": 3337
+        },
+        "fpr_banking": {
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.0011694932260965032,
+          "k": 0,
+          "n": 3281
+        },
+        "precision": 1.0,
+        "f1": 0.21761658031088082,
+        "flag_rate_by_source": {
+          "Lakera/gandalf_ignore_instructions:test|attack": {
+            "rate": 0.1875,
+            "lo": 0.12603362094830625,
+            "hi": 0.2696929574138711,
+            "k": 21,
+            "n": 112
+          },
+          "PolyAI/banking77:test|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.001245718975968156,
+            "k": 0,
+            "n": 3080
+          },
+          "deepset/prompt-injections:test|attack": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.06017393047793289,
+            "k": 0,
+            "n": 60
+          },
+          "deepset/prompt-injections:test|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.06419614448811528,
+            "k": 0,
+            "n": 56
+          },
+          "secfin/golden|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.018754003093121707,
+            "k": 0,
+            "n": 201
+          }
+        }
+      },
+      "regex_v1": {
+        "tpr": {
+          "rate": 0.31976744186046513,
+          "lo": 0.2546574005950524,
+          "hi": 0.3927525410797277,
+          "k": 55,
+          "n": 172
+        },
+        "fpr": {
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.0011498898960070423,
+          "k": 0,
+          "n": 3337
+        },
+        "fpr_banking": {
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.0011694932260965032,
+          "k": 0,
+          "n": 3281
+        },
+        "precision": 1.0,
+        "f1": 0.4845814977973568,
+        "flag_rate_by_source": {
+          "Lakera/gandalf_ignore_instructions:test|attack": {
+            "rate": 0.48214285714285715,
+            "lo": 0.39173830204135623,
+            "hi": 0.5737317881507682,
+            "k": 54,
+            "n": 112
+          },
+          "PolyAI/banking77:test|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.001245718975968156,
+            "k": 0,
+            "n": 3080
+          },
+          "deepset/prompt-injections:test|attack": {
+            "rate": 0.016666666666666666,
+            "lo": 0.002948083860873682,
+            "hi": 0.08855338226779477,
+            "k": 1,
+            "n": 60
+          },
+          "deepset/prompt-injections:test|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.06419614448811528,
+            "k": 0,
+            "n": 56
+          },
+          "secfin/golden|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.018754003093121707,
+            "k": 0,
+            "n": 201
+          }
+        }
+      },
+      "protectai@0.5": {
+        "tpr": {
+          "rate": 0.7790697674418605,
+          "lo": 0.7113493565725775,
+          "hi": 0.8345965401890536,
+          "k": 134,
+          "n": 172
+        },
+        "fpr": {
+          "rate": 0.048846269103985616,
+          "lo": 0.04203747008703818,
+          "hi": 0.056692622354339466,
+          "k": 163,
+          "n": 3337
+        },
+        "fpr_banking": {
+          "rate": 0.049679975617189884,
+          "lo": 0.042757371873629824,
+          "hi": 0.05765587179693256,
+          "k": 163,
+          "n": 3281
+        },
+        "precision": 0.4511784511784512,
+        "f1": 0.5714285714285714,
+        "flag_rate_by_source": {
+          "Lakera/gandalf_ignore_instructions:test|attack": {
+            "rate": 1.0,
+            "lo": 0.9668374746205164,
+            "hi": 1.0,
+            "k": 112,
+            "n": 112
+          },
+          "PolyAI/banking77:test|benign": {
+            "rate": 0.05194805194805195,
+            "lo": 0.04465365111246842,
+            "hi": 0.06035874641145109,
+            "k": 160,
+            "n": 3080
+          },
+          "deepset/prompt-injections:test|attack": {
+            "rate": 0.36666666666666664,
+            "lo": 0.2562073884620827,
+            "hi": 0.4931723263320327,
+            "k": 22,
+            "n": 60
+          },
+          "deepset/prompt-injections:test|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.06419614448811528,
+            "k": 0,
+            "n": 56
+          },
+          "secfin/golden|benign": {
+            "rate": 0.014925373134328358,
+            "lo": 0.005088637553631405,
+            "hi": 0.042956290820292634,
+            "k": 3,
+            "n": 201
+          }
+        }
+      },
+      "protectai@0.999993 (dev FPR<=1%)": {
+        "tpr": {
+          "rate": 0.6744186046511628,
+          "lo": 0.6012421820013398,
+          "hi": 0.7399740034746793,
+          "k": 116,
+          "n": 172
+        },
+        "fpr": {
+          "rate": 0.003296373988612526,
+          "lo": 0.0018416484664427186,
+          "hi": 0.005893408472503444,
+          "k": 11,
+          "n": 3337
+        },
+        "fpr_banking": {
+          "rate": 0.0033526363913441025,
+          "lo": 0.0018730983714946923,
+          "hi": 0.005993825866191533,
+          "k": 11,
+          "n": 3281
+        },
+        "precision": 0.9133858267716536,
+        "f1": 0.7759197324414716,
+        "flag_rate_by_source": {
+          "Lakera/gandalf_ignore_instructions:test|attack": {
+            "rate": 0.9642857142857143,
+            "lo": 0.9117520412990205,
+            "hi": 0.9860256137057446,
+            "k": 108,
+            "n": 112
+          },
+          "PolyAI/banking77:test|benign": {
+            "rate": 0.0035714285714285713,
+            "lo": 0.001995405512865472,
+            "hi": 0.00638427261327434,
+            "k": 11,
+            "n": 3080
+          },
+          "deepset/prompt-injections:test|attack": {
+            "rate": 0.13333333333333333,
+            "lo": 0.06914026978309641,
+            "hi": 0.24165394590072103,
+            "k": 8,
+            "n": 60
+          },
+          "deepset/prompt-injections:test|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.06419614448811528,
+            "k": 0,
+            "n": 56
+          },
+          "secfin/golden|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.018754003093121707,
+            "k": 0,
+            "n": 201
+          }
+        }
+      },
+      "regex_v1 OR protectai@0.5": {
+        "tpr": {
+          "rate": 0.7848837209302325,
+          "lo": 0.7176074459958405,
+          "hi": 0.8397123236149909,
+          "k": 135,
+          "n": 172
+        },
+        "fpr": {
+          "rate": 0.048846269103985616,
+          "lo": 0.04203747008703818,
+          "hi": 0.056692622354339466,
+          "k": 163,
+          "n": 3337
+        },
+        "fpr_banking": {
+          "rate": 0.049679975617189884,
+          "lo": 0.042757371873629824,
+          "hi": 0.05765587179693256,
+          "k": 163,
+          "n": 3281
+        },
+        "precision": 0.45302013422818793,
+        "f1": 0.574468085106383,
+        "flag_rate_by_source": {
+          "Lakera/gandalf_ignore_instructions:test|attack": {
+            "rate": 1.0,
+            "lo": 0.9668374746205164,
+            "hi": 1.0,
+            "k": 112,
+            "n": 112
+          },
+          "PolyAI/banking77:test|benign": {
+            "rate": 0.05194805194805195,
+            "lo": 0.04465365111246842,
+            "hi": 0.06035874641145109,
+            "k": 160,
+            "n": 3080
+          },
+          "deepset/prompt-injections:test|attack": {
+            "rate": 0.38333333333333336,
+            "lo": 0.2708808958488824,
+            "hi": 0.5098263545959686,
+            "k": 23,
+            "n": 60
+          },
+          "deepset/prompt-injections:test|benign": {
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.06419614448811528,
+            "k": 0,
+            "n": 56
+          },
+          "secfin/golden|benign": {
+            "rate": 0.014925373134328358,
+            "lo": 0.005088637553631405,
+            "hi": 0.042956290820292634,
+            "k": 3,
+            "n": 201
+          }
+        }
+      }
+    }
+  },
+  "mcnemar_test": [
+    {
+      "a": "regex_v0",
+      "b": "regex_v1",
+      "a_only_correct": 0,
+      "b_only_correct": 39,
+      "p": 3.637978807091713e-12
+    },
+    {
+      "a": "regex_v0",
+      "b": "protectai@0.5",
+      "a_only_correct": 173,
+      "b_only_correct": 182,
+      "p": 0.6711911403358886
+    },
+    {
+      "a": "regex_v0",
+      "b": "protectai@0.999993 (dev FPR<=1%)",
+      "a_only_correct": 47,
+      "b_only_correct": 122,
+      "p": 7.155670321734665e-09
+    },
+    {
+      "a": "regex_v0",
+      "b": "regex_v1 OR protectai@0.5",
+      "a_only_correct": 168,
+      "b_only_correct": 183,
+      "p": 0.4549515091976704
+    },
+    {
+      "a": "regex_v1",
+      "b": "protectai@0.5",
+      "a_only_correct": 174,
+      "b_only_correct": 144,
+      "p": 0.10374968087392455
+    },
+    {
+      "a": "regex_v1",
+      "b": "protectai@0.999993 (dev FPR<=1%)",
+      "a_only_correct": 49,
+      "b_only_correct": 85,
+      "p": 0.0023718235464444937
+    },
+    {
+      "a": "regex_v1",
+      "b": "regex_v1 OR protectai@0.5",
+      "a_only_correct": 168,
+      "b_only_correct": 144,
+      "p": 0.1927934884371405
+    },
+    {
+      "a": "protectai@0.5",
+      "b": "protectai@0.999993 (dev FPR<=1%)",
+      "a_only_correct": 91,
+      "b_only_correct": 157,
+      "p": 3.32015352580198e-05
+    },
+    {
+      "a": "protectai@0.5",
+      "b": "regex_v1 OR protectai@0.5",
+      "a_only_correct": 0,
+      "b_only_correct": 6,
+      "p": 0.03125
+    },
+    {
+      "a": "protectai@0.999993 (dev FPR<=1%)",
+      "b": "regex_v1 OR protectai@0.5",
+      "a_only_correct": 157,
+      "b_only_correct": 97,
+      "p": 0.0002010224717139464
+    }
+  ],
+  "latency_batch1": {
+    "regex_v1": {
+      "p50_ms": 0.005979498382657766,
+      "p90_ms": 0.01817110023694113,
+      "mean_ms": 0.012838340080634225,
+      "std_ms": 0.03275290992156994,
+      "n": 200
+    },
+    "protectai_deberta_v2": {
+      "p50_ms": 19.689479500812013,
+      "p90_ms": 84.34777030197438,
+      "mean_ms": 42.354792290043406,
+      "std_ms": 80.21093356750296,
+      "n": 200
+    }
+  }
+}
