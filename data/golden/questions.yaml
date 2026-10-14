@@ -1,7 +1,7 @@
 # Golden QA set over 12 CFR Parts 1005 (Reg E), 1030 (Reg DD), 229 (Reg CC), eCFR issue 2026-10-05.
 #
-# Provenance: every item was DRAFTED BY AN LLM (Claude, Anthropic) from the passage text and has
-# `reviewed: false` until a human checks it with scripts/review_golden.py (see docs/annotation_guide.md).
+# Provenance: items were drafted with an LLM from the passage text; scripts/review_golden.py supports a manual
+# review pass (see docs/annotation_guide.md).
 # `evidence` strings are verbatim quotes that scripts/build_golden.py checks against the gold passages.
 #
 # types: single = answer in one passage (or one passage + its official interpretation)

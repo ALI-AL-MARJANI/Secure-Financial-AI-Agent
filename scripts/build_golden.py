@@ -90,7 +90,7 @@ def main() -> None:
                 "reference_answer": r.get("answer", it["answer"]),
                 "regulation": sorted({passages[g]["regulation"] for g in it["gold"]}),
                 "split": split[it["id"]],
-                "source": "llm_draft:claude",
+                "source": "llm_draft",
                 "reviewed": r.get("verdict") in ("accept", "edit"),
             }
         )
