@@ -1,0 +1,30 @@
+{"text": "card 4111.1111.1111.1111 was charged twice", "lang": "en", "spans": [{"label": "CREDIT_CARD", "start": 5, "end": 24, "text": "4111.1111.1111.1111"}]}
+{"text": "my visa is 4111 1111 1111 1111 exp 09/27", "lang": "en", "spans": [{"label": "CREDIT_CARD", "start": 11, "end": 30, "text": "4111 1111 1111 1111"}]}
+{"text": "pay with 5555555555554444 please", "lang": "en", "spans": [{"label": "CREDIT_CARD", "start": 9, "end": 25, "text": "5555555555554444"}]}
+{"text": "amex 3782 822463 10005 got declined", "lang": "en", "spans": [{"label": "CREDIT_CARD", "start": 5, "end": 22, "text": "3782 822463 10005"}]}
+{"text": "card number: 4012 8888 8888 1881.", "lang": "en", "spans": [{"label": "CREDIT_CARD", "start": 13, "end": 32, "text": "4012 8888 8888 1881"}]}
+{"text": "iban fr7630006000011234567890189 for the transfer", "lang": "en", "spans": [{"label": "IBAN", "start": 5, "end": 32, "text": "fr7630006000011234567890189"}]}
+{"text": "IBAN: DE89 3704 0044 0532 0130 00", "lang": "en", "spans": [{"label": "IBAN", "start": 6, "end": 33, "text": "DE89 3704 0044 0532 0130 00"}]}
+{"text": "GB82WEST12345698765432 is my UK account", "lang": "en", "spans": [{"label": "IBAN", "start": 0, "end": 22, "text": "GB82WEST12345698765432"}]}
+{"text": "my ssn is 078 05 1120", "lang": "en", "spans": [{"label": "US_SSN", "start": 10, "end": 21, "text": "078 05 1120"}]}
+{"text": "SSN 219099999 on file?", "lang": "en", "spans": [{"label": "US_SSN", "start": 4, "end": 13, "text": "219099999"}]}
+{"text": "ssn: 536-90-4399", "lang": "en", "spans": [{"label": "US_SSN", "start": 5, "end": 16, "text": "536-90-4399"}]}
+{"text": "email me at john.doe+bank@mail.example.co.uk", "lang": "en", "spans": [{"label": "EMAIL", "start": 12, "end": 44, "text": "john.doe+bank@mail.example.co.uk"}]}
+{"text": "contact: JANE_SMITH@EXAMPLE.COM", "lang": "en", "spans": [{"label": "EMAIL", "start": 9, "end": 31, "text": "JANE_SMITH@EXAMPLE.COM"}]}
+{"text": "call 06.12.34.56.78 after 6pm", "lang": "fr", "spans": [{"label": "PHONE", "start": 5, "end": 19, "text": "06.12.34.56.78"}]}
+{"text": "mon numéro : 0612345678", "lang": "fr", "spans": [{"label": "PHONE", "start": 13, "end": 23, "text": "0612345678"}]}
+{"text": "reach me on +33612345678", "lang": "en", "spans": [{"label": "PHONE", "start": 12, "end": 24, "text": "+33612345678"}]}
+{"text": "my cell is 415.555.0132", "lang": "en", "spans": [{"label": "PHONE", "start": 11, "end": 23, "text": "415.555.0132"}]}
+{"text": "phone 4155550132 is the best", "lang": "en", "spans": [{"label": "PHONE", "start": 6, "end": 16, "text": "4155550132"}]}
+{"text": "my card ends in 4242", "lang": "en", "spans": []}
+{"text": "I earn 123456789 per year? no, 123,456 dollars", "lang": "en", "spans": []}
+{"text": "Section 1005.6(b)(1) limits liability to $50", "lang": "en", "spans": []}
+{"text": "Order #4111111111111112 is late", "lang": "en", "spans": []}
+{"text": "My account balance is $5,432.50 as of 10/14/2026", "lang": "en", "spans": []}
+{"text": "routing number 021000021 for Chase", "lang": "en", "spans": []}
+{"text": "transfer of 1 000 000 € prévu le 12/11/2026", "lang": "fr", "spans": []}
+{"text": "ticket 2026-118-4471 about my dispute", "lang": "en", "spans": []}
+{"text": "CUST123 wants a mortgage of 450000 at 5% for 25 years", "lang": "en", "spans": []}
+{"text": "the ISBN 978-3-16-148410-0 book about banking", "lang": "en", "spans": []}
+{"text": "invoice FR76 is pending", "lang": "en", "spans": []}
+{"text": "IP 192.168.100.200 tried to log in", "lang": "en", "spans": []}

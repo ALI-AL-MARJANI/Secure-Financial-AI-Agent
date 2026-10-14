@@ -1,0 +1,30 @@
+{
+  "dev": {
+    "n": 1657,
+    "by_source_label": {
+      "deepset/prompt-injections:train|0": 343,
+      "deepset/prompt-injections:train|1": 203,
+      "Lakera/gandalf_ignore_instructions:validation|1": 111,
+      "PolyAI/banking77:train|0": 1000
+    }
+  },
+  "test": {
+    "n": 3909,
+    "by_source_label": {
+      "deepset/prompt-injections:test|1": 60,
+      "deepset/prompt-injections:test|0": 56,
+      "Lakera/gandalf_ignore_instructions:test|1": 112,
+      "jackhhao/jailbreak-classification:test|0": 259,
+      "jackhhao/jailbreak-classification:test|1": 141,
+      "PolyAI/banking77:test|0": 3080,
+      "secfin/golden|0": 201
+    }
+  },
+  "licenses": {
+    "deepset/prompt-injections": "Apache-2.0",
+    "Lakera/gandalf_ignore_instructions": "MIT",
+    "jackhhao/jailbreak-classification": "Apache-2.0",
+    "PolyAI/banking77": "CC-BY-4.0"
+  },
+  "notes": "Gandalf train split (777 rows) is not used. jackhhao is in ProtectAI's training data."
+}
