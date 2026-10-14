@@ -1,0 +1,37 @@
+# Retrieval ablation. Rows are cumulative where noted; `requires_llm` rows need Ollama (see RUNBOOK.md).
+dense_model: BAAI/bge-small-en-v1.5
+# BGE retrieval instruction for queries (model card); documents are encoded without it.
+dense_query_prefix: "Represent this sentence for searching relevant passages: "
+reranker: cross-encoder/ms-marco-MiniLM-L-6-v2
+device: mps            # falls back to cpu if unavailable
+chunk_max_chars: 1200
+contexts_path: data/corpus/contextual_mistral.jsonl
+ks: [5, 10, 20]
+bootstrap: {n_boot: 2000, seed: 0}
+latency: {warmup_queries: 5}
+llm:
+  model: mistral       # Mistral 7B Instruct via Ollama
+  temperature: 0.0
+hyde_llm:
+  model: mistral
+  temperature: 0.7     # sampling, so HyDE rows are run with several seeds
+  seeds: [0, 1, 2]
+
+defaults: {candidates: 50, rrf_k: 60, context_k: 5, prefix: none, sparse: false, dense: false,
+           rerank: false, hyde: 0, crag: false}
+
+variants:
+  - {name: bm25, sparse: true}
+  - {name: dense_bge_small, dense: true}
+  - {name: dense+rerank, dense: true, rerank: true}
+  - {name: hybrid_rrf, sparse: true, dense: true}
+  - {name: hybrid_rrf+rerank, sparse: true, dense: true, rerank: true}
+  - {name: dense+title_prefix, dense: true, prefix: title, datasets: [ecfr]}
+  - {name: hybrid_rrf+title_prefix, sparse: true, dense: true, prefix: title, datasets: [ecfr]}
+  - {name: hybrid_rrf+rerank+title_prefix, sparse: true, dense: true, rerank: true, prefix: title, datasets: [ecfr]}
+  # LLM rows (Mistral 7B via Ollama). Built on the cheapest strong eCFR row (dense+title_prefix); see RUNBOOK.md.
+  - {name: dense+contextual, dense: true, prefix: llm, requires_llm: true, datasets: [ecfr]}
+  - {name: hybrid_rrf+rerank+contextual, sparse: true, dense: true, rerank: true, prefix: llm, requires_llm: true, datasets: [ecfr]}
+  - {name: dense+title_prefix+hyde3, dense: true, prefix: title, hyde: 3, requires_llm: true, datasets: [ecfr]}
+  - {name: dense+hyde3, dense: true, hyde: 3, requires_llm: true, datasets: [fiqa]}
+  - {name: dense+title_prefix+crag, dense: true, prefix: title, crag: true, requires_llm: true, datasets: [ecfr]}
