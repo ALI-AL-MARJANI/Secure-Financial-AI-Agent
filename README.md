@@ -4,8 +4,6 @@ A local banking assistant (LangGraph + Ollama) that answers questions from US co
 passages, runs account calculations through guarded tools, and comes with measured retrieval, guardrail, and routing
 benchmarks.
 
-![CI](https://github.com/ALI-AL-MARJANI/Secure-Financial-AI-Agent/actions/workflows/ci.yml/badge.svg)
-License: MIT ([LICENSE](LICENSE)) · Python 3.11 · runs offline after model download
 
 ## TL;DR
 
