@@ -1,0 +1,75 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "secfin"
+version = "0.2.0"
+description = "Local consumer-banking assistant (LangGraph + Ollama) with hybrid retrieval over US banking regulations and measured guardrails."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11,<3.13"
+authors = [{ name = "Ali Al Marjani" }]
+dependencies = [
+    "langgraph>=1.2,<2",
+    "langchain-core>=1.6,<2",
+    "langchain-ollama>=1.1,<2",
+    "langgraph-checkpoint-sqlite>=3.1,<4",
+    "sentence-transformers>=5.1,<7",
+    "transformers>=4.56,<6",
+    "torch>=2.6",
+    "faiss-cpu>=1.12",
+    "rank-bm25==0.2.2",
+    "snowballstemmer>=2.2",
+    "numpy>=1.26",
+    "pyyaml>=6.0",
+    "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+# Benchmarks: datasets, reference detectors, plotting
+bench = [
+    "datasets>=3.0",
+    "presidio-analyzer>=2.2.360",
+    # small spaCy pipeline for Presidio's NLP engine (only pattern recognizers are evaluated)
+    "en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl",
+    "pandas>=2.2",
+    "matplotlib>=3.9",
+    "scikit-learn>=1.5",
+    "scipy>=1.13",
+]
+# End-to-end evaluation with a local judge (RAGAS talks to Ollama's OpenAI-compatible endpoint)
+eval = [
+    "ragas==0.4.3",
+    # ragas 0.4.3 imports langchain_community.chat_models.vertexai, removed in langchain-community 0.4
+    "langchain-community>=0.3.31,<0.4",
+    "openai>=1.60",
+]
+api = [
+    "fastapi>=0.115",
+    "uvicorn>=0.30",
+]
+dev = [
+    "pytest>=8.3",
+    "ruff>=0.8",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true  # en-core-web-sm is only distributed as a GitHub release wheel
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/secfin"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q -m 'not slow'"
+markers = ["slow: needs model downloads or a running Ollama server"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+src = ["src", "scripts", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+ignore = ["E501"]

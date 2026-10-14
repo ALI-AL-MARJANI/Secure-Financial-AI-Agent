@@ -1,11 +1,23 @@
+# environments
 venv/
+.venv/
 .env
+
+# python
 __pycache__/
 *.pyc
-*.pyo
-*.db
-CLAUDE.md
+.pytest_cache/
+.ruff_cache/
+
+# downloaded / derived data (rebuilt by scripts; see RUNBOOK.md)
+data/raw/
+data/cache/
+
+# runtime state of the local app
 sessions/
 audit_logs/
-/tmp/
+
+# local assistant instructions
+CLAUDE.md
+
 .DS_Store
