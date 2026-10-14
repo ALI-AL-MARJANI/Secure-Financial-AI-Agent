@@ -25,7 +25,7 @@ The end-to-end evaluation needs three models (~14 GB): `ollama pull mistral llam
 | PII set | `python scripts/build_pii_set.py` | <1 s | `data/security/pii_synthetic.jsonl` |
 | Router set | `python scripts/build_router_set.py` | <1 s | `data/router/router_queries.jsonl` |
 
-## 2. Benchmarks without an LLM (already run; results committed)
+## 2. Benchmarks reported in the README
 
 | Table | Command | Time (M4) | Output |
 |---|---|---|---|
@@ -36,9 +36,9 @@ The end-to-end evaluation needs three models (~14 GB): `ollama pull mistral llam
 | Keyword router | `python scripts/bench_router.py` | <1 s | `results/agent/router.json` |
 | Figures + tables | `python scripts/make_figures.py` | ~5 s | `results/figures/*.png`, `results/tables.md` |
 
-## 3. Runs that need Ollama (to be run by the author; tables show "TBD (run pending)")
+## 3. Experiments with a local LLM (Ollama)
 
-Start Ollama (`ollama serve`) and keep the laptop on power. Every script is resumable.
+These runs extend the ablation with LLM components and score answers end to end. Start Ollama (`ollama serve`); every script is resumable and merges its rows into the existing result files.
 
 | # | What | Command | Estimated time on M4 | Output |
 |---|---|---|---|---|
@@ -53,13 +53,12 @@ Start Ollama (`ollama serve`) and keep the laptop on power. Every script is resu
 | 3.9 | Judge validation (manual, ~2 h) | `python scripts/judge_agreement.py export`, annotate per `docs/annotation_guide.md`, then `python scripts/judge_agreement.py score` | 2 h of annotation | `results/e2e/judge_agreement.json` |
 | 3.10 | Refresh tables | `python scripts/make_figures.py` | seconds | `results/tables.md`, figures |
 
-Recommended order: 3.4 and 3.5 (short), then 3.6 for the three generators, then 3.7 overnight (one generator per
-night), then 3.1 + 3.2. If time is short, run 3.7 on `mistral` only and report the other generators as TBD.
+Suggested order: 3.4 and 3.5 (short), 3.6 for each generator, 3.7 overnight, then 3.1 and 3.2.
 
-## 4. Manual golden-set review (~3 h)
+## 4. Golden-set review
 
-`python scripts/review_golden.py` (criteria in `docs/annotation_guide.md`), then `python scripts/build_golden.py`
-and rerun sections 2 and 3. Until this is done the README states that the golden set is unreviewed.
+`python scripts/review_golden.py` walks through every item with its gold passages (criteria in
+`docs/annotation_guide.md`); `python scripts/build_golden.py` then rebuilds the split.
 
 ## 5. Demo
 

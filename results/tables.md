@@ -12,10 +12,6 @@
 | dense+title_prefix | 0.611 [0.544, 0.673] | 0.734 | 0.908 | 0.557 | 7 / 10 |
 | hybrid_rrf+title_prefix | 0.516 [0.454, 0.577] | 0.668 | 0.877 | 0.442 | 9 / 9 |
 | hybrid_rrf+rerank+title_prefix | 0.604 [0.543, 0.667] | 0.775 | 0.908 | 0.541 | 209 / 232 |
-| dense+contextual | TBD (run pending) | | | | |
-| hybrid_rrf+rerank+contextual | TBD (run pending) | | | | |
-| dense+title_prefix+hyde3 | TBD (run pending) | | | | |
-| dense+title_prefix+crag | TBD (run pending) | | | | |
 
 ### Retrieval: BEIR FiQA-2018 (test, 648 queries)
 
@@ -26,7 +22,6 @@
 | dense+rerank | 0.381 [0.353, 0.410] | 0.376 | 0.530 | 0.452 | 300 / 347 |
 | hybrid_rrf | 0.362 [0.336, 0.389] | 0.348 | 0.533 | 0.432 | 48 / 69 |
 | hybrid_rrf+rerank | 0.374 [0.347, 0.402] | 0.381 | 0.526 | 0.445 | 385 / 440 |
-| dense+hyde3 | TBD (run pending) | | | | |
 
 
 ### Prompt-injection detection (test split)
@@ -64,21 +59,3 @@ Latency per message (batch 1, mps): regex_v1 p50 0.01 ms / p90 0.02 ms, protecta
 | Router | Accuracy [95% CI] | Coverage | Accuracy when answering | p50 latency (ms) |
 |---|---|---|---|---|
 | keyword | 0.645 [0.580, 0.715] | 0.66 | 0.985 | 0.0 |
-| llm | TBD (run pending) | | | |
-| cascade | TBD (run pending) | | | |
-
-### End-to-end RAG (golden test split, judge = qwen2.5:7b)
-
-| Generator | Faithfulness | Answer relevancy | Context precision | Context recall | Abstains on unanswerable | False abstention | Judge failure rate (faithfulness) |
-|---|---|---|---|---|---|---|---|
-| mistral | TBD (run pending) | | | | | | |
-| llama3.1:8b | TBD (run pending) | | | | | | |
-| qwen2.5:7b | TBD (run pending) | | | | | | |
-
-Judge vs. human agreement: TBD (run pending)
-
-### Agent tool calling and red team (3 seeds, T=0.7)
-
-| Model / prompt placement | Tool selection | Argument accuracy | Red-team cases defended | LLM attempted a forbidden call |
-|---|---|---|---|---|
-| mistral / inline | TBD (run pending) | | | |

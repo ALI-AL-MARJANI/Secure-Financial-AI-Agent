@@ -1,7 +1,7 @@
 """Render figures (results/figures/*.png) and markdown tables (results/tables.md) from results/*.json.
 
 Every number shown in the README tables comes from results/tables.md, which this script writes.
-Rows whose result file does not exist yet are written as "TBD (run pending)".
+Rows without a result file are omitted.
 """
 
 from __future__ import annotations
@@ -19,7 +19,6 @@ from secfin.runinfo import REPO_ROOT, load_config  # noqa: E402
 RES = REPO_ROOT / "results"
 FIG = RES / "figures"
 BLUE, INK, MUTED, GRID = "#2a78d6", "#1f1f1e", "#6b6a66", "#e4e3df"
-TBD = "TBD (run pending)"
 
 
 def _load(path: Path) -> dict | None:
@@ -62,7 +61,6 @@ def retrieval_table(name: str, cfg: dict) -> tuple[list[str], dict | None]:
             continue
         r = rows.get(v["name"])
         if r is None:
-            lines.append(f"| {v['name']} | {TBD} | | | | |")
             continue
         m = _row_metrics(r)
         lat = r["runs"][0]["latency"]
@@ -97,10 +95,9 @@ def retrieval_figure(name: str, data: dict, title: str) -> None:
 
 def injection(lines: list[str]) -> None:
     data = _load(RES / "guardrails/injection.json")
-    lines += ["", "### Prompt-injection detection (test split)", ""]
     if not data:
-        lines.append(TBD)
         return
+    lines += ["", "### Prompt-injection detection (test split)", ""]
     lines += [
         "| Detector | TPR (attacks) [95% CI] | FPR all benign | FPR Banking77 + golden [95% CI] | TPR without jackhhao |",
         "|---|---|---|---|---|",
@@ -160,10 +157,9 @@ def injection(lines: list[str]) -> None:
 
 def pii(lines: list[str]) -> None:
     data = _load(RES / "guardrails/pii.json")
-    lines += ["", "### PII detection (entity-level, overlap match)", ""]
     if not data:
-        lines.append(TBD)
         return
+    lines += ["", "### PII detection (entity-level, overlap match)", ""]
     r = data["results"]
     lines += [
         "| Detector | Synthetic P / R / F1 (600 msgs) | Stress P / R / F1 (30 hand-written) | Message-level FP on 200 negatives | p50 latency (ms) |",
@@ -190,7 +186,6 @@ def router(lines: list[str]) -> None:
     for name in ("keyword", "llm", "cascade"):
         r = res.get(f"{name}|test")
         if r is None:
-            lines.append(f"| {name} | {TBD} | | | |")
             continue
         a = r["accuracy"]
         lines.append(
@@ -202,6 +197,8 @@ def router(lines: list[str]) -> None:
 def e2e(lines: list[str]) -> None:
     cfg = load_config(REPO_ROOT / "configs/e2e.yaml")
     data = _load(RES / "e2e/summary.json")
+    if not data:
+        return
     agree = _load(RES / "e2e/judge_agreement.json")
     lines += ["", f"### End-to-end RAG (golden test split, judge = {cfg['judge']['model']})", ""]
     lines += [
@@ -213,7 +210,6 @@ def e2e(lines: list[str]) -> None:
     for g in cfg["generators"]:
         s = gens.get(g)
         if not s or "ragas" not in s:
-            lines.append(f"| {g} | {TBD} | | | | | | |")
             continue
         rg = s["ragas"]
 
@@ -227,23 +223,22 @@ def e2e(lines: list[str]) -> None:
             f"{s['judge_failure_rate'].get('faithfulness', {}).get('rate', float('nan')):.2f} |"
         )
     lines.append("")
-    lines.append(
-        f"Judge vs. human (50 answers): weighted kappa = {agree['weighted_kappa']:.2f}, "
-        f"Spearman = {agree['spearman']:.2f}"
-        if agree
-        else f"Judge vs. human agreement: {TBD}"
-    )
+    if agree:
+        lines.append(
+            f"Judge vs. human (50 answers): weighted kappa = {agree['weighted_kappa']:.2f}, "
+            f"Spearman = {agree['spearman']:.2f}"
+        )
 
 
 def agent(lines: list[str]) -> None:
+    if not sorted((RES / "agent").glob("tool_calling_*.json")):
+        return
     lines += ["", "### Agent tool calling and red team (3 seeds, T=0.7)", ""]
     lines += [
         "| Model / prompt placement | Tool selection | Argument accuracy | Red-team cases defended | LLM attempted a forbidden call |",
         "|---|---|---|---|---|",
     ]
     files = sorted((RES / "agent").glob("tool_calling_*.json"))
-    if not files:
-        lines.append(f"| mistral / inline | {TBD} | | | |")
     for f in files:
         d = json.loads(f.read_text())
         s, m = d["summary"], d["meta"]["config"]
