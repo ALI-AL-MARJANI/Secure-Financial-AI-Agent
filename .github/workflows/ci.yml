@@ -1,0 +1,23 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.11"
+      - name: Install (CPU-only torch)
+        run: |
+          uv venv
+          uv pip install torch --index-url https://download.pytorch.org/whl/cpu
+          uv pip install -e ".[api,dev]"
+      - name: Lint
+        run: uv run --no-sync ruff check src scripts tests
+      - name: Tests (no GPU, no model downloads, no Ollama)
+        run: uv run --no-sync pytest
