@@ -1,0 +1,40 @@
+services:
+  ollama:
+    image: ollama/ollama:0.34.4
+    volumes:
+      - ollama:/root/.ollama
+    ports:
+      - "11434:11434"
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 10s
+      retries: 30
+
+  # one-shot job that pulls the model into the shared volume
+  ollama-pull:
+    image: ollama/ollama:0.34.4
+    depends_on:
+      ollama:
+        condition: service_healthy
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    entrypoint: ["ollama", "pull", "mistral"]
+    volumes:
+      - ollama:/root/.ollama
+
+  app:
+    build: .
+    depends_on:
+      ollama-pull:
+        condition: service_completed_successfully
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+      AUDIT_SALT: ${AUDIT_SALT:-change-me}
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./audit_logs:/app/audit_logs
+      - ./sessions:/app/sessions
+
+volumes:
+  ollama:
