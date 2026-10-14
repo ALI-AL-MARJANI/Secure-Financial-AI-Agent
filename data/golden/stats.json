@@ -1,0 +1,24 @@
+{
+  "version": "v0-draft",
+  "n_items": 201,
+  "by_type": {
+    "single": 146,
+    "multi": 25,
+    "unanswerable": 30
+  },
+  "by_split": {
+    "test": 134,
+    "dev": 67
+  },
+  "by_split_type": {
+    "test/single": 97,
+    "dev/single": 49,
+    "test/multi": 17,
+    "dev/multi": 8,
+    "test/unanswerable": 20,
+    "dev/unanswerable": 10
+  },
+  "n_reviewed": 0,
+  "n_rejected": 0,
+  "seed": 13
+}
