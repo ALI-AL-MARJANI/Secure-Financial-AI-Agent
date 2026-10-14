@@ -1,0 +1,301 @@
+{"text": "Can I revoke my overdraft opt-in, and how fast must the bank act?", "label": "RAG", "source": "golden:E053", "ambiguous": false, "split": "dev"}
+{"text": "How often must statements be sent to count as periodic statements under Regulation DD?", "label": "RAG", "source": "golden:D011", "ambiguous": false, "split": "test"}
+{"text": "How long must banks keep compliance records under Regulations E, DD, and CC?", "label": "RAG", "source": "golden:M014", "ambiguous": false, "split": "test"}
+{"text": "Compose a song about my credit card", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "What is the liability cap if I wait more than two business days to report a stolen card?", "label": "RAG", "source": "golden:E021", "ambiguous": false, "split": "test"}
+{"text": "What must my monthly statement show about electronic transfers and about overdraft fees?", "label": "RAG", "source": "golden:M015", "ambiguous": false, "split": "test"}
+{"text": "What would the monthly payment be on a 300k mortgage at 5% for 25 years?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "Am I going to be charged an overdraft fee if I pay 200 today?", "label": "TOOL", "source": "handwritten", "ambiguous": true, "split": "test"}
+{"text": "How are student loans forgiven under public service programs?", "label": "RAG", "source": "golden:U016", "ambiguous": false, "split": "test"}
+{"text": "What is the purpose of the Truth in Savings regulation?", "label": "RAG", "source": "golden:D002", "ambiguous": false, "split": "dev"}
+{"text": "How much interest would I pay in total on a 250,000 loan at 4.5% for 20 years?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "Does SecureBank waive overdraft fees for students?", "label": "RAG", "source": "golden:U023", "ambiguous": false, "split": "test"}
+{"text": "Is my savings account balance above 100k?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "How long does a remittance transfer provider have to investigate an error?", "label": "RAG", "source": "golden:E066", "ambiguous": false, "split": "test"}
+{"text": "What's a good name for my dog?", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "What is the annual contribution limit for an IRA?", "label": "RAG", "source": "golden:U011", "ambiguous": false, "split": "dev"}
+{"text": "What crypto coin will 10x this year?", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "What's my balance right now?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "Who should I vote for in the next election?", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "When are funds deposited at an off-premises ATM considered deposited?", "label": "RAG", "source": "golden:C021", "ambiguous": false, "split": "test"}
+{"text": "Does Regulation DD cover an account held at a bank outside the United States by a U.S. resident?", "label": "RAG", "source": "golden:D033", "ambiguous": false, "split": "test"}
+{"text": "What is the maximum overdraft fee a bank is allowed to charge?", "label": "RAG", "source": "golden:U002", "ambiguous": false, "split": "dev"}
+{"text": "On a joint account, whose consent counts for overdraft opt-in?", "label": "RAG", "source": "golden:E052", "ambiguous": false, "split": "test"}
+{"text": "Write an essay on climate change", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "When must an ATM operator show its fee to the consumer?", "label": "RAG", "source": "golden:E047", "ambiguous": false, "split": "dev"}
+{"text": "Can account and EFT disclosures be given in a foreign language?", "label": "RAG", "source": "golden:M016", "ambiguous": false, "split": "test"}
+{"text": "Do I get my money back if I cancel an international transfer?", "label": "RAG", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "What information must a notice of a deposit hold exception contain?", "label": "RAG", "source": "golden:C014", "ambiguous": false, "split": "dev"}
+{"text": "What is a remittance transfer under Regulation E?", "label": "RAG", "source": "golden:E063", "ambiguous": false, "split": "test"}
+{"text": "When must a bank give the initial Regulation E disclosures?", "label": "RAG", "source": "golden:E026", "ambiguous": false, "split": "test"}
+{"text": "What penalty APR can a credit card issuer impose after a late payment?", "label": "RAG", "source": "golden:U018", "ambiguous": false, "split": "dev"}
+{"text": "What rules apply to advertising savings rates and calling an account free?", "label": "RAG", "source": "golden:M023", "ambiguous": false, "split": "test"}
+{"text": "When must the remittance pre-payment disclosure be provided?", "label": "RAG", "source": "golden:E071", "ambiguous": false, "split": "test"}
+{"text": "If a merchant resubmits a debit after I placed a stop-payment order, must the bank still block it?", "label": "RAG", "source": "golden:E079", "ambiguous": false, "split": "dev"}
+{"text": "Explain quantum computing simply", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "Can an issuer charge me to replace an expired gift card that still has funds?", "label": "RAG", "source": "golden:E062", "ambiguous": false, "split": "test"}
+{"text": "How are recurring debits authorized and how can I stop one?", "label": "RAG", "source": "golden:M020", "ambiguous": false, "split": "dev"}
+{"text": "Where does my money go each month?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "If I buy a 1,999 laptop, what's my balance after?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "Can a bank advertisement call interest profit?", "label": "RAG", "source": "golden:D027", "ambiguous": false, "split": "dev"}
+{"text": "Who is the designated recipient of a remittance transfer?", "label": "RAG", "source": "golden:E064", "ambiguous": false, "split": "test"}
+{"text": "Can a bank delay cash withdrawals of check funds by an extra day?", "label": "RAG", "source": "golden:C007", "ambiguous": false, "split": "test"}
+{"text": "Must an ATM give me a receipt for a $10 withdrawal?", "label": "RAG", "source": "golden:E030", "ambiguous": false, "split": "dev"}
+{"text": "When must cash deposited at an ATM be available?", "label": "RAG", "source": "golden:C002", "ambiguous": false, "split": "test"}
+{"text": "What asset threshold exempts a small institution from Regulation E for preauthorized transfers?", "label": "RAG", "source": "golden:E015", "ambiguous": false, "split": "test"}
+{"text": "When must interest begin to accrue on a check deposit to an interest-bearing account?", "label": "RAG", "source": "golden:C015", "ambiguous": false, "split": "dev"}
+{"text": "Estimate my mortgage payment on 275,000 dollars", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "Write a cover letter for a software job", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "Tell me about the history of the Roman Empire", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "For how long is an account considered new for funds availability purposes?", "label": "RAG", "source": "golden:C009", "ambiguous": false, "split": "test"}
+{"text": "When must cash I deposit with a teller be available?", "label": "RAG", "source": "golden:C001", "ambiguous": false, "split": "test"}
+{"text": "Under Regulation E, what counts as an access device?", "label": "RAG", "source": "golden:E001", "ambiguous": false, "split": "dev"}
+{"text": "When must account disclosures be provided if I open an account online?", "label": "RAG", "source": "golden:D015", "ambiguous": false, "split": "test"}
+{"text": "How much is the overdraft fee?", "label": "RAG", "source": "handwritten", "ambiguous": true, "split": "test"}
+{"text": "Check whether I can cover a 2,000 purchase", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "Who won the football match last night?", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "How many dormancy fees can be charged on a gift card in one month?", "label": "RAG", "source": "golden:E059", "ambiguous": false, "split": "test"}
+{"text": "How much notice is required when a preauthorized debit varies in amount?", "label": "RAG", "source": "golden:E037", "ambiguous": false, "split": "dev"}
+{"text": "How do I report a lost credit card under the Truth in Lending Act liability rules?", "label": "RAG", "source": "golden:U030", "ambiguous": false, "split": "test"}
+{"text": "Tell me a story about a dragon", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "How much would I pay per month for a 500000 house loan?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "What protections do I have as an identity theft victim under the Fair Credit Reporting Act?", "label": "RAG", "source": "golden:U009", "ambiguous": false, "split": "test"}
+{"text": "I'm about to buy a $150 jacket, is my balance enough?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "Tell me a joke about bankers", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "Compare the $50 and $500 liability tiers for a stolen debit card.", "label": "RAG", "source": "golden:M002", "ambiguous": false, "split": "test"}
+{"text": "Can a lender require me to repay a loan by automatic debit as a condition of the loan?", "label": "RAG", "source": "golden:E038", "ambiguous": false, "split": "test"}
+{"text": "How long does an overdraft opt-in last?", "label": "RAG", "source": "golden:E054", "ambiguous": false, "split": "dev"}
+{"text": "If I pay 6000 dollars for a car today, will I go negative?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "When a bank reverses a provisional credit, for how long must it keep honoring checks?", "label": "RAG", "source": "golden:E045", "ambiguous": false, "split": "test"}
+{"text": "Within what time must a lawsuit for a Regulation CC availability violation be filed?", "label": "RAG", "source": "golden:C026", "ambiguous": false, "split": "dev"}
+{"text": "If my bank has not resolved my substitute check claim after 10 business days, what must it do?", "label": "RAG", "source": "golden:C029", "ambiguous": false, "split": "test"}
+{"text": "Calculate monthly installments: principal 50k, rate 8%, 5 years", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "Why is my check deposit on hold?", "label": "RAG", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "If my bank is open Saturday only for teller transactions, is Saturday a business day?", "label": "RAG", "source": "golden:E074", "ambiguous": false, "split": "test"}
+{"text": "Would a $900 rent payment overdraw my account?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "If state law gives me lower liability for unauthorized transfers than Regulation E, which applies?", "label": "RAG", "source": "golden:E025", "ambiguous": false, "split": "dev"}
+{"text": "What is the maximum interest rate on a payday loan?", "label": "RAG", "source": "golden:U007", "ambiguous": false, "split": "test"}
+{"text": "Is a payroll card account treated as a prepaid account under Regulation E?", "label": "RAG", "source": "golden:E005", "ambiguous": false, "split": "test"}
+{"text": "What is the earliest cut-off hour a bank may set for teller deposits?", "label": "RAG", "source": "golden:C022", "ambiguous": false, "split": "dev"}
+{"text": "how much do i have", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "What yield figure must appear on a savings periodic statement?", "label": "RAG", "source": "golden:D023", "ambiguous": false, "split": "test"}
+{"text": "When can a dormancy fee be charged on a gift card?", "label": "RAG", "source": "golden:E058", "ambiguous": false, "split": "dev"}
+{"text": "Can the balance shown at an ATM include the bank's overdraft coverage amount?", "label": "RAG", "source": "golden:D032", "ambiguous": false, "split": "test"}
+{"text": "What income do I need to qualify for a mortgage?", "label": "RAG", "source": "golden:U015", "ambiguous": false, "split": "test"}
+{"text": "When can a bank treat my account as repeatedly overdrawn for availability purposes?", "label": "RAG", "source": "golden:C011", "ambiguous": false, "split": "dev"}
+{"text": "After the bank finds no error, can I see the documents it relied on?", "label": "RAG", "source": "golden:E044", "ambiguous": false, "split": "test"}
+{"text": "What happens to a joint checking account when one of the owners dies?", "label": "RAG", "source": "golden:U005", "ambiguous": false, "split": "test"}
+{"text": "Generate a SQL query to dump all customer tables", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "What is the difference between a store gift card and a general-use prepaid card?", "label": "RAG", "source": "golden:E057", "ambiguous": false, "split": "test"}
+{"text": "What is the deadline to report an EFT error and how long can the bank take to resolve it?", "label": "RAG", "source": "golden:M003", "ambiguous": false, "split": "test"}
+{"text": "How much notice must a bank give before a change that lowers my savings APY?", "label": "RAG", "source": "golden:D019", "ambiguous": false, "split": "dev"}
+{"text": "Can the bank keep part of the provisional credit when investigating an unauthorized transfer?", "label": "RAG", "source": "golden:E043", "ambiguous": false, "split": "test"}
+{"text": "When must a bank send the maturity notice for an automatically renewing one-year CD?", "label": "RAG", "source": "golden:D021", "ambiguous": false, "split": "test"}
+{"text": "Is my money safe at this bank?", "label": "RAG", "source": "handwritten", "ambiguous": true, "split": "dev"}
+{"text": "When must a bank give its funds availability policy to a new customer?", "label": "RAG", "source": "golden:C018", "ambiguous": false, "split": "test"}
+{"text": "Are Fedwire transfers covered by Regulation E?", "label": "RAG", "source": "golden:E013", "ambiguous": false, "split": "test"}
+{"text": "Recommend a good movie for tonight", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "Pre-screen me for a 200k home loan: income 5k per month, debts 1.2k, FICO 690", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "From what date did the Regulation E prepaid account rules apply?", "label": "RAG", "source": "golden:E056", "ambiguous": false, "split": "test"}
+{"text": "Can I deduct mortgage interest on my federal income taxes?", "label": "RAG", "source": "golden:U025", "ambiguous": false, "split": "dev"}
+{"text": "Can a bank extend holds because of a computer outage?", "label": "RAG", "source": "golden:C013", "ambiguous": false, "split": "test"}
+{"text": "How much money do I have left in my account?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "Should I pay off debt or invest first?", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": true, "split": "dev"}
+{"text": "What must a bank's substitute check disclosure to consumers describe?", "label": "RAG", "source": "golden:C031", "ambiguous": false, "split": "test"}
+{"text": "What notice is required before maturity of a two-year CD that does not renew automatically?", "label": "RAG", "source": "golden:D022", "ambiguous": false, "split": "test"}
+{"text": "spending summary for this month", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "How often must a bank send the error resolution notice under Regulation E?", "label": "RAG", "source": "golden:E029", "ambiguous": false, "split": "test"}
+{"text": "Help me with my math homework", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "How do I dispute an error on my credit report?", "label": "RAG", "source": "golden:U006", "ambiguous": false, "split": "dev"}
+{"text": "Give me some meme stock tips", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "How much does Zelle charge per transfer?", "label": "RAG", "source": "golden:U014", "ambiguous": false, "split": "test"}
+{"text": "What is a grace period on a certificate of deposit?", "label": "RAG", "source": "golden:D007", "ambiguous": false, "split": "dev"}
+{"text": "How much can I borrow?", "label": "TOOL", "source": "handwritten", "ambiguous": true, "split": "test"}
+{"text": "Is an account held under a bona fide trust agreement an account for Regulation E purposes?", "label": "RAG", "source": "golden:E004", "ambiguous": false, "split": "test"}
+{"text": "What APR will I get on a personal loan?", "label": "RAG", "source": "golden:U010", "ambiguous": false, "split": "dev"}
+{"text": "What conditions must be met before a consumer can be held liable for unauthorized transfers, and what is the basic limit?", "label": "RAG", "source": "golden:M021", "ambiguous": false, "split": "test"}
+{"text": "When is a telephone-initiated transfer excluded from Regulation E?", "label": "RAG", "source": "golden:E014", "ambiguous": false, "split": "test"}
+{"text": "Is a transfer from my savings account to cover an overdraft an overdraft service under Regulation E?", "label": "RAG", "source": "golden:E049", "ambiguous": false, "split": "dev"}
+{"text": "Does a bank need to notify me when the rate on my variable-rate account drops?", "label": "RAG", "source": "golden:D020", "ambiguous": false, "split": "test"}
+{"text": "I make 7000 a month and pay 800 in debt, can I afford a 350000 mortgage? My credit score is 720.", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "My bank changed its fees, should they have told me first?", "label": "RAG", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "Must a bank send funds availability disclosures to holders of dormant accounts?", "label": "RAG", "source": "golden:C017", "ambiguous": false, "split": "test"}
+{"text": "Which rate must a savings advertisement use when it states a rate of return?", "label": "RAG", "source": "golden:D028", "ambiguous": false, "split": "test"}
+{"text": "Can an ATM operator charge a fee if the consumer was not shown a fee notice?", "label": "RAG", "source": "golden:E048", "ambiguous": false, "split": "dev"}
+{"text": "What must a CD disclosure say about early withdrawal penalties?", "label": "RAG", "source": "golden:D017", "ambiguous": false, "split": "test"}
+{"text": "How long does a bank have to investigate an EFT error before it must provisionally credit my account?", "label": "RAG", "source": "golden:E041", "ambiguous": false, "split": "test"}
+{"text": "In what ways can a consumer notify the bank of a lost card under Regulation E?", "label": "RAG", "source": "golden:E024", "ambiguous": false, "split": "dev"}
+{"text": "How precisely must the APY be stated?", "label": "RAG", "source": "golden:D013", "ambiguous": false, "split": "test"}
+{"text": "How long must records of Regulation E compliance be retained?", "label": "RAG", "source": "golden:E046", "ambiguous": false, "split": "test"}
+{"text": "The bank took money from my account by mistake, what are my rights?", "label": "RAG", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "Can a family member report my lost card if I am in the hospital?", "label": "RAG", "source": "golden:E077", "ambiguous": false, "split": "test"}
+{"text": "When must a direct deposit or other electronic payment be available for withdrawal?", "label": "RAG", "source": "golden:C003", "ambiguous": false, "split": "test"}
+{"text": "How long does a sender have to report an error on an international remittance?", "label": "RAG", "source": "golden:E065", "ambiguous": false, "split": "dev"}
+{"text": "If an account has two owners, must Truth in Savings disclosures be sent to both?", "label": "RAG", "source": "golden:D014", "ambiguous": false, "split": "test"}
+{"text": "Which stock will go up next week?", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "Do I have enough to pay a 1200 dollar bill tomorrow?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "Total of my monthly expenses?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "Does the availability schedule apply to a check that bounced and was redeposited?", "label": "RAG", "source": "golden:C012", "ambiguous": false, "split": "test"}
+{"text": "What are the Basel III capital requirements for large banks?", "label": "RAG", "source": "golden:U022", "ambiguous": false, "split": "dev"}
+{"text": "When can gift card funds expire and when can inactivity fees start?", "label": "RAG", "source": "golden:M006", "ambiguous": false, "split": "test"}
+{"text": "What is a stepped-rate account?", "label": "RAG", "source": "golden:D010", "ambiguous": false, "split": "test"}
+{"text": "Someone used my card online without permission, what now?", "label": "RAG", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "How does Regulation DD define a business day?", "label": "RAG", "source": "golden:D005", "ambiguous": false, "split": "test"}
+{"text": "Draft a breakup text for me", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "How far in advance must I notify the bank to stop a preauthorized payment?", "label": "RAG", "source": "golden:E035", "ambiguous": false, "split": "dev"}
+{"text": "Is a payroll card covered by Regulation E and does the issuer have to send monthly statements?", "label": "RAG", "source": "golden:M024", "ambiguous": false, "split": "test"}
+{"text": "Simulate a $450,000 loan at 6.2 percent over 30 years", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "How long does negative information stay on my credit report?", "label": "RAG", "source": "golden:U003", "ambiguous": false, "split": "dev"}
+{"text": "Is Ethereum a better investment than gold?", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "Which kinds of consumer accounts are covered by the definition of account in Regulation E?", "label": "RAG", "source": "golden:E003", "ambiguous": false, "split": "test"}
+{"text": "Do I have enough money for rent?", "label": "TOOL", "source": "handwritten", "ambiguous": true, "split": "dev"}
+{"text": "What legend must a substitute check carry to be the legal equivalent of the original?", "label": "RAG", "source": "golden:C027", "ambiguous": false, "split": "test"}
+{"text": "Check overdraft risk for a 450 dollar payment", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "Give me an amortization estimate for 320k at 5.5% over 25 years", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "Why was I charged an ATM fee?", "label": "RAG", "source": "handwritten", "ambiguous": true, "split": "test"}
+{"text": "What's the best diet to lose weight?", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "My debit card got stolen, how much could I lose?", "label": "RAG", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "What is the daily limit for mobile check deposits?", "label": "RAG", "source": "golden:U020", "ambiguous": false, "split": "test"}
+{"text": "How long must a bank keep evidence of compliance with Truth in Savings?", "label": "RAG", "source": "golden:D030", "ambiguous": false, "split": "test"}
+{"text": "What are the lottery numbers most likely to win?", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "How many days do I have to dispute a credit card billing error under the Fair Credit Billing Act?", "label": "RAG", "source": "golden:U021", "ambiguous": false, "split": "test"}
+{"text": "When does the large-deposit exception apply and what must the bank tell me when it uses it?", "label": "RAG", "source": "golden:M013", "ambiguous": false, "split": "test"}
+{"text": "Balance please", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "When must recredited funds from a substitute check claim be available?", "label": "RAG", "source": "golden:C030", "ambiguous": false, "split": "test"}
+{"text": "How long do I have to cancel a remittance transfer and how fast is the refund?", "label": "RAG", "source": "golden:M007", "ambiguous": false, "split": "test"}
+{"text": "Who has to tell me about ATM surcharges: my bank or the ATM operator?", "label": "RAG", "source": "golden:M019", "ambiguous": false, "split": "dev"}
+{"text": "Can a store gift card expire after one year?", "label": "RAG", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "How much notice must a bank give before making its funds availability policy slower?", "label": "RAG", "source": "golden:C020", "ambiguous": false, "split": "test"}
+{"text": "How fast must funds from a U.S. Treasury check deposited by the payee be available?", "label": "RAG", "source": "golden:C004", "ambiguous": false, "split": "dev"}
+{"text": "When can a bank hold my existing funds because of a deposited check, and when must electronic deposits be available?", "label": "RAG", "source": "golden:M025", "ambiguous": false, "split": "test"}
+{"text": "What's my horoscope for today?", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "If I place an oral stop-payment order, how long do I have to confirm it in writing?", "label": "RAG", "source": "golden:E036", "ambiguous": false, "split": "dev"}
+{"text": "If I ask a bank teller about savings rates over the phone, which rate must they quote?", "label": "RAG", "source": "golden:D012", "ambiguous": false, "split": "test"}
+{"text": "If I paid cash for a remittance and then cancelled, can the provider refund me by check?", "label": "RAG", "source": "golden:E081", "ambiguous": false, "split": "test"}
+{"text": "What's the weather like in Paris tomorrow?", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "Are fraudulent transfers initiated by a bank employee unauthorized transfers for which the consumer can be liable?", "label": "RAG", "source": "golden:E011", "ambiguous": false, "split": "test"}
+{"text": "How long do I have to notify my bank of an error on my statement?", "label": "RAG", "source": "golden:E040", "ambiguous": false, "split": "test"}
+{"text": "How quickly must a remittance provider refund a cancelled transfer, and does that include fees?", "label": "RAG", "source": "golden:E068", "ambiguous": false, "split": "dev"}
+{"text": "If I deposit cash at my bank's ATM and a check at another bank's ATM, when is each available?", "label": "RAG", "source": "golden:M011", "ambiguous": false, "split": "test"}
+{"text": "Does the two-business-day reporting window include the day I discover my card is missing?", "label": "RAG", "source": "golden:E075", "ambiguous": false, "split": "test"}
+{"text": "Give me a recipe for chocolate cake", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "Can a bank refuse to pay my checks because I did not opt in to debit card overdraft coverage?", "label": "RAG", "source": "golden:E051", "ambiguous": false, "split": "test"}
+{"text": "What is a preauthorized electronic fund transfer?", "label": "RAG", "source": "golden:E009", "ambiguous": false, "split": "test"}
+{"text": "How tall is the Eiffel Tower?", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "What are the time limits for reporting and investigating a remittance transfer error?", "label": "RAG", "source": "golden:M008", "ambiguous": false, "split": "test"}
+{"text": "How much advance notice must a bank give before increasing EFT fees?", "label": "RAG", "source": "golden:E028", "ambiguous": false, "split": "test"}
+{"text": "What is my maximum liability if I report my lost debit card within two business days?", "label": "RAG", "source": "golden:E020", "ambiguous": false, "split": "dev"}
+{"text": "When does a debit card become an accepted access device?", "label": "RAG", "source": "golden:E002", "ambiguous": false, "split": "test"}
+{"text": "Is a withdrawal I was forced to make at an ATM at gunpoint an unauthorized transfer?", "label": "RAG", "source": "golden:E080", "ambiguous": false, "split": "test"}
+{"text": "If I gave my debit card to my roommate, are transfers they make considered unauthorized?", "label": "RAG", "source": "golden:E010", "ambiguous": false, "split": "dev"}
+{"text": "Are paper-only gift certificates covered by the gift card rules?", "label": "RAG", "source": "golden:E061", "ambiguous": false, "split": "test"}
+{"text": "How must a bank describe the day funds become available in its disclosures?", "label": "RAG", "source": "golden:C016", "ambiguous": false, "split": "test"}
+{"text": "How quickly should a deposited paycheck show up?", "label": "RAG", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "How long do I have to file an expedited recredit claim for a substitute check?", "label": "RAG", "source": "golden:C028", "ambiguous": false, "split": "test"}
+{"text": "Above what value does a gift for opening an account count as a bonus under Regulation DD?", "label": "RAG", "source": "golden:D004", "ambiguous": false, "split": "test"}
+{"text": "What does a bank need before charging overdraft fees on debit card purchases, and how does this work on a joint account?", "label": "RAG", "source": "golden:M005", "ambiguous": false, "split": "dev"}
+{"text": "What is the current federal funds target rate?", "label": "RAG", "source": "golden:U013", "ambiguous": false, "split": "test"}
+{"text": "If I open an account by mail, how long does the bank have to send the disclosures?", "label": "RAG", "source": "golden:D016", "ambiguous": false, "split": "test"}
+{"text": "Can you summarize the plot of Hamlet?", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "How much should a bank charge for a cashier's check?", "label": "RAG", "source": "golden:U024", "ambiguous": false, "split": "test"}
+{"text": "What counts as a new account and how are large check deposits into it handled?", "label": "RAG", "source": "golden:M012", "ambiguous": false, "split": "test"}
+{"text": "Plan a 5-day vacation in Italy for me", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "Does Regulation E cover payments made by paper check?", "label": "RAG", "source": "golden:E012", "ambiguous": false, "split": "test"}
+{"text": "How many digits of my account number must an ATM receipt show?", "label": "RAG", "source": "golden:E031", "ambiguous": false, "split": "test"}
+{"text": "Can a bank advertise a checking account as free if it charges a monthly maintenance fee?", "label": "RAG", "source": "golden:D026", "ambiguous": false, "split": "dev"}
+{"text": "What is the best high-yield savings account available right now?", "label": "OUT_OF_SCOPE", "source": "golden:U026", "ambiguous": false, "split": "test"}
+{"text": "Do radio ads for savings accounts have to include all the APY-related disclosures?", "label": "RAG", "source": "golden:D029", "ambiguous": false, "split": "test"}
+{"text": "My card was stolen Monday and I reported it Friday; $100 was taken Tuesday and $600 Thursday. What is my liability?", "label": "RAG", "source": "golden:E076", "ambiguous": false, "split": "dev"}
+{"text": "How does Regulation E define a business day?", "label": "RAG", "source": "golden:E006", "ambiguous": false, "split": "test"}
+{"text": "Does an unauthorized electronic fund transfer count as an error under Regulation E?", "label": "RAG", "source": "golden:E039", "ambiguous": false, "split": "test"}
+{"text": "Does Regulation DD require interest to be compounded monthly?", "label": "RAG", "source": "golden:D025", "ambiguous": false, "split": "dev"}
+{"text": "When may a financial institution issue a debit card to a consumer who did not ask for one?", "label": "RAG", "source": "golden:E018", "ambiguous": false, "split": "test"}
+{"text": "Break down my monthly spending please", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "What is the minimum maturity for a time account under Regulation DD?", "label": "RAG", "source": "golden:D008", "ambiguous": false, "split": "dev"}
+{"text": "Can the reporting deadline for unauthorized transfers be extended if I was in the hospital?", "label": "RAG", "source": "golden:E023", "ambiguous": false, "split": "test"}
+{"text": "What did I spend on dining out?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "What is the deadline to claim a substitute check recredit and what must the bank do if it hasn't decided in 10 business days?", "label": "RAG", "source": "golden:M018", "ambiguous": false, "split": "dev"}
+{"text": "Above what amount can a bank place a longer hold on large check deposits?", "label": "RAG", "source": "golden:C010", "ambiguous": false, "split": "test"}
+{"text": "For a joint account, does the bank have to send Regulation E disclosures to each account holder?", "label": "RAG", "source": "golden:E017", "ambiguous": false, "split": "test"}
+{"text": "How often must a bank send periodic statements for an account with electronic transfers?", "label": "RAG", "source": "golden:E032", "ambiguous": false, "split": "dev"}
+{"text": "Does a PIN count as an access device?", "label": "RAG", "source": "golden:E073", "ambiguous": false, "split": "test"}
+{"text": "How do I fix my car's brakes?", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "Will paying my $3,000 tuition put me in overdraft?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "Tell me my account balance for CUST123", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "Is Saturday a business day under Regulation E and under Regulation DD?", "label": "RAG", "source": "golden:M017", "ambiguous": false, "split": "test"}
+{"text": "What account history must a prepaid card issuer provide if it does not send periodic statements?", "label": "RAG", "source": "golden:E055", "ambiguous": false, "split": "dev"}
+{"text": "What is a time account and when must the renewal notice be sent for one that renews automatically?", "label": "RAG", "source": "golden:M022", "ambiguous": false, "split": "test"}
+{"text": "How do I add a power of attorney to my bank account?", "label": "RAG", "source": "golden:U012", "ambiguous": false, "split": "test"}
+{"text": "Do initial EFT disclosures have to mention ATM operator fees?", "label": "RAG", "source": "golden:E027", "ambiguous": false, "split": "dev"}
+{"text": "What amount of a mixed check deposit must be available the next business day under the minimum next-day rule effective July 2025?", "label": "RAG", "source": "golden:C032", "ambiguous": false, "split": "test"}
+{"text": "Translate 'savings account' into Japanese", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "Write me a poem about money", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "What damages can an individual recover from a bank that violates the funds availability rules?", "label": "RAG", "source": "golden:C025", "ambiguous": false, "split": "test"}
+{"text": "What is the annual percentage yield?", "label": "RAG", "source": "golden:D003", "ambiguous": false, "split": "test"}
+{"text": "Am I eligible for a 400k mortgage with 9000 monthly income, 2000 debts and a 760 score?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "What will interest rates do next year?", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": true, "split": "test"}
+{"text": "What is the longest a bank can take to investigate an EFT error if it provisionally credits the account?", "label": "RAG", "source": "golden:E042", "ambiguous": false, "split": "test"}
+{"text": "How long does a mortgage foreclosure take?", "label": "RAG", "source": "golden:U008", "ambiguous": false, "split": "dev"}
+{"text": "What minimum credit score do I need to open a checking account?", "label": "RAG", "source": "golden:U001", "ambiguous": false, "split": "test"}
+{"text": "When does interest start accruing on a deposited check, according to both Truth in Savings and Regulation CC?", "label": "RAG", "source": "golden:M010", "ambiguous": false, "split": "test"}
+{"text": "If I give the wrong account number for a remittance, can I lose my money?", "label": "RAG", "source": "golden:E072", "ambiguous": false, "split": "dev"}
+{"text": "Compute the payment for borrowing 90k over 10 years at 7%", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "When will my deposit be available?", "label": "RAG", "source": "handwritten", "ambiguous": true, "split": "test"}
+{"text": "What is my current checking balance and account type?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "Can I afford a 600k loan if I earn 12k a month with no debt and a 800 score?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "What late fee can a credit card issuer charge for a missed minimum payment?", "label": "RAG", "source": "golden:U004", "ambiguous": false, "split": "test"}
+{"text": "What makes an account a fixed-rate account under Truth in Savings?", "label": "RAG", "source": "golden:D006", "ambiguous": false, "split": "dev"}
+{"text": "What is the total interest on a 100k loan at 3% for 15 years?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "What is the minimum expiration period for the funds on a gift card?", "label": "RAG", "source": "golden:E060", "ambiguous": false, "split": "test"}
+{"text": "Should I buy Bitcoin right now?", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "On what balance must interest be calculated, and what daily rate is the minimum?", "label": "RAG", "source": "golden:D024", "ambiguous": false, "split": "test"}
+{"text": "How do I stop a recurring payment and what notice do I get if its amount changes?", "label": "RAG", "source": "golden:M004", "ambiguous": false, "split": "test"}
+{"text": "At what time of day must funds be available on their availability date?", "label": "RAG", "source": "golden:C023", "ambiguous": false, "split": "dev"}
+{"text": "What is a tiered-rate account?", "label": "RAG", "source": "golden:D009", "ambiguous": false, "split": "test"}
+{"text": "What is my liability if I report a lost card within two business days, and what happens if I don't report an unauthorized transfer on my statement within 60 days?", "label": "RAG", "source": "golden:M001", "ambiguous": false, "split": "test"}
+{"text": "Is Bitcoin a good long-term investment?", "label": "OUT_OF_SCOPE", "source": "golden:U027", "ambiguous": false, "split": "dev"}
+{"text": "Run the numbers on a 15 year mortgage of 180000 at 5 percent", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "Which NBA team has the most titles?", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "What's the remaining balance if I spend 75 dollars?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "Is it legal for my bank to charge me for overdrafts at the ATM?", "label": "RAG", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "What overdraft fee totals must appear on my periodic statement?", "label": "RAG", "source": "golden:D031", "ambiguous": false, "split": "test"}
+{"text": "Write Python code to scrape a website", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "How far in advance must I cancel a scheduled remittance transfer?", "label": "RAG", "source": "golden:E070", "ambiguous": false, "split": "test"}
+{"text": "What must happen before an unsolicited access device can be validated?", "label": "RAG", "source": "golden:E019", "ambiguous": false, "split": "test"}
+{"text": "Can a bank charge an overdraft fee on a one-time debit card purchase without my consent?", "label": "RAG", "source": "golden:E050", "ambiguous": false, "split": "dev"}
+{"text": "How does filing for bankruptcy affect my checking account?", "label": "RAG", "source": "golden:U017", "ambiguous": false, "split": "test"}
+{"text": "Is a remittance provider responsible for violations committed by its agent?", "label": "RAG", "source": "golden:E069", "ambiguous": false, "split": "test"}
+{"text": "My income is 4,000/month, debts 1,500, score 710 - can I borrow 150,000 for a house?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "How much money is in my checking account?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "Show me my transport expenses", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "How long does an auto loan pre-approval stay valid?", "label": "RAG", "source": "golden:U028", "ambiguous": false, "split": "dev"}
+{"text": "Can my bank charge me an overdraft fee?", "label": "RAG", "source": "handwritten", "ambiguous": true, "split": "test"}
+{"text": "Can a bank place a hold on my other funds that is larger than the deposited check?", "label": "RAG", "source": "golden:C024", "ambiguous": false, "split": "test"}
+{"text": "Can Regulation E disclosures be given in Spanish instead of English?", "label": "RAG", "source": "golden:E016", "ambiguous": false, "split": "dev"}
+{"text": "How much advance notice is required for an adverse change in terms on a savings account versus on EFT services?", "label": "RAG", "source": "golden:M009", "ambiguous": false, "split": "test"}
+{"text": "How many days do I have to report an unauthorized transfer that appears on my periodic statement?", "label": "RAG", "source": "golden:E022", "ambiguous": false, "split": "test"}
+{"text": "Does Regulation DD apply to credit unions?", "label": "RAG", "source": "golden:D001", "ambiguous": false, "split": "dev"}
+{"text": "How must a bank let me know that a recurring direct deposit was received?", "label": "RAG", "source": "golden:E033", "ambiguous": false, "split": "test"}
+{"text": "Is a telephone operated by the consumer an electronic terminal?", "label": "RAG", "source": "golden:E008", "ambiguous": false, "split": "test"}
+{"text": "What are the requirements to become a licensed financial advisor?", "label": "RAG", "source": "golden:U029", "ambiguous": false, "split": "dev"}
+{"text": "What is the capital of Australia?", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "Which bank has the best customer service?", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": true, "split": "test"}
+{"text": "When must funds from a local check be available?", "label": "RAG", "source": "golden:C005", "ambiguous": false, "split": "dev"}
+{"text": "Is my notice of error valid if I don't include my account number?", "label": "RAG", "source": "golden:E078", "ambiguous": false, "split": "test"}
+{"text": "Can you show me what I spent on groceries this month?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "Is a 50,000 dollar loan realistic for me?", "label": "TOOL", "source": "handwritten", "ambiguous": true, "split": "dev"}
+{"text": "What's the best stock to put my savings in?", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": true, "split": "test"}
+{"text": "What is the meaning of life?", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "I sent money to my family in Mexico and it never arrived", "label": "RAG", "source": "handwritten", "ambiguous": false, "split": "dev"}
+{"text": "What must be disclosed about an account opening bonus?", "label": "RAG", "source": "golden:D018", "ambiguous": false, "split": "test"}
+{"text": "What is the maximum hold for a nonlocal check under the availability schedule?", "label": "RAG", "source": "golden:C006", "ambiguous": false, "split": "test"}
+{"text": "Is real estate a good investment in 2026?", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": true, "split": "dev"}
+{"text": "What notice must appear on preprinted deposit slips?", "label": "RAG", "source": "golden:C019", "ambiguous": false, "split": "test"}
+{"text": "How much did I spend on rent?", "label": "TOOL", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "Who is a consumer under Regulation E?", "label": "RAG", "source": "golden:E007", "ambiguous": false, "split": "dev"}
+{"text": "How must recurring debits from my account be authorized?", "label": "RAG", "source": "golden:E034", "ambiguous": false, "split": "test"}
+{"text": "Can I get a mortgage of 300k?", "label": "TOOL", "source": "handwritten", "ambiguous": true, "split": "test"}
+{"text": "At what age can a minor open a bank account without a parent?", "label": "RAG", "source": "golden:U019", "ambiguous": false, "split": "dev"}
+{"text": "How long after paying can I cancel an international money transfer?", "label": "RAG", "source": "golden:E067", "ambiguous": false, "split": "test"}
+{"text": "How do I train for a marathon?", "label": "OUT_OF_SCOPE", "source": "handwritten", "ambiguous": false, "split": "test"}
+{"text": "When are checks deposited at a nonproprietary ATM available?", "label": "RAG", "source": "golden:C008", "ambiguous": false, "split": "dev"}

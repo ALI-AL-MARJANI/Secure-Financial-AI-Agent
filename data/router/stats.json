@@ -1,0 +1,13 @@
+{
+  "n": 301,
+  "by_label": {
+    "RAG": 214,
+    "OUT_OF_SCOPE": 42,
+    "TOOL": 45
+  },
+  "by_split": {
+    "dev": 101,
+    "test": 200
+  },
+  "ambiguous": 15
+}

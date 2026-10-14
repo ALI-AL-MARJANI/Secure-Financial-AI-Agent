@@ -1,0 +1,49 @@
+llm:
+  model: mistral            # Mistral 7B Instruct via Ollama
+  temperature: 0.0
+  num_ctx: 8192
+
+retrieval:                  # chosen from results/retrieval/ecfr-dev.json (simplest row within noise of the best)
+  dense: true
+  sparse: false
+  rerank: false
+  prefix: title
+  candidates: 50
+  context_k: 5
+  hyde: 0
+  crag: false
+  dense_model: BAAI/bge-small-en-v1.5
+  dense_query_prefix: "Represent this sentence for searching relevant passages: "
+  chunk_max_chars: 1200
+
+# where the tool-route instructions go: "system" message or "inline" before the user turn
+# (Mistral 7B via Ollama makes far fewer native tool calls with a system message; see bench_agent.py)
+tool_prompt: inline
+
+router:
+  mode: cascade             # keyword | llm | cascade
+
+input_guard:
+  detector: regex_v1        # regex_v1 | protectai | cascade   (see results/guardrails/injection.json)
+  threshold: 0.5
+
+limits:                     # action guard
+  max_principal_hard: 50000000
+  confirm_principal_above: 10000000   # human confirmation required above this amount
+  max_rate_pct: 30
+  max_term_years: 40
+  max_transaction: 1000000
+  max_string_len: 512
+
+# Fictional product terms of the demo bank used by the calculators. They are NOT regulatory values and
+# are not part of the evaluated corpus. max_dti 0.43 mirrors the pre-2021 CFPB qualified-mortgage DTI cap.
+demo_bank:
+  mortgage_rate_pct: 5.0
+  mortgage_max_term_years: 25
+  min_credit_score: 700
+  max_dti: 0.43
+  overdraft_fee: 35.0
+  accounts_file: data/demo/accounts.json
+
+audit_dir: audit_logs
+sessions_db: sessions/checkpoints.db

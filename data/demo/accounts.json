@@ -1,0 +1,11 @@
+{
+  "_note": "Fictional demo accounts. Not real people or data.",
+  "accounts": {
+    "CUST123": {"balance": 5432.50, "type": "checking",
+                "spending": {"groceries": 320.0, "rent": 1200.0, "transport": 85.0, "dining": 210.0}},
+    "CUST456": {"balance": 120500.00, "type": "savings",
+                "spending": {"groceries": 580.0, "rent": 2400.0, "transport": 120.0, "dining": 450.0}},
+    "CUST789": {"balance": 150.75, "type": "checking",
+                "spending": {"groceries": 95.0, "rent": 800.0, "transport": 40.0, "dining": 60.0}}
+  }
+}

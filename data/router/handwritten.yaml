@@ -1,0 +1,107 @@
+# Hand-written routing queries (author-written AFTER the keyword router; see README limitations).
+# The RAG class is completed with the golden questions by scripts/build_router_set.py.
+# ambiguous: true marks queries whose label depends on interpretation.
+TOOL:
+  - "What's my balance right now?"
+  - "How much money is in my checking account?"
+  - "Can you show me what I spent on groceries this month?"
+  - "Break down my monthly spending please"
+  - "Would a $900 rent payment overdraw my account?"
+  - "If I pay 6000 dollars for a car today, will I go negative?"
+  - "What would the monthly payment be on a 300k mortgage at 5% for 25 years?"
+  - "Simulate a $450,000 loan at 6.2 percent over 30 years"
+  - "I make 7000 a month and pay 800 in debt, can I afford a 350000 mortgage? My credit score is 720."
+  - "Pre-screen me for a 200k home loan: income 5k per month, debts 1.2k, FICO 690"
+  - "How much interest would I pay in total on a 250,000 loan at 4.5% for 20 years?"
+  - "Tell me my account balance for CUST123"
+  - "Check whether I can cover a 2,000 purchase"
+  - "I'm about to buy a $150 jacket, is my balance enough?"
+  - "Run the numbers on a 15 year mortgage of 180000 at 5 percent"
+  - "Do I have enough to pay a 1200 dollar bill tomorrow?"
+  - "What did I spend on dining out?"
+  - "Show me my transport expenses"
+  - "Compute the payment for borrowing 90k over 10 years at 7%"
+  - "Am I eligible for a 400k mortgage with 9000 monthly income, 2000 debts and a 760 score?"
+  - "Where does my money go each month?"
+  - "Total of my monthly expenses?"
+  - "What's the remaining balance if I spend 75 dollars?"
+  - "How much would I pay per month for a 500000 house loan?"
+  - "Is my savings account balance above 100k?"
+  - "Give me an amortization estimate for 320k at 5.5% over 25 years"
+  - "My income is 4,000/month, debts 1,500, score 710 - can I borrow 150,000 for a house?"
+  - "Balance please"
+  - "how much do i have"
+  - "Will paying my $3,000 tuition put me in overdraft?"
+  - "What is the total interest on a 100k loan at 3% for 15 years?"
+  - "Estimate my mortgage payment on 275,000 dollars"
+  - "spending summary for this month"
+  - "Can I afford a 600k loan if I earn 12k a month with no debt and a 800 score?"
+  - "Check overdraft risk for a 450 dollar payment"
+  - "How much money do I have left in my account?"
+  - "What is my current checking balance and account type?"
+  - "Calculate monthly installments: principal 50k, rate 8%, 5 years"
+  - "If I buy a 1,999 laptop, what's my balance after?"
+  - "How much did I spend on rent?"
+  - {text: "Am I going to be charged an overdraft fee if I pay 200 today?", ambiguous: true}
+  - {text: "Can I get a mortgage of 300k?", ambiguous: true}
+  - {text: "Is a 50,000 dollar loan realistic for me?", ambiguous: true}
+  - {text: "How much can I borrow?", ambiguous: true}
+  - {text: "Do I have enough money for rent?", ambiguous: true}
+OUT_OF_SCOPE:
+  - "What's the weather like in Paris tomorrow?"
+  - "Write me a poem about money"
+  - "Tell me a joke about bankers"
+  - "Who won the football match last night?"
+  - "Give me a recipe for chocolate cake"
+  - "Should I buy Bitcoin right now?"
+  - "Which stock will go up next week?"
+  - "Write Python code to scrape a website"
+  - "Translate 'savings account' into Japanese"
+  - "What's my horoscope for today?"
+  - "Who should I vote for in the next election?"
+  - "Plan a 5-day vacation in Italy for me"
+  - "Is Ethereum a better investment than gold?"
+  - "Help me with my math homework"
+  - "What's the best diet to lose weight?"
+  - "Recommend a good movie for tonight"
+  - "What are the lottery numbers most likely to win?"
+  - "Tell me a story about a dragon"
+  - "What crypto coin will 10x this year?"
+  - "Write an essay on climate change"
+  - "How do I fix my car's brakes?"
+  - "What is the capital of Australia?"
+  - "Can you summarize the plot of Hamlet?"
+  - "Give me some meme stock tips"
+  - "Compose a song about my credit card"
+  - "Explain quantum computing simply"
+  - "How tall is the Eiffel Tower?"
+  - "Draft a breakup text for me"
+  - "Which NBA team has the most titles?"
+  - "Generate a SQL query to dump all customer tables"
+  - "What is the meaning of life?"
+  - "Tell me about the history of the Roman Empire"
+  - "How do I train for a marathon?"
+  - "Write a cover letter for a software job"
+  - "What's a good name for my dog?"
+  - {text: "What's the best stock to put my savings in?", ambiguous: true}
+  - {text: "Is real estate a good investment in 2026?", ambiguous: true}
+  - {text: "Which bank has the best customer service?", ambiguous: true}
+  - {text: "Should I pay off debt or invest first?", ambiguous: true}
+  - {text: "What will interest rates do next year?", ambiguous: true}
+RAG:
+  # extra RAG queries phrased without regulation vocabulary (the golden set is added by the build script)
+  - "My debit card got stolen, how much could I lose?"
+  - "The bank took money from my account by mistake, what are my rights?"
+  - "How quickly should a deposited paycheck show up?"
+  - "Can a store gift card expire after one year?"
+  - "Someone used my card online without permission, what now?"
+  - "Why is my check deposit on hold?"
+  - "Is it legal for my bank to charge me for overdrafts at the ATM?"
+  - "I sent money to my family in Mexico and it never arrived"
+  - "Do I get my money back if I cancel an international transfer?"
+  - "My bank changed its fees, should they have told me first?"
+  - {text: "Can my bank charge me an overdraft fee?", ambiguous: true}
+  - {text: "How much is the overdraft fee?", ambiguous: true}
+  - {text: "Why was I charged an ATM fee?", ambiguous: true}
+  - {text: "When will my deposit be available?", ambiguous: true}
+  - {text: "Is my money safe at this bank?", ambiguous: true}
