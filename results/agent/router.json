@@ -1,0 +1,529 @@
+{
+  "meta": {
+    "date": "2026-10-14T05:13:27+00:00",
+    "git_sha": "a89c5ce1e307300528fde8af76386a17405ccbba",
+    "seed": 0,
+    "config": {
+      "with_llm": false,
+      "config": "configs/agent.yaml"
+    },
+    "hardware": {
+      "machine": "arm64",
+      "platform": "macOS-15.6.1-arm64-arm-64bit",
+      "python": "3.11.15",
+      "cpu": "Apple M4",
+      "ram_gb": 16.0,
+      "cuda": null,
+      "mps": true
+    },
+    "versions": {
+      "torch": "2.14.1",
+      "transformers": "5.19.0",
+      "sentence-transformers": "6.1.0",
+      "faiss-cpu": "1.15.1",
+      "rank-bm25": "0.2.2",
+      "langgraph": "1.2.15",
+      "langchain-core": "1.6.10",
+      "langchain-ollama": "1.1.0",
+      "ragas": "0.4.3",
+      "presidio-analyzer": "2.2.362",
+      "datasets": "5.1.0",
+      "numpy": "2.4.6"
+    },
+    "prompt": "Classify the customer message for a banking assistant into exactly one label.\n\nRAG          - a question about banking rules, rights, fees, disclosures or deadlines that should be answered from US banking regulations (Regulation E, DD, CC)\nTOOL         - asks about the customer's own account (balance, spending, overdraft risk) or for a loan / mortgage calculation\nOUT_OF_SCOPE - anything else: not about banking, or asks for investment picks, crypto advice, or general chit-chat\n\nMessage: {message}\n\nAnswer with one label only (RAG, TOOL, or OUT_OF_SCOPE)."
+  },
+  "results": {
+    "keyword|dev": {
+      "accuracy": {
+        "mean": 0.5643564356435643,
+        "lo": 0.46534653465346537,
+        "hi": 0.6534653465346535,
+        "n": 101
+      },
+      "coverage": 0.5643564356435643,
+      "accuracy_when_answered": 1.0,
+      "accuracy_ambiguous": 0.0,
+      "per_class": {
+        "RAG": {
+          "precision": 1.0,
+          "recall": 0.6029411764705882,
+          "support": 68
+        },
+        "TOOL": {
+          "precision": 1.0,
+          "recall": 0.26666666666666666,
+          "support": 15
+        },
+        "OUT_OF_SCOPE": {
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "support": 18
+        }
+      },
+      "confusion": {
+        "OUT_OF_SCOPE->None": 6,
+        "OUT_OF_SCOPE->OUT_OF_SCOPE": 12,
+        "RAG->None": 27,
+        "RAG->RAG": 41,
+        "TOOL->None": 11,
+        "TOOL->TOOL": 4
+      },
+      "latency": {
+        "p50_ms": 0.012458000128390267,
+        "p90_ms": 0.019375000192667358,
+        "mean_ms": 0.013636069299968993,
+        "std_ms": 0.0061898239229201645,
+        "n": 101
+      },
+      "errors": [
+        {
+          "text": "Is my savings account balance above 100k?",
+          "gold": "TOOL",
+          "pred": null
+        },
+        {
+          "text": "What is the annual contribution limit for an IRA?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "When must an ATM operator show its fee to the consumer?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "What penalty APR can a credit card issuer impose after a late payment?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "How are recurring debits authorized and how can I stop one?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "Must an ATM give me a receipt for a $10 withdrawal?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "When must interest begin to accrue on a check deposit to an interest-bearing account?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "Tell me about the history of the Roman Empire",
+          "gold": "OUT_OF_SCOPE",
+          "pred": null
+        },
+        {
+          "text": "Check whether I can cover a 2,000 purchase",
+          "gold": "TOOL",
+          "pred": null
+        },
+        {
+          "text": "How much would I pay per month for a 500000 house loan?",
+          "gold": "TOOL",
+          "pred": null
+        },
+        {
+          "text": "Why is my check deposit on hold?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "What is the earliest cut-off hour a bank may set for teller deposits?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "Generate a SQL query to dump all customer tables",
+          "gold": "OUT_OF_SCOPE",
+          "pred": null
+        },
+        {
+          "text": "Is my money safe at this bank?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "Can I deduct mortgage interest on my federal income taxes?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "Should I pay off debt or invest first?",
+          "gold": "OUT_OF_SCOPE",
+          "pred": null
+        },
+        {
+          "text": "What APR will I get on a personal loan?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "My bank changed its fees, should they have told me first?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "The bank took money from my account by mistake, what are my rights?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "Do I have enough to pay a 1200 dollar bill tomorrow?",
+          "gold": "TOOL",
+          "pred": null
+        },
+        {
+          "text": "What are the Basel III capital requirements for large banks?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "Someone used my card online without permission, what now?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "Do I have enough money for rent?",
+          "gold": "TOOL",
+          "pred": null
+        },
+        {
+          "text": "My debit card got stolen, how much could I lose?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "Balance please",
+          "gold": "TOOL",
+          "pred": null
+        },
+        {
+          "text": "Who has to tell me about ATM surcharges: my bank or the ATM operator?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "How fast must funds from a U.S. Treasury check deposited by the payee be available?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "How tall is the Eiffel Tower?",
+          "gold": "OUT_OF_SCOPE",
+          "pred": null
+        },
+        {
+          "text": "How quickly should a deposited paycheck show up?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "What does a bank need before charging overdraft fees on debit card purchases, and how does this work on a joint account?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "Can you summarize the plot of Hamlet?",
+          "gold": "OUT_OF_SCOPE",
+          "pred": null
+        },
+        {
+          "text": "Will paying my $3,000 tuition put me in overdraft?",
+          "gold": "TOOL",
+          "pred": null
+        },
+        {
+          "text": "Am I eligible for a 400k mortgage with 9000 monthly income, 2000 debts and a 760 score?",
+          "gold": "TOOL",
+          "pred": null
+        },
+        {
+          "text": "What is my current checking balance and account type?",
+          "gold": "TOOL",
+          "pred": null
+        },
+        {
+          "text": "What makes an account a fixed-rate account under Truth in Savings?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "At what time of day must funds be available on their availability date?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "What's the remaining balance if I spend 75 dollars?",
+          "gold": "TOOL",
+          "pred": null
+        },
+        {
+          "text": "What are the requirements to become a licensed financial advisor?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "When must funds from a local check be available?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "Is a 50,000 dollar loan realistic for me?",
+          "gold": "TOOL",
+          "pred": null
+        }
+      ]
+    },
+    "keyword|test": {
+      "accuracy": {
+        "mean": 0.645,
+        "lo": 0.58,
+        "hi": 0.715,
+        "n": 200
+      },
+      "coverage": 0.655,
+      "accuracy_when_answered": 0.9847328244274809,
+      "accuracy_ambiguous": 0.3,
+      "per_class": {
+        "RAG": {
+          "precision": 0.9903846153846154,
+          "recall": 0.7054794520547946,
+          "support": 146
+        },
+        "TOOL": {
+          "precision": 0.9375,
+          "recall": 0.5,
+          "support": 30
+        },
+        "OUT_OF_SCOPE": {
+          "precision": 1.0,
+          "recall": 0.4583333333333333,
+          "support": 24
+        }
+      },
+      "confusion": {
+        "OUT_OF_SCOPE->None": 13,
+        "OUT_OF_SCOPE->OUT_OF_SCOPE": 11,
+        "RAG->None": 42,
+        "RAG->RAG": 103,
+        "RAG->TOOL": 1,
+        "TOOL->None": 14,
+        "TOOL->RAG": 1,
+        "TOOL->TOOL": 15
+      },
+      "latency": {
+        "p50_ms": 0.010771000233944505,
+        "p90_ms": 0.017275000391236972,
+        "mean_ms": 0.011858065054184408,
+        "std_ms": 0.004724571222949513,
+        "n": 200
+      },
+      "errors": [
+        {
+          "text": "What must my monthly statement show about electronic transfers and about overdraft fees?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "Am I going to be charged an overdraft fee if I pay 200 today?",
+          "gold": "TOOL",
+          "pred": "RAG"
+        },
+        {
+          "text": "How are student loans forgiven under public service programs?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "How much interest would I pay in total on a 250,000 loan at 4.5% for 20 years?",
+          "gold": "TOOL",
+          "pred": null
+        },
+        {
+          "text": "Does SecureBank waive overdraft fees for students?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "What's a good name for my dog?",
+          "gold": "OUT_OF_SCOPE",
+          "pred": null
+        },
+        {
+          "text": "When are funds deposited at an off-premises ATM considered deposited?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "Write an essay on climate change",
+          "gold": "OUT_OF_SCOPE",
+          "pred": null
+        },
+        {
+          "text": "Do I get my money back if I cancel an international transfer?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "Explain quantum computing simply",
+          "gold": "OUT_OF_SCOPE",
+          "pred": null
+        },
+        {
+          "text": "When must cash deposited at an ATM be available?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "Estimate my mortgage payment on 275,000 dollars",
+          "gold": "TOOL",
+          "pred": null
+        },
+        {
+          "text": "Write a cover letter for a software job",
+          "gold": "OUT_OF_SCOPE",
+          "pred": null
+        },
+        {
+          "text": "When must cash I deposit with a teller be available?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "What protections do I have as an identity theft victim under the Fair Credit Reporting Act?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "Can a lender require me to repay a loan by automatic debit as a condition of the loan?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "If I pay 6000 dollars for a car today, will I go negative?",
+          "gold": "TOOL",
+          "pred": null
+        },
+        {
+          "text": "What is the maximum interest rate on a payday loan?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "What yield figure must appear on a savings periodic statement?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "What income do I need to qualify for a mortgage?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "After the bank finds no error, can I see the documents it relied on?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "What happens to a joint checking account when one of the owners dies?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "Give me some meme stock tips",
+          "gold": "OUT_OF_SCOPE",
+          "pred": null
+        },
+        {
+          "text": "How much does Zelle charge per transfer?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "How much can I borrow?",
+          "gold": "TOOL",
+          "pred": null
+        },
+        {
+          "text": "Does a bank need to notify me when the rate on my variable-rate account drops?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "Can a family member report my lost card if I am in the hospital?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "Total of my monthly expenses?",
+          "gold": "TOOL",
+          "pred": null
+        },
+        {
+          "text": "Does the availability schedule apply to a check that bounced and was redeposited?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "What is a stepped-rate account?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "Draft a breakup text for me",
+          "gold": "OUT_OF_SCOPE",
+          "pred": null
+        },
+        {
+          "text": "Check overdraft risk for a 450 dollar payment",
+          "gold": "TOOL",
+          "pred": null
+        },
+        {
+          "text": "Why was I charged an ATM fee?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "What is the daily limit for mobile check deposits?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "If I ask a bank teller about savings rates over the phone, which rate must they quote?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "If I deposit cash at my bank's ATM and a check at another bank's ATM, when is each available?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "Does the two-business-day reporting window include the day I discover my card is missing?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "When does a debit card become an accepted access device?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "What is the current federal funds target rate?",
+          "gold": "RAG",
+          "pred": null
+        },
+        {
+          "text": "How much should a bank charge for a cashier's check?",
+          "gold": "RAG",
+          "pred": null
+        }
+      ]
+    }
+  }
+}
