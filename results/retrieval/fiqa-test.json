@@ -1,0 +1,810 @@
+{
+  "meta": {
+    "date": "2026-10-14T05:21:02+00:00",
+    "git_sha": "a89c5ce1e307300528fde8af76386a17405ccbba-dirty",
+    "seed": null,
+    "config": {
+      "dense_model": "BAAI/bge-small-en-v1.5",
+      "dense_query_prefix": "Represent this sentence for searching relevant passages: ",
+      "reranker": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+      "device": "mps",
+      "chunk_max_chars": 1200,
+      "contexts_path": "data/corpus/contextual_mistral.jsonl",
+      "ks": [
+        5,
+        10,
+        20
+      ],
+      "bootstrap": {
+        "n_boot": 2000,
+        "seed": 0
+      },
+      "latency": {
+        "warmup_queries": 5
+      },
+      "llm": {
+        "model": "mistral",
+        "temperature": 0.0
+      },
+      "hyde_llm": {
+        "model": "mistral",
+        "temperature": 0.7,
+        "seeds": [
+          0,
+          1,
+          2
+        ]
+      },
+      "defaults": {
+        "candidates": 50,
+        "rrf_k": 60,
+        "context_k": 5,
+        "prefix": "none",
+        "sparse": false,
+        "dense": false,
+        "rerank": false,
+        "hyde": 0,
+        "crag": false
+      },
+      "variants": [
+        {
+          "name": "bm25",
+          "sparse": true
+        },
+        {
+          "name": "dense_bge_small",
+          "dense": true
+        },
+        {
+          "name": "dense+rerank",
+          "dense": true,
+          "rerank": true
+        },
+        {
+          "name": "hybrid_rrf",
+          "sparse": true,
+          "dense": true
+        },
+        {
+          "name": "hybrid_rrf+rerank",
+          "sparse": true,
+          "dense": true,
+          "rerank": true
+        },
+        {
+          "name": "dense+title_prefix",
+          "dense": true,
+          "prefix": "title",
+          "datasets": [
+            "ecfr"
+          ]
+        },
+        {
+          "name": "hybrid_rrf+title_prefix",
+          "sparse": true,
+          "dense": true,
+          "prefix": "title",
+          "datasets": [
+            "ecfr"
+          ]
+        },
+        {
+          "name": "hybrid_rrf+rerank+title_prefix",
+          "sparse": true,
+          "dense": true,
+          "rerank": true,
+          "prefix": "title",
+          "datasets": [
+            "ecfr"
+          ]
+        },
+        {
+          "name": "dense+contextual",
+          "dense": true,
+          "prefix": "llm",
+          "requires_llm": true,
+          "datasets": [
+            "ecfr"
+          ]
+        },
+        {
+          "name": "hybrid_rrf+rerank+contextual",
+          "sparse": true,
+          "dense": true,
+          "rerank": true,
+          "prefix": "llm",
+          "requires_llm": true,
+          "datasets": [
+            "ecfr"
+          ]
+        },
+        {
+          "name": "dense+title_prefix+hyde3",
+          "dense": true,
+          "prefix": "title",
+          "hyde": 3,
+          "requires_llm": true,
+          "datasets": [
+            "ecfr"
+          ]
+        },
+        {
+          "name": "dense+hyde3",
+          "dense": true,
+          "hyde": 3,
+          "requires_llm": true,
+          "datasets": [
+            "fiqa"
+          ]
+        },
+        {
+          "name": "dense+title_prefix+crag",
+          "dense": true,
+          "prefix": "title",
+          "crag": true,
+          "requires_llm": true,
+          "datasets": [
+            "ecfr"
+          ]
+        }
+      ]
+    },
+    "hardware": {
+      "machine": "arm64",
+      "platform": "macOS-15.6.1-arm64-arm-64bit",
+      "python": "3.11.15",
+      "cpu": "Apple M4",
+      "ram_gb": 16.0,
+      "cuda": null,
+      "mps": true
+    },
+    "versions": {
+      "torch": "2.14.1",
+      "transformers": "5.19.0",
+      "sentence-transformers": "6.1.0",
+      "faiss-cpu": "1.15.1",
+      "rank-bm25": "0.2.2",
+      "langgraph": "1.2.15",
+      "langchain-core": "1.6.10",
+      "langchain-ollama": "1.1.0",
+      "ragas": "0.4.3",
+      "presidio-analyzer": "2.2.362",
+      "datasets": "5.1.0",
+      "numpy": "2.4.6"
+    },
+    "dataset": "fiqa",
+    "split": "test",
+    "device": "mps",
+    "prompts": {
+      "hyde": "Write a short passage (3-4 sentences) from a US federal banking regulation (Regulation E, DD or CC) or its official interpretation that answers the question. Use regulatory language. Do not mention that the passage is hypothetical.\n\nQuestion: {question}\n\nPassage:",
+      "contextual": "<document>\n{document}\n</document>\nHere is the chunk we want to situate within the whole document\n<chunk>\n{chunk}\n</chunk>\nPlease give a short succinct context to situate this chunk within the overall document for the purposes of improving search retrieval of the chunk. Answer only with the succinct context and nothing else.",
+      "crag_grader": "You are grading whether retrieved regulation excerpts contain the information needed to answer a question.\n\nQuestion: {question}\n\nExcerpts:\n{context}\n\nReply with exactly one word:\nCORRECT - the excerpts contain the answer\nAMBIGUOUS - the excerpts are related but may be incomplete\nINCORRECT - the excerpts do not address the question\n\nGrade:",
+      "crag_rewrite": "Rewrite the question as a search query for US banking regulations (Regulation E, DD, CC). Use the legal terms a regulation would use. Output only the query.\n\nQuestion: {question}\nQuery:"
+    },
+    "n_queries": 648
+  },
+  "variants": [
+    {
+      "name": "bm25",
+      "config": {
+        "candidates": 50,
+        "rrf_k": 60,
+        "context_k": 5,
+        "prefix": "none",
+        "sparse": true,
+        "dense": false,
+        "rerank": false,
+        "hyde": 0,
+        "crag": false,
+        "name": "bm25"
+      },
+      "runs": [
+        {
+          "seed": null,
+          "metrics": {
+            "recall@5": {
+              "mean": 0.2353179399475696,
+              "lo": 0.20811812737159957,
+              "hi": 0.2637721463849936,
+              "n": 648
+            },
+            "recall@10": {
+              "mean": 0.3007721959110848,
+              "lo": 0.27058187001184686,
+              "hi": 0.32961949466000395,
+              "n": 648
+            },
+            "recall@20": {
+              "mean": 0.38196347976440564,
+              "lo": 0.351014860803634,
+              "hi": 0.4126430125301654,
+              "n": 648
+            },
+            "hit@5": {
+              "mean": 0.3950617283950617,
+              "lo": 0.3579861111111111,
+              "hi": 0.4351851851851852,
+              "n": 648
+            },
+            "mrr@10": {
+              "mean": 0.303405472271213,
+              "lo": 0.27314242234959824,
+              "hi": 0.33487502755731924,
+              "n": 648
+            },
+            "ndcg@10": {
+              "mean": 0.24265626912102448,
+              "lo": 0.2180670362783617,
+              "hi": 0.2674945226113036,
+              "n": 648
+            }
+          },
+          "latency": {
+            "p50_ms": 32.17241700076556,
+            "p90_ms": 52.114282799811924,
+            "mean_ms": 34.16055308091023,
+            "std_ms": 12.7786832675769,
+            "n": 643
+          },
+          "wall_s": 22.12065616700056,
+          "grades": {},
+          "abstained": 0
+        }
+      ]
+    },
+    {
+      "name": "dense_bge_small",
+      "config": {
+        "candidates": 50,
+        "rrf_k": 60,
+        "context_k": 5,
+        "prefix": "none",
+        "sparse": false,
+        "dense": true,
+        "rerank": false,
+        "hyde": 0,
+        "crag": false,
+        "name": "dense_bge_small"
+      },
+      "runs": [
+        {
+          "seed": null,
+          "metrics": {
+            "recall@5": {
+              "mean": 0.3805628442202516,
+              "lo": 0.3503425973246575,
+              "hi": 0.41093619996687125,
+              "n": 648
+            },
+            "recall@10": {
+              "mean": 0.4638786410777152,
+              "lo": 0.4318245797412464,
+              "hi": 0.49377346815136164,
+              "n": 648
+            },
+            "recall@20": {
+              "mean": 0.5429184669925411,
+              "lo": 0.5124281477695829,
+              "hi": 0.5717575301284792,
+              "n": 648
+            },
+            "hit@5": {
+              "mean": 0.5879629629629629,
+              "lo": 0.5509259259259259,
+              "hi": 0.6234953703703702,
+              "n": 648
+            },
+            "mrr@10": {
+              "mean": 0.48786130707427,
+              "lo": 0.45385900450715266,
+              "hi": 0.5215471291397217,
+              "n": 648
+            },
+            "ndcg@10": {
+              "mean": 0.40347442843300146,
+              "lo": 0.37447338375518735,
+              "hi": 0.43234440097711135,
+              "n": 648
+            }
+          },
+          "latency": {
+            "p50_ms": 9.072958000615472,
+            "p90_ms": 9.65324159951706,
+            "mean_ms": 9.946118502285369,
+            "std_ms": 9.942544762671735,
+            "n": 643
+          },
+          "wall_s": 6.557734874999369,
+          "grades": {},
+          "abstained": 0
+        }
+      ]
+    },
+    {
+      "name": "dense+rerank",
+      "config": {
+        "candidates": 50,
+        "rrf_k": 60,
+        "context_k": 5,
+        "prefix": "none",
+        "sparse": false,
+        "dense": true,
+        "rerank": true,
+        "hyde": 0,
+        "crag": false,
+        "name": "dense+rerank"
+      },
+      "runs": [
+        {
+          "seed": null,
+          "metrics": {
+            "recall@5": {
+              "mean": 0.37618434805934803,
+              "lo": 0.3461795602160185,
+              "hi": 0.40745923454546135,
+              "n": 648
+            },
+            "recall@10": {
+              "mean": 0.45530458481847363,
+              "lo": 0.4238824016775406,
+              "hi": 0.4863051396905564,
+              "n": 648
+            },
+            "recall@20": {
+              "mean": 0.5299602532241421,
+              "lo": 0.49878854962767,
+              "hi": 0.560446837541745,
+              "n": 648
+            },
+            "hit@5": {
+              "mean": 0.5802469135802469,
+              "lo": 0.5416666666666666,
+              "hi": 0.6172839506172839,
+              "n": 648
+            },
+            "mrr@10": {
+              "mean": 0.45231297766019996,
+              "lo": 0.41879562267293746,
+              "hi": 0.4855154902753282,
+              "n": 648
+            },
+            "ndcg@10": {
+              "mean": 0.3811058029128741,
+              "lo": 0.3530694534832756,
+              "hi": 0.41030054089051016,
+              "n": 648
+            }
+          },
+          "latency": {
+            "p50_ms": 300.4485419987759,
+            "p90_ms": 346.64149199816177,
+            "mean_ms": 307.13362922087384,
+            "std_ms": 32.63971648915671,
+            "n": 643
+          },
+          "wall_s": 198.97033499999998,
+          "grades": {},
+          "abstained": 0
+        }
+      ]
+    },
+    {
+      "name": "hybrid_rrf",
+      "config": {
+        "candidates": 50,
+        "rrf_k": 60,
+        "context_k": 5,
+        "prefix": "none",
+        "sparse": true,
+        "dense": true,
+        "rerank": false,
+        "hyde": 0,
+        "crag": false,
+        "name": "hybrid_rrf"
+      },
+      "runs": [
+        {
+          "seed": null,
+          "metrics": {
+            "recall@5": {
+              "mean": 0.34816946599354004,
+              "lo": 0.31828215326768566,
+              "hi": 0.37860023967373496,
+              "n": 648
+            },
+            "recall@10": {
+              "mean": 0.44419694246083136,
+              "lo": 0.4126498867644701,
+              "hi": 0.474996685413352,
+              "n": 648
+            },
+            "recall@20": {
+              "mean": 0.5325716122012417,
+              "lo": 0.5004126284595034,
+              "hi": 0.563106938821638,
+              "n": 648
+            },
+            "hit@5": {
+              "mean": 0.5555555555555556,
+              "lo": 0.5185185185185185,
+              "hi": 0.5925925925925926,
+              "n": 648
+            },
+            "mrr@10": {
+              "mean": 0.4315353713501861,
+              "lo": 0.3990747476974329,
+              "hi": 0.46630849806486385,
+              "n": 648
+            },
+            "ndcg@10": {
+              "mean": 0.361739195393998,
+              "lo": 0.3355480321311448,
+              "hi": 0.389090553033688,
+              "n": 648
+            }
+          },
+          "latency": {
+            "p50_ms": 48.44608300118125,
+            "p90_ms": 68.82525839828304,
+            "mean_ms": 50.34951587875193,
+            "std_ms": 13.24379324983229,
+            "n": 643
+          },
+          "wall_s": 32.62617158300054,
+          "grades": {},
+          "abstained": 0
+        }
+      ]
+    },
+    {
+      "name": "hybrid_rrf+rerank",
+      "config": {
+        "candidates": 50,
+        "rrf_k": 60,
+        "context_k": 5,
+        "prefix": "none",
+        "sparse": true,
+        "dense": true,
+        "rerank": true,
+        "hyde": 0,
+        "crag": false,
+        "name": "hybrid_rrf+rerank"
+      },
+      "runs": [
+        {
+          "seed": null,
+          "metrics": {
+            "recall@5": {
+              "mean": 0.3813412410634633,
+              "lo": 0.351398916691162,
+              "hi": 0.4135066229423869,
+              "n": 648
+            },
+            "recall@10": {
+              "mean": 0.45158863341733707,
+              "lo": 0.42022138537474185,
+              "hi": 0.4826323447214651,
+              "n": 648
+            },
+            "recall@20": {
+              "mean": 0.5264323039786002,
+              "lo": 0.49351321721402747,
+              "hi": 0.5560240271987957,
+              "n": 648
+            },
+            "hit@5": {
+              "mean": 0.5848765432098766,
+              "lo": 0.5462962962962963,
+              "hi": 0.6234567901234568,
+              "n": 648
+            },
+            "mrr@10": {
+              "mean": 0.4450758132471095,
+              "lo": 0.412356793797766,
+              "hi": 0.47773106812169314,
+              "n": 648
+            },
+            "ndcg@10": {
+              "mean": 0.3739511936616386,
+              "lo": 0.3465041931131192,
+              "hi": 0.40242402513034475,
+              "n": 648
+            }
+          },
+          "latency": {
+            "p50_ms": 384.83137499861186,
+            "p90_ms": 440.2511327978573,
+            "mean_ms": 391.20934442445906,
+            "std_ms": 41.59510358546859,
+            "n": 643
+          },
+          "wall_s": 253.1657225409981,
+          "grades": {},
+          "abstained": 0
+        }
+      ]
+    }
+  ],
+  "comparisons": [
+    {
+      "variant": "bm25",
+      "reference": "dense_bge_small",
+      "metric": "ndcg@10",
+      "delta": -0.16081815931197696,
+      "lo": -0.1841524530800742,
+      "hi": -0.13719921697485435,
+      "p": 0.0,
+      "n": 648
+    },
+    {
+      "variant": "bm25",
+      "reference": "dense_bge_small",
+      "metric": "recall@5",
+      "delta": -0.14524490427268205,
+      "lo": -0.17273298781979335,
+      "hi": -0.11732689828175939,
+      "p": 0.0,
+      "n": 648
+    },
+    {
+      "variant": "bm25",
+      "reference": "hybrid_rrf+rerank",
+      "metric": "ndcg@10",
+      "delta": -0.13129492454061406,
+      "lo": -0.15137413508859981,
+      "hi": -0.11155444736813001,
+      "p": 0.0,
+      "n": 648
+    },
+    {
+      "variant": "bm25",
+      "reference": "hybrid_rrf+rerank",
+      "metric": "recall@5",
+      "delta": -0.1460233011158937,
+      "lo": -0.1712315342407935,
+      "hi": -0.12182759445201574,
+      "p": 0.0,
+      "n": 648
+    },
+    {
+      "variant": "dense_bge_small",
+      "reference": "bm25",
+      "metric": "ndcg@10",
+      "delta": 0.16081815931197696,
+      "lo": 0.13719921697485435,
+      "hi": 0.1841524530800742,
+      "p": 0.0,
+      "n": 648
+    },
+    {
+      "variant": "dense_bge_small",
+      "reference": "bm25",
+      "metric": "recall@5",
+      "delta": 0.14524490427268205,
+      "lo": 0.11732689828175939,
+      "hi": 0.17273298781979335,
+      "p": 0.0,
+      "n": 648
+    },
+    {
+      "variant": "dense_bge_small",
+      "reference": "hybrid_rrf+rerank",
+      "metric": "ndcg@10",
+      "delta": 0.02952323477136291,
+      "lo": 0.011838111490975438,
+      "hi": 0.04729320307251261,
+      "p": 0.001,
+      "n": 648
+    },
+    {
+      "variant": "dense_bge_small",
+      "reference": "hybrid_rrf+rerank",
+      "metric": "recall@5",
+      "delta": -0.0007783968432116577,
+      "lo": -0.02266636270108492,
+      "hi": 0.020553672472075245,
+      "p": 0.936,
+      "n": 648
+    },
+    {
+      "variant": "dense+rerank",
+      "reference": "bm25",
+      "metric": "ndcg@10",
+      "delta": 0.1384495337918496,
+      "lo": 0.11804356306931445,
+      "hi": 0.1589997015948395,
+      "p": 0.0,
+      "n": 648
+    },
+    {
+      "variant": "dense+rerank",
+      "reference": "bm25",
+      "metric": "recall@5",
+      "delta": 0.14086640811177847,
+      "lo": 0.11581823569092087,
+      "hi": 0.16616071193038784,
+      "p": 0.0,
+      "n": 648
+    },
+    {
+      "variant": "dense+rerank",
+      "reference": "dense_bge_small",
+      "metric": "ndcg@10",
+      "delta": -0.022368625520127344,
+      "lo": -0.03884606724736244,
+      "hi": -0.005910925302801315,
+      "p": 0.0068,
+      "n": 648
+    },
+    {
+      "variant": "dense+rerank",
+      "reference": "dense_bge_small",
+      "metric": "recall@5",
+      "delta": -0.00437849616090357,
+      "lo": -0.025024878135410537,
+      "hi": 0.01597632520086223,
+      "p": 0.6754,
+      "n": 648
+    },
+    {
+      "variant": "dense+rerank",
+      "reference": "hybrid_rrf+rerank",
+      "metric": "ndcg@10",
+      "delta": 0.007154609251235564,
+      "lo": -0.0015415188783923276,
+      "hi": 0.015446678666517201,
+      "p": 0.1024,
+      "n": 648
+    },
+    {
+      "variant": "dense+rerank",
+      "reference": "hybrid_rrf+rerank",
+      "metric": "recall@5",
+      "delta": -0.0051568930041152265,
+      "lo": -0.016139724794238683,
+      "hi": 0.0046039094650205765,
+      "p": 0.3236,
+      "n": 648
+    },
+    {
+      "variant": "hybrid_rrf",
+      "reference": "bm25",
+      "metric": "ndcg@10",
+      "delta": 0.1190829262729736,
+      "lo": 0.10397481445924625,
+      "hi": 0.1339895974245137,
+      "p": 0.0,
+      "n": 648
+    },
+    {
+      "variant": "hybrid_rrf",
+      "reference": "bm25",
+      "metric": "recall@5",
+      "delta": 0.11285152604597048,
+      "lo": 0.09181559909569169,
+      "hi": 0.13381402526657155,
+      "p": 0.0,
+      "n": 648
+    },
+    {
+      "variant": "hybrid_rrf",
+      "reference": "dense+rerank",
+      "metric": "ndcg@10",
+      "delta": -0.019366607518876037,
+      "lo": -0.03558443289624775,
+      "hi": -0.003527779891616259,
+      "p": 0.0178,
+      "n": 648
+    },
+    {
+      "variant": "hybrid_rrf",
+      "reference": "dense+rerank",
+      "metric": "recall@5",
+      "delta": -0.028014882065807996,
+      "lo": -0.04946096630992465,
+      "hi": -0.006497274052250914,
+      "p": 0.0102,
+      "n": 648
+    },
+    {
+      "variant": "hybrid_rrf",
+      "reference": "dense_bge_small",
+      "metric": "ndcg@10",
+      "delta": -0.04173523303900338,
+      "lo": -0.05912153184081744,
+      "hi": -0.02458390487479227,
+      "p": 0.0,
+      "n": 648
+    },
+    {
+      "variant": "hybrid_rrf",
+      "reference": "dense_bge_small",
+      "metric": "recall@5",
+      "delta": -0.03239337822671156,
+      "lo": -0.055559360692462534,
+      "hi": -0.008809708916769111,
+      "p": 0.008,
+      "n": 648
+    },
+    {
+      "variant": "hybrid_rrf",
+      "reference": "hybrid_rrf+rerank",
+      "metric": "ndcg@10",
+      "delta": -0.012211998267640474,
+      "lo": -0.029402778078763087,
+      "hi": 0.0043545902451940875,
+      "p": 0.1492,
+      "n": 648
+    },
+    {
+      "variant": "hybrid_rrf",
+      "reference": "hybrid_rrf+rerank",
+      "metric": "recall@5",
+      "delta": -0.033171775069923214,
+      "lo": -0.056215295870967165,
+      "hi": -0.010697475749559088,
+      "p": 0.0034,
+      "n": 648
+    },
+    {
+      "variant": "hybrid_rrf+rerank",
+      "reference": "bm25",
+      "metric": "ndcg@10",
+      "delta": 0.13129492454061406,
+      "lo": 0.11155444736813,
+      "hi": 0.15137413508859981,
+      "p": 0.0,
+      "n": 648
+    },
+    {
+      "variant": "hybrid_rrf+rerank",
+      "reference": "bm25",
+      "metric": "recall@5",
+      "delta": 0.1460233011158937,
+      "lo": 0.12182759445201573,
+      "hi": 0.17123153424079346,
+      "p": 0.0,
+      "n": 648
+    },
+    {
+      "variant": "hybrid_rrf+rerank",
+      "reference": "dense_bge_small",
+      "metric": "ndcg@10",
+      "delta": -0.02952323477136291,
+      "lo": -0.04729320307251263,
+      "hi": -0.01183811149097545,
+      "p": 0.001,
+      "n": 648
+    },
+    {
+      "variant": "hybrid_rrf+rerank",
+      "reference": "dense_bge_small",
+      "metric": "recall@5",
+      "delta": 0.0007783968432116577,
+      "lo": -0.02055367247207525,
+      "hi": 0.02266636270108491,
+      "p": 0.936,
+      "n": 648
+    },
+    {
+      "variant": "hybrid_rrf+rerank",
+      "reference": "hybrid_rrf",
+      "metric": "ndcg@10",
+      "delta": 0.012211998267640474,
+      "lo": -0.004354590245194093,
+      "hi": 0.029402778078763087,
+      "p": 0.1492,
+      "n": 648
+    },
+    {
+      "variant": "hybrid_rrf+rerank",
+      "reference": "hybrid_rrf",
+      "metric": "recall@5",
+      "delta": 0.033171775069923214,
+      "lo": 0.010697475749559085,
+      "hi": 0.05621529587096714,
+      "p": 0.0034,
+      "n": 648
+    }
+  ]
+}
