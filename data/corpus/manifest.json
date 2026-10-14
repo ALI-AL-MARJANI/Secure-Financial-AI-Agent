@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-14T04:44:34+00:00",
+  "git_sha": "a89c5ce1e307300528fde8af76386a17405ccbba",
+  "seed": null,
+  "config": {
+    "ecfr": {
+      "title": 12,
+      "date": "2026-10-05",
+      "parts": {
+        "1005": "Regulation E (Electronic Fund Transfers)",
+        "1030": "Regulation DD (Truth in Savings)",
+        "229": "Regulation CC (Availability of Funds and Collection of Checks)"
+      }
+    },
+    "raw_dir": "data/raw/ecfr",
+    "passages": "data/corpus/passages.jsonl",
+    "manifest": "data/corpus/manifest.json",
+    "chunking": {
+      "max_chars": 1200
+    }
+  },
+  "hardware": {
+    "machine": "arm64",
+    "platform": "macOS-15.6.1-arm64-arm-64bit",
+    "python": "3.11.15",
+    "cpu": "Apple M4",
+    "ram_gb": 16.0,
+    "cuda": null,
+    "mps": true
+  },
+  "versions": {
+    "torch": "2.14.1",
+    "transformers": "5.19.0",
+    "sentence-transformers": "6.1.0",
+    "faiss-cpu": "1.15.1",
+    "rank-bm25": "0.2.2",
+    "langgraph": "1.2.15",
+    "langchain-core": "1.6.10",
+    "langchain-ollama": "1.1.0",
+    "ragas": "0.4.3",
+    "presidio-analyzer": "2.2.362",
+    "datasets": "5.1.0",
+    "numpy": "2.4.6"
+  },
+  "license": "Public domain (US federal regulations, 17 U.S.C. 105)",
+  "sources": [
+    {
+      "part": "1005",
+      "name": "Regulation E (Electronic Fund Transfers)",
+      "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-10-05/title-12.xml?part=1005",
+      "sha256": "0669a14f83f836f4086de21514f3bcd40041784e50c444b415f4d8e1909a10d0",
+      "n_passages": 500
+    },
+    {
+      "part": "1030",
+      "name": "Regulation DD (Truth in Savings)",
+      "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-10-05/title-12.xml?part=1030",
+      "sha256": "a31899e46c5b515c6e5b69bc6ec15ca0a4fb67e4e89ad45c772872cc4dc0a8fc",
+      "n_passages": 153
+    },
+    {
+      "part": "229",
+      "name": "Regulation CC (Availability of Funds and Collection of Checks)",
+      "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-10-05/title-12.xml?part=229",
+      "sha256": "f4ea58812edfc6182c98bc2827deecb30c48e6edfea53eea8002067039473333",
+      "n_passages": 624
+    }
+  ],
+  "n_passages": 1277,
+  "n_chunks": 2288,
+  "n_words": 248772,
+  "approx_pages_500_words": 498,
+  "passages_per_regulation": {
+    "Regulation E": 500,
+    "Regulation DD": 153,
+    "Regulation CC": 624
+  }
+}

@@ -1,0 +1,13 @@
+# US consumer-banking regulations, 12 CFR (public domain, eCFR versioner API).
+ecfr:
+  title: 12
+  date: "2026-10-05"   # eCFR issue date; pin it so passage IDs and gold labels stay valid
+  parts:
+    "1005": Regulation E (Electronic Fund Transfers)
+    "1030": Regulation DD (Truth in Savings)
+    "229": Regulation CC (Availability of Funds and Collection of Checks)
+raw_dir: data/raw/ecfr          # not committed
+passages: data/corpus/passages.jsonl
+manifest: data/corpus/manifest.json
+chunking:
+  max_chars: 1200
