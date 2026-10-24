@@ -1,100 +1,110 @@
 # Secure Financial AI Agent
 
-A banking assistant that runs fully on a laptop (Mistral 7B through Ollama, LangGraph). It answers questions about US
-banking regulations with citations, and checks every tool call before it touches an account.
+A banking assistant that runs fully on a laptop. It answers questions about US banking rules with citations, can look
+up account data through tools, and checks every step so a trick message can't reach the wrong customer's money.
 
-## TL;DR
+The model is Mistral 7B, run locally with Ollama (a tool to run LLMs on your own machine). The agent's steps are wired
+together with LangGraph (a library that runs an LLM app as a graph of steps).
 
-- Three guard layers: one on the user's message, one on every tool call, one on the answer.
-- The best retrieval trick was the cheapest: putting the citation title in front of each chunk gave +0.083 nDCG@10.
-  Hybrid BM25 and a reranker made things worse.
-- The ML injection detector flagged 4.97 % of real customer questions, so the input keeps regex and the later guards
-  do the real work.
-- The first version's README had metrics that couldn't be reproduced. Fixing that changed what the project believed
-  about its own system.
+## In short
 
-▶️ 2-min walkthrough: <VIDEO_LINK>
+- Three safety checks: one on the user's message, one on every tool call, one on the final answer.
+- The best search trick was the cheapest: writing the rule's title in front of each piece of text gave +0.083 nDCG@10
+  (a score for "is the right passage near the top?"). Heavier models made results worse.
+- An ML attack detector blocked 4.97 % of normal customer questions, so the first check uses simple patterns and the
+  later checks do the real work.
+- The first version's evaluation could not be reproduced. Starting over with honest numbers changed the design.
+
+![Three guard layers and what each one stopped](assets/guard_layers.png)
 
 ## How it started
 
 In a bank, an LLM can't simply be plugged into customer data. That was the starting point. The first version was a
-LangGraph demo over a small hand-written policy file (8 KB), with Mistral running locally in Ollama. It answered
-questions, but it also repeated IBANs back to the user and obeyed "ignore your instructions".
+RAG demo (RAG = the model first searches a document collection, then answers from what it found) over a small
+hand-written policy file. It answered questions, but it also repeated IBANs (bank account numbers) back to the user
+and obeyed "ignore your instructions", a classic prompt injection.
 
-Regex filters and a tool check patched the obvious holes. The README of that version called the project
-"production-grade" and listed gains taken from the papers it implemented, none of them measured on this code.
+## The first evaluation was wrong
 
-## The metric that lied: 0.087
+v0.1 graded itself with RAGAS, a library where an LLM acts as a judge and scores a RAG system. It reported a context
+precision of 0.087, but the score could not be reproduced: the script never named a judge model, so RAGAS silently
+used OpenAI's API in a project meant to be 100 % local. Its 12 attack patterns, once tested on public attack sets,
+caught only 23.0 % of attacks. v0.1 was deleted; the details are in [`docs/devlog.md`](docs/devlog.md).
 
-That README showed RAGAS context recall 0.920 and context precision 0.087, and explained the gap as "the chunks are
-longer than the answers". That was wrong: context precision is scored by an LLM judge that decides if each retrieved
-chunk is relevant. Trying to rerun it showed the script never passed a judge, so RAGAS had quietly used OpenAI in a
-"100 % local" project, and neither the version nor the outputs had been logged.
+## Starting over with real data
 
-The recall was hollow too. Five chunks from an 8 KB file is about a third of the knowledge base for every question.
-And once the 12 injection patterns were tested on public attacks, they caught 23.0 %. v0.1 was thrown away, with the
-reasons written down in [`docs/devlog.md`](docs/devlog.md).
+v0.2 uses real US banking regulations from the eCFR (the official online Code of Federal Regulations):
 
-## Starting over with a real corpus
+- **Reg E**: electronic transfers, debit cards, what happens when a card is stolen.
+- **Reg DD**: savings accounts, interest rates and how they must be disclosed.
+- **Reg CC**: how fast a bank must make deposited money, like a check, available.
 
-v0.2 uses real regulations: Reg E, DD and CC from the eCFR API, parsed into 1,277 citable passages. The question set
-has 201 questions, 30 of them unanswerable on purpose, each with its gold passages and a quote that a script checks
-against the text.
+They were split into 1,277 passages that can each be cited, like `1005.6(b)(1)`. A set of 201 test questions was
+written, 30 of them unanswerable on purpose (the right reply is "I don't know"), each with its correct passages.
 
-Before trusting the eval code, the same retriever was run on FiQA, a public finance benchmark: nDCG@10 0.403, the same
-as the published number. (nDCG@10 rewards putting the right passage near the top of the first 10 results.)
+Before trusting this test set, the same search code was run on FiQA, a public finance question-answering benchmark
+with known published scores. It got nDCG@10 0.403, exactly the published number, so the evaluation code was sound.
 
 ## The fancy stuff lost
 
-The expected winner was BM25 + dense fusion with a cross-encoder reranker (a model that reads the question and the
-passage together). Here is the test split, 114 answerable questions:
+Three ways to search were compared:
 
-| Retriever | nDCG@10 | p50 latency |
-|---|---|---|
-| BM25 | 0.340 | 1 ms |
-| dense (BGE-small) | 0.528 | 7 ms |
-| dense + reranker | 0.519 | 182 ms |
-| hybrid BM25 + dense | 0.454 | 9 ms |
-| dense + citation title | **0.611** | 7 ms |
+- **BM25**: classic keyword search, scores passages by shared words.
+- **Dense search**: turns text into vectors (embeddings) and finds passages with a similar meaning.
+- **Hybrid + reranker**: mix both lists, then re-score the top results with a cross-encoder, a bigger model that
+  reads the question and each passage together. Slower, usually more accurate.
 
-Fusion cost 0.074: BM25 is much weaker on this text and drags its bad hits into the top 10. The reranker was trained
-on web search queries and added nothing for 182 ms. What worked was indexing each chunk as
-`Regulation CC, 12 CFR 229.12(b)(1) - <section title>` followed by its text, because a chunk like "(1) A local check;"
-means nothing on its own. One caveat: the questions were drafted by an LLM from the passages, so their wording is
-close to the regulation, which may help this trick.
+The expected winner was the hybrid + reranker setup. The chart puts accuracy against speed for each one:
 
-## Regex vs DeBERTa
+![nDCG@10 vs latency for each retrieval variant](assets/retrieval_tradeoff.png)
 
-ProtectAI's DeBERTa classifier caught 0.796 of 313 public attacks, against 0.355 for the regex. But it also flagged
-4.97 % of real banking questions, things like "What is the tracking number for the card you sent?". The regex flagged
-0 of 3,281. For a bank, blocking about 1 customer in 20 is not an option, so the input keeps the regex.
+Mixing in keyword search cost 0.074: BM25 is much weaker on legal text and pulls bad matches into the top 10. The
+reranker was trained on web searches, not regulations, and added nothing while taking 182 ms instead of 7 ms.
 
-That's fine because the real protection comes later, and that is the core of the project. A tool call must use the
-logged-in customer's ID, so a prompt asking for someone else's balance gets denied. Amounts above $10M wait for human
-approval. And every number in an answer must appear in the retrieved text or the tool output. In live runs, the
-problem wasn't attackers, it was Mistral inventing figures, for example after an approval was declined.
+What worked was one line of formatting. A passage like "(1) A local check;" means nothing alone, so each one is stored
+as `Regulation CC, 12 CFR 229.12(b)(1) - <section title>` followed by its text. One caveat: the test questions were
+drafted by an LLM from the passages, so their wording is close to the rules, which may help this trick.
 
-Getting Mistral 7B to call tools at all took three fixes: tool instructions go in the user turn (it stops calling
-tools when there's a system message), the tool step only sees the current turn, and a small parser catches the
+## Simple patterns vs an ML detector
+
+Prompt injection is a message that tries to make the model ignore its rules. Two detectors were tested on 313 public
+attacks and 3,596 normal messages:
+
+- **Regex** (hand-written text patterns): caught 0.355 of attacks, blocked 0 of 3,281 real banking questions.
+- **DeBERTa** (ProtectAI's small classifier model): caught 0.796 of attacks, but blocked 4.97 % of real questions,
+  like "What is the tracking number for the card you sent?".
+
+Blocking about 1 customer in 20 is not acceptable for a bank, so the first check keeps the regex. That's fine
+because the real protection comes later, and that is the core of the project:
+
+- A tool call must use the logged-in customer's ID, so a request for someone else's balance is denied.
+- Amounts above $10M wait for a human to approve.
+- Every number in an answer must appear in the source text or the tool result. In live runs the main problem was
+  not attackers but Mistral inventing figures, and those answers get flagged or withheld.
+
+Getting Mistral 7B to call tools at all took three fixes: putting tool instructions in the user's message (it stops
+calling tools when there's a system message), showing it only the current turn, and a small parser for the
 `[TOOL_CALLS]` text it sometimes prints instead of a real call.
 
 ## What didn't work
 
-- Hybrid search and the reranker, on both the regulation corpus and FiQA.
-- Questions that need several passages: Recall@5 0.559, against 0.765 for single-passage ones.
-- Contextual Retrieval, HyDE and CRAG are implemented but not benchmarked yet, so no claim is made about them.
+- Hybrid search and the reranker, on both the regulations and FiQA.
+- Questions that need several passages: only 0.559 of their passages land in the top 5, against 0.765 for questions
+  with one passage.
+- Three extra techniques (Contextual Retrieval, HyDE and CRAG, which use the LLM to improve search) are built but not
+  tested yet, so no claim is made about them.
 
 ## Lessons
 
-- Build the eval set before the agent, and check how each metric is computed. This one lied (0.087).
-- Reproduce a public number first. FiQA 0.403 vs 0.403 is the most boring and most useful result here.
-- For a safety filter, false positives on real customers matter as much as the catch rate.
-- Checking actions (whose account, how much, which number) holds even when the prompt filter misses.
+- Build the test set before the agent, and check how each score is computed.
+- Reproduce a published number first. FiQA 0.403 vs 0.403 is the most boring and most useful result here.
+- For a safety filter, how many normal customers it blocks matters as much as how many attacks it catches.
+- Checking actions (whose account, how much, which number) still works when the message filter misses an attack.
 
 ## Next
 
-- Run the local RAGAS eval end to end, with a judge checked against human labels.
-- Get the test questions reviewed by a human.
-- Test indirect injection (attacks hidden in retrieved documents) on a public benchmark.
+- Run the full RAGAS evaluation locally, with a judge model checked against human grades.
+- Have a human review the test questions.
+- Test hidden attacks inside retrieved documents (indirect injection) on a public benchmark.
 
 All numbers come from `results/`; [RUNBOOK.md](RUNBOOK.md) regenerates them.
