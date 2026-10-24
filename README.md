@@ -1,13 +1,8 @@
 <div align="center">
 
-# 🏦 Secure Financial AI Agent
+#  Secure Financial AI Agent
 
 **A banking assistant that runs fully on a laptop, and checks every step so a trick message<br>can't reach the wrong customer's money.**
-
-![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
-![LLM](https://img.shields.io/badge/LLM-Mistral%207B%20via%20Ollama-orange)
-![LangGraph](https://img.shields.io/badge/agent-LangGraph-1C3C3C)
-![Local](https://img.shields.io/badge/runs-100%25%20local-2a78d6)
 
 </div>
 
@@ -113,7 +108,7 @@ about 1 customer in 20 is not acceptable for a bank, so the first check keeps th
 
 That's fine because the real protection comes later, and that is the core of the project:
 
-> 🛡️ **Whose account?** A tool call must use the logged-in customer's ID, so a request for someone else's balance is denied.<br>
+> **Whose account?** A tool call must use the logged-in customer's ID, so a request for someone else's balance is denied.<br>
 > **How much?** Amounts above $10M wait for a human to approve.<br>
 > **Where does that number come from?** Every number in an answer must appear in the source text or the tool result.
 
