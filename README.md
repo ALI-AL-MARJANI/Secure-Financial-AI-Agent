@@ -9,8 +9,6 @@
 ![LangGraph](https://img.shields.io/badge/agent-LangGraph-1C3C3C)
 ![Local](https://img.shields.io/badge/runs-100%25%20local-2a78d6)
 
-[How it started](#how-it-started) · [The fancy stuff lost](#the-fancy-stuff-lost) · [Patterns vs ML](#simple-patterns-vs-an-ml-detector) · [What didn't work](#what-didnt-work) · [Lessons](#lessons)
-
 </div>
 
 ---
