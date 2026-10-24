@@ -14,7 +14,7 @@ jobs:
           python-version: "3.11"
       - name: Install (CPU-only torch)
         run: |
-          uv venv
+          uv venv --clear
           uv pip install torch --index-url https://download.pytorch.org/whl/cpu
           uv pip install -e ".[api,dev]"
       - name: Lint
